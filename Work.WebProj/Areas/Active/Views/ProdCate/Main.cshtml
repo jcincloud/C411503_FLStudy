@@ -1,0 +1,150 @@
+﻿@model ProcCore.Business.DB0.c_Product_Category_L1
+@{
+    ViewBag.Caption = MvcSiteMapProvider.SiteMaps.Current.CurrentNode.Title;
+    ViewBag.MenuName = MvcSiteMapProvider.SiteMaps.Current.CurrentNode.ParentNode.Title;
+}
+
+@section IncludeCSS{
+
+}
+
+@section IncludeScript{
+    @Html.Partial("Manage/jsCommVar")
+    @Html.Partial("Manage/commJSINC")
+    <script>
+        var Info_Insert_Success = '@Resources.Res.Info_Insert_Success';
+        var Info_Update_Success = '@Resources.Res.Info_Update_Success';
+    </script>
+    <script type="text/javascript" src="~/_Code/Scripts/ctrl/product_category.min.js"></script>
+}
+@section sidebar{
+    @Html.Partial("Manage/vucMenu")
+}
+<form ng-submit="Init_Query()">
+    <fieldset class="search-form">
+        <legend class="sr-only">@Resources.Res.Search</legend>
+        <p>
+            <label></label>
+
+        </p>
+        <button type="submit"><i class="fa-search"></i></button>
+    </fieldset>
+
+    <h3>@MvcSiteMapProvider.SiteMaps.Current.CurrentNode.ParentNode.Title</h3>
+
+    <table>
+        <caption>
+            @ViewBag.Caption
+        </caption>
+        <thead>
+            <tr>
+                <th class="col-xs-1">
+                </th>
+                <th class="col-xs-1 text-center">
+                    <label>
+                        <input type="checkbox" ng-click="SelectAllCheckDel($event)" />
+                        <i class="fa-check"></i>
+                    </label>
+                </th>
+                <th class="col-xs-1">@Resources.Res.Button_Modify</th>
+                <th class="col-xs-8">@Html.Lang(x => x.m.category_l1_name)</th>
+                <th class="col-xs-1">@Html.Lang(x => x.m.sort)</th>
+            </tr>
+        </thead>
+        <tbody bindonce ng-repeat="gd in Grid_Items">
+            <tr>
+                <td class="text-center">
+                    <a href="#" ng-click="ExpandSub($index)" tabindex="-1">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </td>
+
+                <td class="text-center">
+                    <label>
+                        <input type="checkbox" ng-model="@Html.ngName(x => x.m.check_del, Html.ngGD())" />
+                        <i class="fa-check"></i>
+                    </label>
+                </td>
+                <td class="text-center">
+                    <a class="popup-show" href="#" ng-click="Master_Open_Modify($index)" title="@Resources.Res.Button_Sure_Modify" tabindex="-1"><i class="fa-pencil"></i></a>
+                </td>
+                <td>{{@Html.ngName(x => x.m.category_l1_name, Html.ngGD())}}</td>
+                <td>{{@Html.ngName(x => x.m.sort, Html.ngGD())}}</td>
+            </tr>
+            <tr ng-show="gd.expland_sub">
+                <td></td>
+                <td colspan="4">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-xs-1">@Resources.Res.Button_Modify</th>
+                                <th class="col-xs-1">@Resources.Res.Button_Delete</th>
+                                <th class="col-xs-9">次分類名稱</th>
+                                <th class="col-xs-1">排序</th>
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <label>
+                                        <a href="#" tabindex="-1">
+                                            <i class="fa-pencil"></i>
+                                        </a>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <label>
+                                        <a href="#" tabindex="-1">
+                                            <i class="fa-trash-o"></i>
+                                        </a>
+                                    </label>
+                                </td>
+                                <td class="col-xs-1">一般紙</td>
+                                <td class="col-xs-1">1</td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tr class="page">
+                            <td colspan="4">
+                                <button class="text-success" type="button" ng-click="Master_Open_New()" ng-show="grid_new_show"><i class="fa-pencil"></i> 新增</button>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <!--page-->
+        <tr class="page">
+            <td colspan="5">
+                @Html.Partial("Manage/GridPager")
+            </td>
+        </tr>
+    </table>
+</form>
+@using (Html.popWindow("show_master_edit", "Master_Edit_Close()", (String)ViewBag.Caption))
+{
+    <form ng-submit="Master_Submit()">
+        <fieldset class="profile">
+            <legend>@Html.Lang("Base")</legend>
+            <p>
+                <label class="col-xs-2">@Html.Lang(x => x.m.category_l1_name)</label>
+                <input class="col-xs-5"
+                       type="text"
+                       id="@Html.ngName(x => x.m.category_l1_name, null)"
+                       ng-model="@Html.ngName(x => x.m.category_l1_name, Html.ngFD())"
+                       required tabindex="1" />
+                <em class="text-danger col-xs-5">*</em>
+            </p>
+            <p>
+                <label class="col-xs-2">@Html.Lang(x => x.m.sort)</label>
+                <input class="col-xs-5"
+                       type="number"
+                       ng-model="@Html.ngName(x => x.m.sort, Html.ngFD())"
+                       required tabindex="2" />
+                <em class="text-danger col-xs-5">*</em>
+            </p>
+        </fieldset>
+
+        <fieldset class="send">
+            <button type="submit" class="btn-primary" tabindex="2"><i class="fa-check"></i> @Resources.Res.Button_Sure</button>
+        </fieldset>
+    </form>
+}

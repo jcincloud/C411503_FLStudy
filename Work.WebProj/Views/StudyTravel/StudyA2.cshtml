@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "完善住宿安排";
+    ViewBag.BodyClass = "StudyTravel p3";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首頁</a></li>
+    <li><a href="~/StudyTravel">海外遊學</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content">
+	
+	<section class="wrap">
+
+        <header class="title">
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+		<article class="grid">
+			<img data-src="@Url.Content("~/Content/images/StudyA/pic2-1.jpg")" alt="" class="thumb">
+			<header>
+                <h3>寄宿家庭</h3>
+            </header>
+            <p>居住寄宿家庭是融入當地文化的最佳選擇。透過與寄宿家庭互動，讓英文學習更在地化及生活化；也藉由觀察家庭成員的生活，更了解當地的風俗民情。</p>
+            <p>大部分寄宿家庭提供早晚餐及部分寄宿家庭提供上下課接送，以最細心的方式，照顧每位學員的生活起局。</p>
+    	</article>
+
+    	<article class="grid">
+			<img data-src="@Url.Content("~/Content/images/StudyA/pic2-2.jpg")" alt="" class="thumb">
+			<header>
+                <h3>校區宿舍</h3>
+            </header>
+            <p>住校園宿舍可體驗當地學生生活，並有機會與來自各國的學生互動。校園內的餐廳、交誼廳、健身房、圖書館等設施，方便學生生活及學習使用。</p>
+            <p>學校宿舍為自炊式宿舍，附有廚房，男女分層住宿，皆有完善的舍監與保全系統，無須擔憂安全問題，提供一個寧靜無暇的環境供，讓學生能更專注於學習。</p>
+    	</article>
+
+    	<article class="grid">
+			<img data-src="@Url.Content("~/Content/images/StudyA/pic2-3.jpg")" alt="" class="thumb">
+			<header>
+                <h3>渡假村 / 飯店旅館</h3>
+            </header>
+            <p>設備完善，除了整潔舒適的住宿環境外，另有游泳池、商店、超市及美食街等等。全天日的櫃台服務，以及嚴謹的保全管理，讓學員可享受半渡假式的遊學生活。</p>
+            <p>每日早餐供應，以及因應季節調整提供冷暖器設施，專人定時打掃房間與洗衣服務(須自費)。</p>
+    	</article>
+
+	</section>
+
+</div>

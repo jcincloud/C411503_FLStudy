@@ -1,0 +1,16 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Excel上傳</h3>
+</div>
+<div class="modal-body">
+    <input type="file"
+           id="selectExcelFileInput"
+           ng-file-select="onExcelFileSelect($files)"
+           class="outer col-xs-8"
+           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+    <span ng-show="isUpload">上傳中作業中...</span>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-danger" type="button" ng-click="workExcelUpload()" ng-disabled="!isSelect">開始上傳</button>
+    <button class="btn btn-warning" type="button" ng-click="ok()">關閉</button>
+</div>

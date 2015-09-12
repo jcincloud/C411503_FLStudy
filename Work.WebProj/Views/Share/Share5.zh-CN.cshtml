@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "相簿回顾";
+    ViewBag.BodyClass = "Share p2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首页</a></li>
+    <li><a href="~/Share">学员与家长肯定</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="PageContent"></div>
+
+@section Scripts {
+    <script src="~/Scripts/build/commincW.js"></script>
+    <script src="~/Scripts/build/func/w-cn-Albums_list.js"></script>
+}

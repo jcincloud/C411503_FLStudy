@@ -1,0 +1,26 @@
+﻿@{
+
+    string getNowController = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+}
+<script>
+
+    var apiConnection = '/api/@getNowController';
+    var apiDConnection = '/api/@(getNowController + "Detail")';
+    var apiGetAction = 'api/GetAction';
+
+    var aj_MSearch = '@Url.Action("aj_MasterSearch")';
+    var aj_MInsert = '@Url.Action("aj_MasterInsert")';
+    var aj_MUpdata = '@Url.Action("aj_MasterUpdate")';
+    var aj_MDelete = '@Url.Action("aj_MasterDel")';
+    var aj_MGet = '@Url.Action("aj_MasterGet")';
+
+    var aj_MGetId = '@Url.Action("ajax_GetMasterNewId")';
+    var aj_DGetId = '@Url.Action("ajax_GetDetailNewId")';
+    var aj_Init = '@Url.Action("aj_Init")';
+    var aj_AdrTW = '@Url.Action("ajax_AdrTW")';
+
+    var msg_Err_System_Failure = '@Resources.Res.js_Err_System_Failure';
+    var msg_Warn_Select_Delete_Data = '@Resources.Res.js_Warn_Select_Delete_Data';
+    var msg_Info_Is_SureDelete = '@Resources.Res.js_Info_Is_SureDelete';
+    var js_Info_Toast_Return_Title = '@Resources.Res.js_Info_Toast_Return_Title';
+</script>

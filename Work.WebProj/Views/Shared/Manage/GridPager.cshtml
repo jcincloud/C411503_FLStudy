@@ -1,0 +1,70 @@
+﻿@model DotWeb.Helpers.IncludePagerParm
+@{
+    DotWeb.Helpers.IncludePagerParm md = null;
+
+    if (Model != null)
+    {
+        md = Model;
+    }
+    else
+    {
+        md = new DotWeb.Helpers.IncludePagerParm();
+    }
+}
+<div class="pull-left">
+    @if (md.show_add)
+    {
+        <button class="btn-link text-success"
+                data-toggle="modal" data-target="#@md.edit_form_id"
+                ng-click="Master_Open_New()">
+            <i class="fa-plus-circle"></i> @Resources.Res.Button_Insert
+        </button>
+    }
+
+    @if (md.show_del)
+    {
+        <button class="btn-link text-danger" ng-click="Master_Grid_Delete()">
+            <i class="fa-trash-o"></i> @Resources.Res.Button_Delete
+        </button>
+    }
+</div>
+<small class="pull-right">第{{StartCount}}-{{EndCount}}筆，共{{RecordCount}}筆</small>
+<ul class="pager">
+    <li>
+        <a href="#" title="@Resources.Res.FirstPage"
+           ng-click="JumpPage(firstpage)"
+           ng-disabled="NowPage <= 1" tabindex="-1">
+            <i class="fa-angle-double-left"></i>
+        </a>
+    </li>
+    <li>
+        <a href="#" title="@Resources.Res.PrevPage"
+           ng-click="JumpPage(prevpage)"
+           ng-disabled="NowPage==1" tabindex="-1">
+            <i class="fa-angle-left"></i>
+        </a>
+    </li>
+    <li class="form-inline">
+        <div class="form-group">
+            <label for="">第</label>
+            <input class="form-control" type="number" min="1"
+                   style="width:50px;"
+                   ng-model="NowPage" ng-change="JumpPageKey()" tabindex="-1" value="1">
+            <label for="">頁，共{{TotalPage}}頁</label>
+        </div>
+    </li>
+    <li>
+        <a href="#" title="@Resources.Res.NextPage"
+           ng-click="JumpPage(nextpage)"
+           ng-disabled="NowPage == TotalPage" tabindex="-1">
+            <i class="fa-angle-right"></i>
+        </a>
+    </li>
+    <li>
+        <a href="#" title="@Resources.Res.LastPage"
+           ng-click="JumpPage(lastpage)"
+           ng-disabled="NowPage >= TotalPage" tabindex="-1">
+            <i class="fa-angle-double-right"></i>
+        </a>
+    </li>
+</ul>

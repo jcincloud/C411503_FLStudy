@@ -1,0 +1,72 @@
+﻿@model ProcCore.Business.DB0.AbroadSchool
+@{
+    ViewBag.Title = Model.school_title;
+    ViewBag.BodyClass = "StudyTravel p2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/flexSlider/flexslider.css">
+}
+@section Scripts {
+    <script src="~/Scripts/vendor/flexSlider/jquery.flexslider-min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.gallery').flexslider();
+
+        });
+    </script>
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首頁</a></li>
+    <li><a href="~/StudyTravel">海外遊學</a></li>
+    @* <li><a href="~/StudyAbroad">分類1</a></li> *@
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content" class="no-padding">
+
+    <article>
+
+        <header class="title wrap">
+            <a href="~/StudyTravel/p6" class="btn goBack">回列表</a>
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+        <section class="intro">
+            <div class="wrap">
+                <header class="title">
+                    <h3 class="styled">學校簡介<em>Introduction</em></h3>
+                </header>
+                <div class="article-content editor">
+                    @if (Model.imgsrc != null && Model.imgsrc != "" && Model.imgsrc != "../../Content/images/no-pic.jpg")
+                    {
+                        <p class="float-r"><img data-src="@Model.imgsrc" alt="" class="thumb"></p>
+                    }
+                    @Html.Raw(Model.content_intro)
+                </div>
+            </div>
+        </section>
+        <section class="gallery">
+            <div class="wrap">
+                <header class="title">
+                    <h3 class="styled">相片集錦<em>Photos</em></h3>
+                </header>
+                <ul class="photos">
+                    @foreach (var item in Model.photo_imgsrc)
+                    {
+                        <li>
+                            <a href="@item" class="fancybox" rel="gallery">
+                                <img data-src="@item" alt="">
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+        </section>
+
+    </article>
+
+</div>

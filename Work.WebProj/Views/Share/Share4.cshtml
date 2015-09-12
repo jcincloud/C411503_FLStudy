@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "形象影片";
+    ViewBag.BodyClass = "Share p5";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/fancyBox/source/jquery.fancybox.min.css">
+}
+@section Scripts {
+	<script src="~/Scripts/vendor/fancyBox/source/jquery.fancybox.pack.js"></script>
+	<script>
+	    $(document).ready(function() {
+			$(".video").fancybox({
+				maxWidth	: 800,
+				maxHeight	: 600,
+				fitToView	: false,
+				width		: '70%',
+				height		: '70%',
+				autoSize	: false,
+				closeClick	: false,
+				openEffect	: 'none',
+				closeEffect	: 'none'
+			});
+		});
+	</script>
+}
+
+<ul class="breadcrumb">
+	<li><a href="~/Index">首頁</a></li>
+	<li><a href="~/Share">學員與家長肯定</a></li>
+	<li>@ViewBag.Title</li>
+</ul>
+
+<div id="PageContent"></div>
+
+<script src="~/Scripts/build/commincW.js"></script>
+<script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+<script src="~/Scripts/build/func/w-VideoShareP4_list.js"></script>
+<script>
+    $(window).lazyLoadXT({});
+</script>

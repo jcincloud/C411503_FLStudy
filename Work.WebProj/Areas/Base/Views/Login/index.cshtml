@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+@using ProcCore.NetExtension;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@Resources.Res.System_Name</title>
+    <link rel="stylesheet" href="~/_Code/css/css/page.css">
+    <script>
+        var ver_warn = '@Html.Lang("ver_warn")';
+        var lab_input_email = '@Html.Lang("lab_input_email")';
+        var vial_img_path = '@Url.Content("~/_Code/Ashx/ValidateCode.ashx")';
+        var path_lang = '@Url.Action("ajax_Lang")';
+        var ajax_ForgotPassword = '@Url.Action("ajax_ForgotPassword")';
+        var ajax_Login = '@Url.Action("ajax_Login")';
+        var debug_account = '@ViewData["username"]';
+        var debug_password = '@ViewData["password"]';
+        var Info_ForgetMial_Success = '@Html.Lang("Info_ForgetMial_Success")';
+        var gb_approot = '@Url.Content("~")';
+    </script>
+</head>
+<body class="login">
+    <div id="container">
+        <div id="main">
+            <h1 class="logo"><span>@Resources.Res.System_Name</span>Web Manager</h1>
+            <p class="copyright">@Html.Lang("copyright")</p>
+            <div class="login-box" id="login-box"></div>
+        </div>
+    </div>
+    <script src="~/Scripts/build/comminc.js"></script>
+    <script src="~/Scripts/build/func/m-login.js"></script>
+    <script>
+        var rootParm = {
+            systemName: '管理系統登入',
+            webRoot: '@Url.Content("~")'
+        };
+        var getRootDOM = document.getElementById('login-box');
+        var Comp = React.render(React.createElement(LoginForm, rootParm), getRootDOM);
+    </script>
+</body>
+</html>

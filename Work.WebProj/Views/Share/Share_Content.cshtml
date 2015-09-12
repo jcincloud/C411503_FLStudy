@@ -1,0 +1,72 @@
+﻿@model ProcCore.Business.DB0.Feedback
+@{
+    ViewBag.Title = Model.title;
+    ViewBag.BodyClass = "Share p1";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/fancyBox/source/jquery.fancybox.css">
+}
+@section Scripts {
+    <script src="~/Scripts/vendor/fancyBox/source/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/vendor/fancyBox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+    </script>
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首頁</a></li>
+    <li><a href="~/Share">學員與家長肯定</a></li>
+    <li><a href="~/Share">心得分享</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content" class="no-padding">
+
+    <article>
+
+        <header class="title wrap">
+            <a href="~/Share" class="btn goBack">回列表</a>
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+        <section class="intro">
+            <div class="wrap">
+                <header class="title">
+                    <h3 class="styled">心得感言<em>Feedback</em></h3>
+                </header>
+                <div class="article-content editor">
+                    @if (Model.imgsrc != null & Model.imgsrc != "")
+                    {
+                        <p class="float-r"><img data-src="@Model.imgsrc" alt="" class="thumb"></p>
+                    }
+                    @Html.Raw(Model.feedback_content)
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="wrap">
+                <header class="title">
+                    <h3 class="styled">相片集錦<em>Photos</em></h3>
+                </header>
+                <ul class="photos">
+                    @foreach (var item in Model.photos_imgsrc)
+                    {
+                        <li>
+                            <a href="@item" class="fancybox" rel="gallery">
+                                <img data-src="@item" alt="">
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+        </section>
+
+    </article>
+
+</div>

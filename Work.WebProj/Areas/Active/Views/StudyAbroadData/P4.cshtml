@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/Manage/RLayout.cshtml";
+}
+@section IncludeCSS{
+    <link rel="stylesheet" href="~/Content/css/bootstrap-datetimepicker-build.css" />
+}
+@section IncludeScript{
+    @Html.Partial("Manage/jsCommVar")
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/build/comminc.js"></script>
+    <script src="~/Scripts/app/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/Scripts/app/Sortable.min.js"></script>
+    <script src="~/Scripts/app/react-sortable-mixin.js"></script>
+    <script src="~/Scripts/app/SimpleAjaxUploader.js"></script>
+    <script src="~/Scripts/build/func/inc/c-ImgFileSort.js"></script>
+    <script src="~/Scripts/build/func/m-StudyAbroadP4.js"></script>
+    <script>
+        var getRootDOM = document.getElementById('content');
+        var rootParm = { menuName: '@ViewBag.MenuName', caption: '@ViewBag.Caption' };
+        var compObject = React.render(React.createElement(GirdForm, rootParm), getRootDOM);
+    </script>
+}
+@section sidebar{
+    @Html.Partial("Manage/vucMenu")
+}

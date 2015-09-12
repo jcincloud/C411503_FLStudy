@@ -1,0 +1,71 @@
+﻿@model IList<ProcCore.Business.DB0.m_Feedback>
+@{
+    ViewBag.Title = "心得分享";
+    ViewBag.BodyClass = "Share p1";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/flexSlider/flexslider.css">
+}
+@section Banner {
+    <div class="quotes flexslider" id="banner">
+        <ul class="slides">
+            @foreach (var item in Model)
+            {
+                <li><div class="wrap">
+                    <article class="feedback">
+                        <blockquote><a href="~/Share/p1_content?id=@item.feedback_id">@item.feedback_sort</a></blockquote>
+                        <header><h4>@item.title</h4></header>
+                    </article>
+                </div></li>
+            }
+        </ul>
+    </div>
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首页</a></li>
+    <li><a href="~/Share">学员与家长肯定</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+<div id="content">
+
+    @* <section class="quotes wrap flexslider">
+        <header class="hidden"><h3>聽聽我們的學員和家長怎麼說</h3></header>
+        <ul class="slides">
+            @foreach (var item in Model)
+            {
+            <li>
+                <article>
+                    <blockquote><a href="~/Share/p1_content?id=@item.feedback_id">@item.feedback_sort</a></blockquote>
+                    <header><h4>@item.title</h4></header>
+                </article>
+            </li>
+            }
+        </ul>
+    </section> *@
+    
+    <div id="PageContent"></div>
+
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/build/commincW.js"></script>
+    <script src="~/Scripts/vendor/flexSlider/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/build/func/w-cn-Feedback_list.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $('#banner').flexslider({
+                directionNav: false,
+                pauseOnAction: false
+            });
+
+        });
+    </script>
+}
+
+
+
+

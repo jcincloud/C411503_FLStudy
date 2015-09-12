@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "遊留學百科";
+    ViewBag.BodyClass = "Info p1";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首頁</a></li>
+    <li><a href="~/Info">遊學/留學小幫手</a></li>
+    <li>遊留學百科</li>
+</ul>
+<div id="PageContent"></div>
+
+@section Scripts {
+    <script src="~/Scripts/build/commincW.js"></script>
+    <script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+    <script src="~/Scripts/build/func/w-InfoP1_list.js"></script>
+}

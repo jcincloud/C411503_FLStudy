@@ -1,0 +1,1395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="C41A0_FLStudyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AbroadSchool">
+          <Key>
+            <PropertyRef Name="abroad_school_id" />
+          </Key>
+          <Property Name="abroad_school_id" Type="int" Nullable="false" />
+          <Property Name="school_title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="list_intro" Type="nvarchar" MaxLength="400" />
+          <Property Name="content_intro" Type="ntext" />
+          <Property Name="school_features" Type="ntext" />
+          <Property Name="school_info" Type="ntext" />
+          <Property Name="school_apply" Type="ntext" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="country_category" Type="int" Nullable="false" />
+          <Property Name="operation_category" Type="int" Nullable="false" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="albums_id" />
+          </Key>
+          <Property Name="albums_id" Type="int" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="albums_content" Type="ntext" />
+          <Property Name="url" Type="nvarchar" MaxLength="400" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="All_Category_L1">
+          <Key>
+            <PropertyRef Name="all_category_l1_id" />
+          </Key>
+          <Property Name="all_category_l1_id" Type="int" Nullable="false" />
+          <Property Name="l1_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="sort" Type="real" />
+          <Property Name="memo" Type="nvarchar" MaxLength="255" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="All_Category_L2">
+          <Key>
+            <PropertyRef Name="all_category_l2_id" />
+          </Key>
+          <Property Name="all_category_l2_id" Type="int" Nullable="false" />
+          <Property Name="all_category_l1_id" Type="int" Nullable="false" />
+          <Property Name="l2_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="category" Type="int" />
+          <Property Name="sort" Type="real" />
+          <Property Name="memo" Type="nvarchar" MaxLength="255" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="banner_id" />
+          </Key>
+          <Property Name="banner_id" Type="int" Nullable="false" />
+          <Property Name="banner_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="banner_url" Type="nvarchar" MaxLength="400" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="department_name" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailContact">
+          <Key>
+            <PropertyRef Name="email_contact_id" />
+          </Key>
+          <Property Name="email_contact_id" Type="int" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="send_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="email" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="addr" Type="nvarchar" MaxLength="300" />
+          <Property Name="interest" Type="int" />
+          <Property Name="how_findout" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" Nullable="false" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="feedback_id" />
+          </Key>
+          <Property Name="feedback_id" Type="int" Nullable="false" />
+          <Property Name="year" Type="int" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="feedback_sort" Type="nvarchar" MaxLength="400" />
+          <Property Name="feedback_content" Type="ntext" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HelpfulInfo">
+          <Key>
+            <PropertyRef Name="helpful_info_id" />
+          </Key>
+          <Property Name="helpful_info_id" Type="int" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="list_intro" Type="nvarchar" MaxLength="400" />
+          <Property Name="info_content" Type="ntext" />
+          <Property Name="sort" Type="real" />
+          <Property Name="show_index" Type="bit" Nullable="false" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_Currency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name_currency" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="english_currency" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="sign" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="is_use" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_IDX">
+          <Key>
+            <PropertyRef Name="table_name" />
+          </Key>
+          <Property Name="table_name" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="IDX" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_Lang">
+          <Key>
+            <PropertyRef Name="lang" />
+          </Key>
+          <Property Name="lang" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="area" Type="nvarchar" MaxLength="32" />
+          <Property Name="memo" Type="nvarchar" MaxLength="32" />
+          <Property Name="isuse" Type="bit" Nullable="false" />
+          <Property Name="sort" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_Parm">
+          <Key>
+            <PropertyRef Name="ParmName" />
+          </Key>
+          <Property Name="ParmName" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="ParmType" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="S" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="I" Type="int" Nullable="false" />
+          <Property Name="F" Type="smallmoney" Nullable="false" />
+          <Property Name="D" Type="datetime" Nullable="false" />
+          <Property Name="B" Type="bit" Nullable="false" />
+          <Property Name="Memo" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="i_SN">
+          <Key>
+            <PropertyRef Name="sn_type" />
+          </Key>
+          <Property Name="sn_type" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="y" Type="int" Nullable="false" />
+          <Property Name="m" Type="int" Nullable="false" />
+          <Property Name="d" Type="int" Nullable="false" />
+          <Property Name="w" Type="int" Nullable="false" />
+          <Property Name="sn_max" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_UserLoginLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ip" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="account" Type="varchar" MaxLength="24" Nullable="false" />
+          <Property Name="logintime" Type="datetime" Nullable="false" />
+          <Property Name="browers" Type="varchar" MaxLength="2048" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Info">
+          <Key>
+            <PropertyRef Name="info_id" />
+          </Key>
+          <Property Name="info_id" Type="int" Nullable="false" />
+          <Property Name="info_title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="sort" Type="real" Nullable="false" />
+          <Property Name="memo" Type="ntext" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfoDetail">
+          <Key>
+            <PropertyRef Name="info_detail_id" />
+          </Key>
+          <Property Name="info_detail_id" Type="int" Nullable="false" />
+          <Property Name="info_id" Type="int" Nullable="false" />
+          <Property Name="stereotype" Type="int" />
+          <Property Name="detail_title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="detail_content" Type="ntext" />
+          <Property Name="sort" Type="real" Nullable="false" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="list_intro" Type="nvarchar" MaxLength="400" />
+          <Property Name="news_content" Type="ntext" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudyAbroad">
+          <Key>
+            <PropertyRef Name="study_abroad_id" />
+          </Key>
+          <Property Name="study_abroad_id" Type="int" Nullable="false" />
+          <Property Name="planning_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="intro" Type="ntext" />
+          <Property Name="intro_titile" Type="nvarchar" MaxLength="255" />
+          <Property Name="intro_content" Type="ntext" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="is_past" Type="bit" Nullable="false" />
+          <Property Name="is_hot" Type="bit" Nullable="false" />
+          <Property Name="vacation_category" Type="int" Nullable="false" />
+          <Property Name="country_category" Type="int" Nullable="false" />
+          <Property Name="youtube_iframe" Type="nvarchar" MaxLength="400" />
+          <Property Name="curriculum" Type="ntext" />
+          <Property Name="lodging" Type="ntext" />
+          <Property Name="activity" Type="ntext" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TestInfo">
+          <Key>
+            <PropertyRef Name="test_info_id" />
+          </Key>
+          <Property Name="test_info_id" Type="int" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="list_intro" Type="nvarchar" MaxLength="400" />
+          <Property Name="test_info_content" Type="ntext" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="video_id" />
+          </Key>
+          <Property Name="video_id" Type="int" Nullable="false" />
+          <Property Name="category" Type="int" Nullable="false" />
+          <Property Name="video_title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="video_url" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="sort" Type="real" />
+          <Property Name="i_Hide" Type="bit" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_InsertDeptID" Type="int" />
+          <Property Name="i_InsertDateTime" Type="datetime" />
+          <Property Name="i_UpdateUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="i_UpdateDeptID" Type="int" />
+          <Property Name="i_UpdateDateTime" Type="datetime" />
+          <Property Name="i_Lang" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_All_Category_L2_All_Category_L1">
+          <End Role="All_Category_L1" Type="Self.All_Category_L1" Multiplicity="1" />
+          <End Role="All_Category_L2" Type="Self.All_Category_L2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="All_Category_L1">
+              <PropertyRef Name="all_category_l1_id" />
+            </Principal>
+            <Dependent Role="All_Category_L2">
+              <PropertyRef Name="all_category_l1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUsers_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoDetail_Info">
+          <End Role="Info" Type="Self.Info" Multiplicity="1" />
+          <End Role="InfoDetail" Type="Self.InfoDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Info">
+              <PropertyRef Name="info_id" />
+            </Principal>
+            <Dependent Role="InfoDetail">
+              <PropertyRef Name="info_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="C41A0_FLStudyModelStoreContainer">
+          <EntitySet Name="AbroadSchool" EntityType="Self.AbroadSchool" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="All_Category_L1" EntityType="Self.All_Category_L1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="All_Category_L2" EntityType="Self.All_Category_L2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailContact" EntityType="Self.EmailContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HelpfulInfo" EntityType="Self.HelpfulInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="i_Currency" EntityType="Self.i_Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="i_IDX" EntityType="Self.i_IDX" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="i_Lang" EntityType="Self.i_Lang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="i_Parm" EntityType="Self.i_Parm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="i_SN" EntityType="Self.i_SN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="i_UserLoginLog" EntityType="Self.i_UserLoginLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Info" EntityType="Self.Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoDetail" EntityType="Self.InfoDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudyAbroad" EntityType="Self.StudyAbroad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TestInfo" EntityType="Self.TestInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_All_Category_L2_All_Category_L1" Association="Self.FK_All_Category_L2_All_Category_L1">
+            <End Role="All_Category_L1" EntitySet="All_Category_L1" />
+            <End Role="All_Category_L2" EntitySet="All_Category_L2" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUsers_Department" Association="Self.FK_AspNetUsers_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoDetail_Info" Association="Self.FK_InfoDetail_Info">
+            <End Role="Info" EntitySet="Info" />
+            <End Role="InfoDetail" EntitySet="InfoDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="C41A0_FLStudyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_AspNetUsers_Department" FromRole="AspNetUsers" ToRole="Department" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="department_name" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_AspNetUsers_Department" FromRole="Department" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="i_Currency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name_currency" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="english_currency" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sign" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="is_use" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_IDX">
+          <Key>
+            <PropertyRef Name="table_name" />
+          </Key>
+          <Property Name="table_name" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDX" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_Lang">
+          <Key>
+            <PropertyRef Name="lang" />
+          </Key>
+          <Property Name="lang" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="area" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="memo" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="isuse" Type="Boolean" Nullable="false" />
+          <Property Name="sort" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_Parm">
+          <Key>
+            <PropertyRef Name="ParmName" />
+          </Key>
+          <Property Name="ParmName" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParmType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="S" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="I" Type="Int32" Nullable="false" />
+          <Property Name="F" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="D" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="B" Type="Boolean" Nullable="false" />
+          <Property Name="Memo" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="i_SN">
+          <Key>
+            <PropertyRef Name="sn_type" />
+          </Key>
+          <Property Name="sn_type" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="y" Type="Int32" Nullable="false" />
+          <Property Name="m" Type="Int32" Nullable="false" />
+          <Property Name="d" Type="Int32" Nullable="false" />
+          <Property Name="w" Type="Int32" Nullable="false" />
+          <Property Name="sn_max" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="i_UserLoginLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ip" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="account" Type="String" MaxLength="24" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="logintime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="browers" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="department_id" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="C41A0_FLStudyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="i_Currency" EntityType="Self.i_Currency" />
+          <EntitySet Name="i_IDX" EntityType="Self.i_IDX" />
+          <EntitySet Name="i_Lang" EntityType="Self.i_Lang" />
+          <EntitySet Name="i_Parm" EntityType="Self.i_Parm" />
+          <EntitySet Name="i_SN" EntityType="Self.i_SN" />
+          <EntitySet Name="i_UserLoginLog" EntityType="Self.i_UserLoginLog" />
+          <AssociationSet Name="FK_AspNetUsers_Department" Association="Self.FK_AspNetUsers_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="All_Category_L1" EntityType="C41A0_FLStudyModel.All_Category_L1" />
+          <EntitySet Name="Video" EntityType="C41A0_FLStudyModel.Video" />
+          <EntitySet Name="Info" EntityType="C41A0_FLStudyModel.Info" />
+          <EntitySet Name="All_Category_L2" EntityType="C41A0_FLStudyModel.All_Category_L2" />
+          <AssociationSet Name="FK_All_Category_L2_All_Category_L1" Association="C41A0_FLStudyModel.FK_All_Category_L2_All_Category_L1">
+            <End Role="All_Category_L1" EntitySet="All_Category_L1" />
+            <End Role="All_Category_L2" EntitySet="All_Category_L2" />
+          </AssociationSet>
+          <EntitySet Name="Banner" EntityType="C41A0_FLStudyModel.Banner" />
+          <EntitySet Name="InfoDetail" EntityType="C41A0_FLStudyModel.InfoDetail" />
+          <AssociationSet Name="FK_InfoDetail_Info" Association="C41A0_FLStudyModel.FK_InfoDetail_Info">
+            <End Role="Info" EntitySet="Info" />
+            <End Role="InfoDetail" EntitySet="InfoDetail" />
+          </AssociationSet>
+          <EntitySet Name="News" EntityType="C41A0_FLStudyModel.News" />
+          <EntitySet Name="HelpfulInfo" EntityType="C41A0_FLStudyModel.HelpfulInfo" />
+          <EntitySet Name="Feedback" EntityType="C41A0_FLStudyModel.Feedback" />
+          <EntitySet Name="Albums" EntityType="C41A0_FLStudyModel.Albums" />
+          <EntitySet Name="TestInfo" EntityType="C41A0_FLStudyModel.TestInfo" />
+          <EntitySet Name="EmailContact" EntityType="C41A0_FLStudyModel.EmailContact" />
+          <EntitySet Name="StudyAbroad" EntityType="C41A0_FLStudyModel.StudyAbroad" />
+          <EntitySet Name="AbroadSchool" EntityType="C41A0_FLStudyModel.AbroadSchool" />
+        </EntityContainer>
+        <EntityType Name="All_Category_L1">
+          <Key>
+            <PropertyRef Name="all_category_l1_id" />
+          </Key>
+          <Property Name="all_category_l1_id" Type="Int32" Nullable="false" />
+          <Property Name="l1_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="memo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="All_Category_L2" Relationship="C41A0_FLStudyModel.FK_All_Category_L2_All_Category_L1" FromRole="All_Category_L1" ToRole="All_Category_L2" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="video_id" />
+          </Key>
+          <Property Name="video_id" Type="Int32" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="video_title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="video_url" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Info">
+          <Key>
+            <PropertyRef Name="info_id" />
+          </Key>
+          <Property Name="info_id" Type="Int32" Nullable="false" />
+          <Property Name="info_title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" Nullable="false" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="InfoDetail" Relationship="C41A0_FLStudyModel.FK_InfoDetail_Info" FromRole="Info" ToRole="InfoDetail" />
+        </EntityType>
+        <EntityType Name="All_Category_L2">
+          <Key>
+            <PropertyRef Name="all_category_l2_id" />
+          </Key>
+          <Property Name="all_category_l2_id" Type="Int32" Nullable="false" />
+          <Property Name="all_category_l1_id" Type="Int32" Nullable="false" />
+          <Property Name="l2_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="Int32" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="memo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="All_Category_L1" Relationship="C41A0_FLStudyModel.FK_All_Category_L2_All_Category_L1" FromRole="All_Category_L2" ToRole="All_Category_L1" />
+        </EntityType>
+        <Association Name="FK_All_Category_L2_All_Category_L1">
+          <End Type="C41A0_FLStudyModel.All_Category_L1" Role="All_Category_L1" Multiplicity="1" />
+          <End Type="C41A0_FLStudyModel.All_Category_L2" Role="All_Category_L2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="All_Category_L1">
+              <PropertyRef Name="all_category_l1_id" />
+            </Principal>
+            <Dependent Role="All_Category_L2">
+              <PropertyRef Name="all_category_l1_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="banner_id" />
+          </Key>
+          <Property Name="banner_id" Type="Int32" Nullable="false" />
+          <Property Name="banner_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="banner_url" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InfoDetail">
+          <Key>
+            <PropertyRef Name="info_detail_id" />
+          </Key>
+          <Property Name="info_detail_id" Type="Int32" Nullable="false" />
+          <Property Name="info_id" Type="Int32" Nullable="false" />
+          <Property Name="stereotype" Type="Int32" />
+          <Property Name="detail_title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="detail_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" Nullable="false" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Info" Relationship="C41A0_FLStudyModel.FK_InfoDetail_Info" FromRole="InfoDetail" ToRole="Info" />
+        </EntityType>
+        <Association Name="FK_InfoDetail_Info">
+          <End Type="C41A0_FLStudyModel.Info" Role="Info" Multiplicity="1" />
+          <End Type="C41A0_FLStudyModel.InfoDetail" Role="InfoDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Info">
+              <PropertyRef Name="info_id" />
+            </Principal>
+            <Dependent Role="InfoDetail">
+              <PropertyRef Name="info_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="news_id" />
+          </Key>
+          <Property Name="news_id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="list_intro" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="news_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HelpfulInfo">
+          <Key>
+            <PropertyRef Name="helpful_info_id" />
+          </Key>
+          <Property Name="helpful_info_id" Type="Int32" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="list_intro" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="info_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="show_index" Type="Boolean" Nullable="false" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="feedback_id" />
+          </Key>
+          <Property Name="feedback_id" Type="Int32" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="feedback_sort" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="feedback_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="albums_id" />
+          </Key>
+          <Property Name="albums_id" Type="Int32" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="year" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="albums_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TestInfo">
+          <Key>
+            <PropertyRef Name="test_info_id" />
+          </Key>
+          <Property Name="test_info_id" Type="Int32" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="list_intro" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="test_info_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EmailContact">
+          <Key>
+            <PropertyRef Name="email_contact_id" />
+          </Key>
+          <Property Name="email_contact_id" Type="Int32" Nullable="false" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="send_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="addr" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="interest" Type="Int32" />
+          <Property Name="how_findout" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StudyAbroad">
+          <Key>
+            <PropertyRef Name="study_abroad_id" />
+          </Key>
+          <Property Name="study_abroad_id" Type="Int32" Nullable="false" />
+          <Property Name="planning_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="intro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="intro_titile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="intro_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="is_past" Type="Boolean" Nullable="false" />
+          <Property Name="is_hot" Type="Boolean" Nullable="false" />
+          <Property Name="vacation_category" Type="Int32" Nullable="false" />
+          <Property Name="country_category" Type="Int32" Nullable="false" />
+          <Property Name="youtube_iframe" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="curriculum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lodging" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="activity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AbroadSchool">
+          <Key>
+            <PropertyRef Name="abroad_school_id" />
+          </Key>
+          <Property Name="abroad_school_id" Type="Int32" Nullable="false" />
+          <Property Name="school_title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="list_intro" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="content_intro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="school_features" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="school_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="school_apply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="Int32" Nullable="false" />
+          <Property Name="country_category" Type="Int32" Nullable="false" />
+          <Property Name="operation_category" Type="Int32" Nullable="false" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="C41A0_FLStudyModelStoreContainer" CdmEntityContainer="C41A0_FLStudyEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="i_Currency">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.i_Currency">
+              <MappingFragment StoreEntitySet="i_Currency">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name_currency" ColumnName="name_currency" />
+                <ScalarProperty Name="english_currency" ColumnName="english_currency" />
+                <ScalarProperty Name="sign" ColumnName="sign" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="is_use" ColumnName="is_use" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="i_IDX">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.i_IDX">
+              <MappingFragment StoreEntitySet="i_IDX">
+                <ScalarProperty Name="table_name" ColumnName="table_name" />
+                <ScalarProperty Name="IDX" ColumnName="IDX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="i_Lang">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.i_Lang">
+              <MappingFragment StoreEntitySet="i_Lang">
+                <ScalarProperty Name="lang" ColumnName="lang" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="isuse" ColumnName="isuse" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="i_Parm">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.i_Parm">
+              <MappingFragment StoreEntitySet="i_Parm">
+                <ScalarProperty Name="ParmName" ColumnName="ParmName" />
+                <ScalarProperty Name="ParmType" ColumnName="ParmType" />
+                <ScalarProperty Name="S" ColumnName="S" />
+                <ScalarProperty Name="I" ColumnName="I" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="D" ColumnName="D" />
+                <ScalarProperty Name="B" ColumnName="B" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="i_SN">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.i_SN">
+              <MappingFragment StoreEntitySet="i_SN">
+                <ScalarProperty Name="sn_type" ColumnName="sn_type" />
+                <ScalarProperty Name="y" ColumnName="y" />
+                <ScalarProperty Name="m" ColumnName="m" />
+                <ScalarProperty Name="d" ColumnName="d" />
+                <ScalarProperty Name="w" ColumnName="w" />
+                <ScalarProperty Name="sn_max" ColumnName="sn_max" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="i_UserLoginLog">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.i_UserLoginLog">
+              <MappingFragment StoreEntitySet="i_UserLoginLog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="account" ColumnName="account" />
+                <ScalarProperty Name="logintime" ColumnName="logintime" />
+                <ScalarProperty Name="browers" ColumnName="browers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="C41A0_FLStudyModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="All_Category_L1">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.All_Category_L1">
+              <MappingFragment StoreEntitySet="All_Category_L1">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="l1_name" ColumnName="l1_name" />
+                <ScalarProperty Name="all_category_l1_id" ColumnName="all_category_l1_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Video">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="video_url" ColumnName="video_url" />
+                <ScalarProperty Name="video_title" ColumnName="video_title" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="video_id" ColumnName="video_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Info">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.Info">
+              <MappingFragment StoreEntitySet="Info">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="info_title" ColumnName="info_title" />
+                <ScalarProperty Name="info_id" ColumnName="info_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="All_Category_L2">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.All_Category_L2">
+              <MappingFragment StoreEntitySet="All_Category_L2">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="l2_name" ColumnName="l2_name" />
+                <ScalarProperty Name="all_category_l1_id" ColumnName="all_category_l1_id" />
+                <ScalarProperty Name="all_category_l2_id" ColumnName="all_category_l2_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="banner_url" ColumnName="banner_url" />
+                <ScalarProperty Name="banner_name" ColumnName="banner_name" />
+                <ScalarProperty Name="banner_id" ColumnName="banner_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoDetail">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.InfoDetail">
+              <MappingFragment StoreEntitySet="InfoDetail">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="detail_content" ColumnName="detail_content" />
+                <ScalarProperty Name="detail_title" ColumnName="detail_title" />
+                <ScalarProperty Name="stereotype" ColumnName="stereotype" />
+                <ScalarProperty Name="info_id" ColumnName="info_id" />
+                <ScalarProperty Name="info_detail_id" ColumnName="info_detail_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="news_content" ColumnName="news_content" />
+                <ScalarProperty Name="list_intro" ColumnName="list_intro" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="news_id" ColumnName="news_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HelpfulInfo">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.HelpfulInfo">
+              <MappingFragment StoreEntitySet="HelpfulInfo">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="show_index" ColumnName="show_index" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="info_content" ColumnName="info_content" />
+                <ScalarProperty Name="list_intro" ColumnName="list_intro" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="helpful_info_id" ColumnName="helpful_info_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="feedback_content" ColumnName="feedback_content" />
+                <ScalarProperty Name="feedback_sort" ColumnName="feedback_sort" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="feedback_id" ColumnName="feedback_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.Albums">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="albums_content" ColumnName="albums_content" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="albums_id" ColumnName="albums_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TestInfo">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.TestInfo">
+              <MappingFragment StoreEntitySet="TestInfo">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="test_info_content" ColumnName="test_info_content" />
+                <ScalarProperty Name="list_intro" ColumnName="list_intro" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="test_info_id" ColumnName="test_info_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailContact">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.EmailContact">
+              <MappingFragment StoreEntitySet="EmailContact">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="how_findout" ColumnName="how_findout" />
+                <ScalarProperty Name="interest" ColumnName="interest" />
+                <ScalarProperty Name="addr" ColumnName="addr" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="send_name" ColumnName="send_name" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="email_contact_id" ColumnName="email_contact_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudyAbroad">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.StudyAbroad">
+              <MappingFragment StoreEntitySet="StudyAbroad">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="activity" ColumnName="activity" />
+                <ScalarProperty Name="lodging" ColumnName="lodging" />
+                <ScalarProperty Name="curriculum" ColumnName="curriculum" />
+                <ScalarProperty Name="youtube_iframe" ColumnName="youtube_iframe" />
+                <ScalarProperty Name="country_category" ColumnName="country_category" />
+                <ScalarProperty Name="vacation_category" ColumnName="vacation_category" />
+                <ScalarProperty Name="is_hot" ColumnName="is_hot" />
+                <ScalarProperty Name="is_past" ColumnName="is_past" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="intro_content" ColumnName="intro_content" />
+                <ScalarProperty Name="intro_titile" ColumnName="intro_titile" />
+                <ScalarProperty Name="intro" ColumnName="intro" />
+                <ScalarProperty Name="planning_name" ColumnName="planning_name" />
+                <ScalarProperty Name="study_abroad_id" ColumnName="study_abroad_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AbroadSchool">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.AbroadSchool">
+              <MappingFragment StoreEntitySet="AbroadSchool">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="operation_category" ColumnName="operation_category" />
+                <ScalarProperty Name="country_category" ColumnName="country_category" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="school_apply" ColumnName="school_apply" />
+                <ScalarProperty Name="school_info" ColumnName="school_info" />
+                <ScalarProperty Name="school_features" ColumnName="school_features" />
+                <ScalarProperty Name="content_intro" ColumnName="content_intro" />
+                <ScalarProperty Name="list_intro" ColumnName="list_intro" />
+                <ScalarProperty Name="school_title" ColumnName="school_title" />
+                <ScalarProperty Name="abroad_school_id" ColumnName="abroad_school_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

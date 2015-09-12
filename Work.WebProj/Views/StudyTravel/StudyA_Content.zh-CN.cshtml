@@ -1,0 +1,260 @@
+﻿@model ProcCore.Business.DB0.StudyAbroad
+@{
+    ViewBag.Title = Model.planning_name;
+    if (Model.vacation_category == 1003)
+    {
+        ViewBag.BodyClass = "StudyTravel p5";
+    }
+    else
+    {
+        ViewBag.BodyClass = "StudyTravel p1";
+    }
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/flexSlider/flexslider.css">
+    <link rel="stylesheet" href="~/Scripts/vendor/als/als.css">
+}
+@section Scripts {
+    <script>
+        var gb_id = '@Request.QueryString["id"]';
+    </script>
+    <script src="~/Scripts/vendor/flexSlider/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/vendor/als/jquery.als-1.7.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $('#banner').flexslider({
+                pauseOnAction: false
+            });
+
+            $(window).trigger('scroll'); //for lazyload
+
+            // tab switcher - 預設顯示第一個
+            $(".tab-nav li:first-child").addClass('current');
+            var tab1 = $(".tab-nav li:first-child").attr("rel");
+            $(tab1).fadeIn().siblings().hide();
+            // tab switcher - 點選可切換
+            $(".tab-nav li").click(function () {
+                $(this).addClass('current').siblings().removeClass('current');
+                var tab = $(this).attr("rel");
+                $(tab).fadeIn().siblings().hide();
+                return false;
+            });
+
+            // 相簿 slider - 自動輪播
+            var cur = 0,    // Start Slide Index. We'll use ++cur to increment index
+            pau = 3000,            // Pause Time (ms)
+            fad = 1000,             // Fade Time (ms)
+            $ga = $('.gallery-slider'),   // Cache Gallery Element
+            $sl = $('li', $ga), // Cache Slides Elements
+            tot = $sl.length,      // We'll use cur%tot to reset to first slide
+            itv ;                  // Used to clear on mouseenter
+            $sl.hide().eq( cur ).show(); // Hide all Slides but desired one
+            function stopFn() { clearInterval(itv); }
+            function loopFn() { itv = setInterval(fadeFn, pau);}
+            function fadeFn() { $sl.fadeOut(fad).eq(++cur%tot).stop().fadeIn(fad); $('html, body').trigger('scroll');}
+            $ga.hover( stopFn, loopFn );
+            loopFn(); // Finally, Start
+
+            // 相簿 slider - 點選小圖可切換大圖
+            $(".gallery-slider-nav li").click(function () {
+                var navItem = $(".gallery-slider-nav li").index(this) + 1;
+                $(".gallery-slider li:nth-child(" + navItem + ")").fadeIn().siblings().hide();
+                $('html, body').trigger('scroll'); //for lazyload
+            });
+            // 相簿 slider - 小圖跑馬燈
+            marqueeRWD();
+        });
+
+        function marqueeRWD() {
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (width > 991) {
+                $(".gallery-slider-nav").als({
+                    visible_items: 3,
+                    scrolling_items: 1,
+                    orientation: "vertical",
+                    circular: "yes",
+                    autoscroll: "yes",
+                    interval: 3000
+                });
+            }
+            if (width > 620 && width < 992) {
+                $(".gallery-slider-nav").als({
+                    visible_items: 3,
+                    scrolling_items: 1,
+                    circular: "yes",
+                    autoscroll: "yes",
+                    interval: 3000
+                });
+            }
+            if (width < 621) {
+                $(".gallery-slider-nav").als({
+                    visible_items: 2,
+                    scrolling_items: 1,
+                    circular: "yes",
+                    autoscroll: "yes",
+                    interval: 3000
+                });
+            }
+        }
+
+    </script>
+}
+@section Banner {
+    <div class="flexslider" id="banner">
+        <ul class="slides">
+            @foreach (var img in Model.benner_imgsrc)
+            {
+                <li>
+                    <figure>
+                        <img data-src="@img" alt="">
+                        <figcaption><p>@Model.planning_name</p></figcaption>
+                    </figure>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首页</a></li>
+    <li><a href="~/StudyTravel">各国游学行程</a></li>
+    @if (Model.vacation_category == 1003)
+    {
+        <li><a href="~/StudyTravel/p4">@Model.vacation_name</a></li>
+    }
+    else
+    {
+        <li><a href="~/StudyTravel?category=@Model.vacation_category">@Model.vacation_name</a></li>
+    }
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content" class="no-padding">
+
+    <article>
+
+        <header class="title wrap">
+            @if (Model.vacation_category == 1003)
+            {
+                <a href="~/StudyTravel/p4" class="btn goBack">回列表</a>
+            }
+            else
+            {
+                <a href="~/StudyTravel" class="btn goBack">回列表</a>
+            }
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+        <section class="intro">
+            <div class="wrap">
+                <header class="title">
+                    <h3 class="styled">@Model.intro_titile 行程简介<em>Introduction</em></h3>
+                </header>
+                <div class="article-content editor">
+                    @if (Model.imgsrc != null && Model.imgsrc != "" && Model.imgsrc != "../../Content/images/no-pic.jpg")
+                    {
+                        <p class="float-r"><img data-src="@Model.imgsrc" alt="" class="thumb"></p>
+                    }
+                    @Html.Raw(Model.intro_content)
+                </div>
+            </div>
+        </section>
+
+        <div class="gallery">
+            <div class="wrap">
+                <ul class="tab-nav">
+                    <li class="photo" rel="#tab1">
+                        <em>照片集锦<i>Photos</i></em>
+                    </li>
+                    <li class="video" rel="#tab2">
+                        <em>影片分享<i>Videos</i></em>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <section class="photo" id="tab1">
+                        <header class="hidden"><h3>照片集锦<span>Photos</span></h3></header>
+                        <ul class="gallery-slider">
+
+                            @foreach (var img in Model.photoB_imgsrc)
+                            {
+                                <li><img data-src="@img" alt=""></li>
+                            }
+                        </ul>
+                        <div class="gallery-slider-nav als-container">
+                            <span class="als-prev"><i class="fa-angle-up"></i></span>
+                            <div class="als-viewport">
+                                <ul class="als-wrapper">
+                                    @foreach (var img in Model.photoS_imgsrc)
+                                    {
+                                        <li class="als-item"><img src="@img" alt=""></li>
+                                    }
+                                </ul>
+                            </div>
+                            <span class="als-next"><i class="fa-angle-down"></i></span>
+                        </div>
+                    </section>
+
+                    <section class="video" id="tab2">
+                        <header class="hidden"><h3>影片分享<span>Videos</span></h3></header>
+                        <div class="embed">
+                            @Html.Raw(Model.youtube_iframe)
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <section class="course">
+            <div class="wrap">
+                <header class="title">
+                    <h3 class="styled">@Model.intro_titile 课程与住宿<em>Courses &amp; Accommodation</em></h3>
+                </header>
+                <article class="grid">
+                    <header><h4>课程</h4></header>
+                    <img data-src="@Url.Content("~/Content/images/StudyA/pic1-1.jpg")" alt="" class="thumb">
+                    <div class="editor">@Html.Raw(Model.curriculum)</div>
+                </article>
+                <article class="grid">
+                    <header><h4>住宿</h4></header>
+                    <img data-src="@Url.Content("~/Content/images/StudyA/pic1-2.jpg")" alt="" class="thumb">
+                    <div class="editor">@Html.Raw(Model.lodging)</div>
+                </article>
+                <article class="grid">
+                    <header><h4>活动</h4></header>
+                    <img data-src="@Url.Content("~/Content/images/StudyA/pic1-3.jpg")" alt="" class="thumb">
+                    <div class="editor">@Html.Raw(Model.activity)</div>
+                </article>
+            </div>
+        </section>
+
+        <div class="orientation">
+            <div class="wrap">
+                <section class="join">
+                    <header class="title">
+                        <h3 class="styled">参加免费游学说明会<em>Orientation</em></h3>
+                    </header>
+                    <div class="article-content editor">
+                        <p>如何知道自己是否适合海外游学活动？如何选择适合的游学课程或地点？</p>
+                        <p>住宿海外接待家庭与宿舍的差别在哪？国外的教学课程与旅游活动的内容？<br>游学活动究竟可以有什么样的体验？</p>
+                        <p>富学游学说明会，提供您在规划海外游学时应该了解的重要资讯；<br>一个小时的说明会，协助您正确的评估海外游学到底是什么？是不是符合自己的计划和需求！</p>
+                        <p><strong class="strong">说明会座位有限~提早预约可确保座位</strong></p>
+                        <p><span class="arrow-right"><strong>现在立刻填写资料即可免费预约参加说明会</strong></span></p>
+                    </div>
+                </section>
+
+                <aside class="apply">
+                    <header><h3>免费预约参加</h3></header>
+                    <div id="ContactUsContent"></div>
+                </aside>
+
+            </div>
+        </div>
+
+    </article>
+
+</div>
+<script src="~/Scripts/build/commincW.js"></script>
+<script src="~/Scripts/build/func/w-cn-contactUs.js"></script>

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<!-- saved from url=(0014)about:internet -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="@Resources.ResWeb.keywords" />
+    <meta name="description" content="@Resources.ResWeb.description" />
+    <title>@Resources.ResWeb.WebTitle:@ViewBag.Category:@ViewBag.Title:遊學留學代辦、美國遊學、英國遊學、澳洲遊學、新加坡遊學、菲律賓遊學、暑假遊學團</title>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>*@
+    @RenderSection("css", false)
+    @if (ViewBag.IsFirstPage)
+    {
+        <link href="~/Content/css/index.css" rel="stylesheet" type="text/css">
+    }
+    else
+    {
+        <link href="~/Content/css/page.css" rel="stylesheet" type="text/css">
+    }
+    <script src="~/Scripts/app/BrowerInfo.js"></script>
+    <script>
+        var gb_approot = '@Url.Content("~")';
+        var gb_lang = '@ViewBag.Lang';//語系
+    </script>
+
+</head>
+
+<body class="@ViewBag.BodyClass">
+
+    <div id="container">
+
+        <header id="header">
+
+            <div class="wrap active">
+                <h1><a href="~/Index" title="回首頁">富學海外遊留學</a></h1>
+
+                <ul class="topNav">
+                    <li><a href="~/News">最新消息</a></li>
+                    <li><a href="~/ContactUs/p2">聯絡我們</a></li>
+                    <li><a href="~/Index">回首頁</a></li>
+                    <li><a href="@Url.Action("SetLanguage")?L=zh-TW&A=index">繁體中文</a></li>
+                    <li><a href="@Url.Action("SetLanguage")?L=zh-CN&A=index">簡體中文</a></li>
+                </ul>
+
+                <nav class="main-menu">
+                    <h2 class="menu-toggle"><button><i class="fa-plus"></i> 主選單 MENU</button></h2>
+                    <ul>
+                        <li>
+                            <a href="">大家都選擇富學<span>Why Choose Us</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/AboutUs">富學十大優勢</a></li>
+                                <li><a href="~/AboutUs/p2">精采影片分享</a></li>
+                                <li><a href="~/AboutUs/p3">語言的重要性</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">海外遊學<span>Study &amp; Travel</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/StudyTravel">各國遊學行程</a></li>
+                                <li><a href="~/StudyTravel/p6">各國語言學校資料</a></li>
+                                <li><a href="~/StudyTravel/p2">完善住宿安排</a></li>
+                                <li><a href="~/StudyTravel/p3">多元課程規劃</a></li>
+                                <li><a href="~/StudyTravel/p4">密集式體驗營</a></li>
+                                <li><a href="~/StudyTravel/p5">學習保證</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">海外留學<span>Study Abroad</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/StudyAbroad">世界大學資料庫</a></li>
+                                <li><a href="~/StudyAbroad/p2">各學術能力測驗</a></li>
+                                <li><a href="~/StudyAbroad/p3">各英語能力考試</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">學員與家長肯定<span>Feedback</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/Share">心得分享</a></li>
+                                <li><a href="~/Share/p5">相簿回顧</a></li>
+                                <li><a href="~/Share/p2">出國影片</a></li>
+                                <li><a href="~/Share/p3">成果發表</a></li>
+                                <li><a href="~/Share/p4">形象影片</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">遊學/留學小幫手<span>Helpful Information</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/Info">遊留學百科</a></li>
+                                <li><a href="~/Info/p2">遊留學新知</a></li>
+                                <li><a href="~/Info/p3">行前準備</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            @RenderSection("Banner", required: false)
+
+        </header><!-- header // -->
+
+        <div id="main">
+
+            @RenderBody()
+
+        </div><!-- main // -->
+
+    </div><!-- container // -->
+
+    <footer id="footer">
+        <div class="wrap">
+
+            <div class="contact">
+                <p class="logo">富學海外遊留學</p>
+                <ul>
+                    <li><a href="https://goo.gl/maps/VQ0MA" target="new">桃園市同德六街89號14樓</a></li>
+                    <li>03-316-5128</li>
+                    <li><a href="mailto:fruitful.learning@gmail.com">fruitful.learning@gmail.com</a></li>
+                </ul>
+            </div>
+
+            <ul class="main-menu">
+                <li>
+                    大家都選擇富學
+                    <ul class="sub-menu">
+                        <li><a href="~/AboutUs">富學十大優勢</a></li>
+                        <li><a href="~/AboutUs/p2">精采影片分享</a></li>
+                        <li><a href="~/AboutUs/p3">語言的重要性</a></li>
+                        @* <li><a href="">最佳服務</a></li>
+                            <li><a href="">全新視野</a></li>
+                            <li><a href="">國際觀</a></li>
+                            <li><a href="">創造嶄新未來</a></li>
+                            <li><a href="">學習成效追蹤</a></li> *@
+                    </ul>
+                </li>
+                <li>
+                    海外遊學
+                    <ul class="sub-menu">
+                        <li><a href="~/StudyTravel">選擇遊學行程</a></li>
+                        <li><a href="~/StudyTravel/p2">完善住宿安排</a></li>
+                        <li><a href="~/StudyTravel/p3">多元課程規劃</a></li>
+                        <li><a href="~/StudyTravel/p4">密集式體驗營</a></li>
+                        <li><a href="~/StudyTravel/p5">學習保證</a></li>
+                    </ul>
+                </li>
+                <li>
+                    海外留學
+                    <ul class="sub-menu">
+                        <li><a href="~/StudyAbroad">世界大學資料庫</a></li>
+                        <li><a href="~/StudyAbroad/p2">各學術能力測驗</a></li>
+                        <li><a href="~/StudyAbroad/p3">各英語能力考試</a></li>
+                    </ul>
+                </li>
+                <li>
+                    學員與家長肯定
+                    <ul class="sub-menu">
+                        <li><a href="~/Share">心得分享</a></li>
+                        <li><a href="~/Share/p5">相簿回顧</a></li>
+                        <li><a href="~/Share/p2">出國影片</a></li>
+                        <li><a href="~/Share/p3">成果發表</a></li>
+                        <li><a href="~/Share/p4">形象影片</a></li>
+                    </ul>
+                </li>
+                <li>
+                    遊學/留學小幫手
+                    <ul class="sub-menu">
+                        <li><a href="~/Info">遊學新知</a></li>
+                        <li><a href="~/Info/p2">遊學百科</a></li>
+                        <li><a href="~/Info/p3">行前準備</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <ul class="nav">
+                <li><a href="~/News">最新消息</a></li>
+                <li><a href="~/ContactUs">關於富學</a></li>
+                <li><a href="~/ContactUs/p2">聯絡我們</a></li>
+                <li><a href="~/Index">回首頁</a></li>
+                <li><a href="https://www.facebook.com/Fruitful.Learning" target="new">Facebook</a></li>
+            </ul>
+
+            <p class="copyright">Copyright 2015. All rights reserved. Fruitful Learning Overseas Study Center</p>
+
+            <a href="#header" class="goTop"><i class="fa-angle-up"></i></a>
+
+        </div>
+    </footer><!-- footer // -->
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            submenuShow();
+            $('.main-menu > ul > li > a').click(function () {
+                if ($(this).parent().hasClass('no-sub-menu')) { }
+                else {
+                    $(this).parent().siblings().removeClass('menu-show');
+                    $('#header .wrap').removeClass('active');
+                    $(this).parent().addClass('menu-show');
+                    $('#header .wrap').addClass('active');
+                    return false;
+                }
+            });
+
+            $('.menu-toggle button').click(function () {
+                $(this).toggleClass('active');
+                $(this).parent().siblings('ul').slideToggle();
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.goTop').fadeIn();
+                } else {
+                    $('.goTop').fadeOut();
+                }
+            });
+            $('.goTop').click(function () {
+                $('html, body').animate({
+                    scrollTop: $($.attr(this, 'href')).offset().top
+                }, 1000);
+                return false;
+            });
+
+        });
+
+        function submenuShow() {
+            if ($('body').hasClass('Index') || $('body').hasClass('ContactUs') || $('body').hasClass('News'))
+            { $('#header .wrap').removeClass('active'); }
+            var i = 0;
+            if ($('body').hasClass('AboutUs')) { i = 1; }
+            if ($('body').hasClass('StudyTravel')) { i = 2; }
+            if ($('body').hasClass('StudyAbroad')) { i = 3; }
+            if ($('body').hasClass('Share')) { i = 4; }
+            if ($('body').hasClass('Info')) { i = 5; }
+            $('.main-menu > ul > li:nth-child(' + i + ')').addClass('active menu-show');
+        }
+    </script>
+    @RenderSection("Scripts", required: false)
+    <script src="~/Scripts/GoogleAnalytics.js"></script>
+</body>
+</html>

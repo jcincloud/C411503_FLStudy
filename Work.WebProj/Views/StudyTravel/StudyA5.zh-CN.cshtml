@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "学习保证";
+    ViewBag.BodyClass = "StudyTravel p6";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/fancyBox/source/jquery.fancybox.min.css">
+}
+@section Scripts {
+    <script src="~/Scripts/vendor/fancyBox/source/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/vendor/fancyBox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+    </script>
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首页</a></li>
+    <li><a href="~/StudyTravel">海外游学</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content">
+	
+	<section class="wrap">
+
+		<header class="title">
+			<h2>@ViewBag.Title</h2>
+		</header>
+
+		<article class="editor">
+			<header class="title">
+				<h3>富学坚持给您最好的</h3>
+			</header>
+			<div class="article-content">
+				<p class="float-r"><img data-src="@Url.Content("~/Content/images/StudyA/pic5-1.jpg")" alt="" class="thumb"></p>
+				<h4 class="colored">选校严格，小班教学多国籍</h4>
+				<p>为了确保学员的学习品质，富学为学员精心挑选学校并亲自前往学校<strong class="strong2">实地勘查</strong>，以确保学校校园安全与良好学习环境的品质。</p>
+				<h4 class="colored">专业师资，课程丰富多元化</h4>
+				<p>富学深信，唯有安排<strong class="strong2">充实及多元的课程</strong>才能让游学的成效达到最大化。语文、体育、户外活动及点心制作，让学员获得全方位多元学习。期待学员在游学课程结束后，除了语言能力的提升外，对于所到国家有更完整的了解。</p>
+				<h4 class="colored">专业领队老师全程陪伴、用心照顾</h4>
+				<p>富学团队经验丰富且具备<strong class="strong2">灵活的应变能力</strong>。领队老师从行前说明会、出国直到学成归国，一路隨行。除了<strong class="strong2">全程陪伴学员</strong>外，也与团员一同入住宿舍提供妥当协助，让家长安心。</p>
+				<h4 class="colored">颁发结业证书</h4>
+				<p>在游学课程结束后，凡完成规定之作业及出席率超过百​​分之八十的学员，皆可获得该所语言学校所颁发的结业证书。</p>
+			</div>
+		</article>
+
+		<article class="editor">
+			<header class="title">
+				<h3>学校认证</h3>
+			</header>
+			<div class="article-content">
+				<h4 class="colored">宿雾国际语言学校 - TESDA 认证 / SSP 认证</h4>
+				<ul class="photos">
+					<li><a href="~/Content/images/StudyA/pic5-2-1.jpg" class="fancybox" rel="gallery"><img data-src="@Url.Content("~/Content/images/StudyA/pic5-2-1.jpg")" alt=""></a></li>
+					<li><a href="~/Content/images/StudyA/pic5-2-2.jpg" class="fancybox" rel="gallery"><img data-src="@Url.Content("~/Content/images/StudyA/pic5-2-2.jpg")" alt=""></a></li>
+					<li><a href="~/Content/images/StudyA/pic5-2-3.jpg" class="fancybox" rel="gallery"><img data-src="@Url.Content("~/Content/images/StudyA/pic5-2-3.jpg")" alt=""></a></li>
+					<li><a href="~/Content/images/StudyA/pic5-2-4.jpg" class="fancybox" rel="gallery"><img data-src="@Url.Content("~/Content/images/StudyA/pic5-2-4.jpg")" alt=""></a></li>
+				</ul>
+			</div>
+		</article>
+	</section>
+
+</div>

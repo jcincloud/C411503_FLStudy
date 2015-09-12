@@ -1,0 +1,63 @@
+﻿@model ProcCore.Business.DB0.News
+@{
+    ViewBag.Title = Model.category_name;
+    ViewBag.BodyClass = "News";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首頁</a></li>
+    <li><a href="~/Index">最新消息</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content" class="no-padding">
+
+    <section class="intro wrap">
+
+        <header class="title">
+            <a href="~/News" class="btn goBack">回列表</a>
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+        <article>
+            <header class="title">
+                <h3 class="styled">@Model.title<em>Date: @Model.date.ToString("yyyy-MM-dd")</em></h3>
+            </header>
+            <div class="article-content editor">
+                @if (Model.imgsrc != null & Model.imgsrc != "" && Model.imgsrc != "../../Content/images/no-pic.jpg")
+                {
+                    <p class="float-r"><img data-src="@Model.imgsrc" alt="" class="thumb"></p>
+                }
+                @Html.Raw(Model.news_content)
+            </div>
+        </article>
+
+    </section>
+
+    <div class="orientation">
+        <div class="wrap">
+            <section class="join">
+                <header class="title">
+                    <h3 class="styled">參加免費遊學說明會<em>Orientation</em></h3>
+                </header>
+                <div class="article-content editor">
+                    <p>如何知道自己是否適合海外遊學活動？如何選擇適合的遊學課程或地點？</p>
+                    <p>住宿海外接待家庭與宿舍的差別在哪？國外的教學課程與旅遊活動的內容？<br>遊學活動究竟可以有什麼樣的體驗？</p>
+                    <p>富學遊學說明會，提供您在規劃海外遊學時應該瞭解的重要資訊；<br>一個小時的說明會，協助您正確的評估海外遊學到底是什麼？是不是符合自己的計劃和需求！</p>
+                    <p><strong class="strong">說明會座位有限~提早預約可確保座位</strong></p>
+                    <p><span class="arrow-right"><strong>現在立刻填寫資料即可免費預約參加說明會</strong></span></p>
+                </div>
+            </section>
+
+            <aside class="apply">
+                <header><h3>免費預約參加</h3></header>
+                <div id="ContactUsContent"></div>
+            </aside>
+
+        </div>
+    </div>
+
+</div>
+<script src="~/Scripts/build/commincW.js"></script>
+<script src="~/Scripts/build/func/w-contactUs.js"></script>

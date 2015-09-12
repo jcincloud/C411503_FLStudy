@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "各国语言学校资料";
+    ViewBag.BodyClass = "StudyTravel p2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div id="PageContent"></div>
+
+@section Scripts {
+    <script>
+        var gb_category = '@Request.QueryString["category"]' == "" ? 0 : '@Request.QueryString["category"]';
+    </script>
+    <script src="~/Scripts/build/commincW.js"></script>
+    <script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+    <script src="~/Scripts/build/func/w-cn-AbroadSchool_L_list.js"></script>
+    <script>
+ //    	$(window).lazyLoadXT({});
+	// </script>
+}
+@*<ul class="breadcrumb">
+    <li><a href="~/Index">首頁</a></li>
+    <li>海外留學</li>
+</ul>
+
+<div id="content">
+
+    <section class="article-list wrap">
+    
+        <header class="title">
+            <h2 class="float-l">@ViewBag.Title</h2>
+        </header>
+
+        <article class="pic-article">
+            <a href="~/StudyAbroad/content" class="thumb"><img src="~/Content/images/StudyAbroad/pic3.jpg" alt=""></a>
+            <header><h4>哈佛大學 Harvard University</h4></header>
+            <p>哈佛大學（Harvard University）為一所本部坐落於麻薩諸塞州劍橋市的私立研究型大學。其因歷史、學術影響力、財富等因素而獲評為世上最享負盛名的學府之一。</p>
+            <a href="~/StudyAbroad/content" class="btn">查看更多</a>
+        </article>
+
+    </section>
+
+
+</div>*@

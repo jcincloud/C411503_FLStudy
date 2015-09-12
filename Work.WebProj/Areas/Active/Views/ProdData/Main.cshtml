@@ -1,0 +1,120 @@
+﻿@model ProcCore.Business.DB0.c_Product
+@{
+    ViewBag.Caption = MvcSiteMapProvider.SiteMaps.Current.CurrentNode.Title;
+    ViewBag.MenuName = MvcSiteMapProvider.SiteMaps.Current.CurrentNode.ParentNode.Title;
+}
+
+@section IncludeCSS{
+    <link href="~/_Code/Scripts/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
+}
+
+@section IncludeScript{
+    @Html.Partial("Manage/jsCommVar")
+    @Html.Partial("Manage/commJSINC")
+    @Html.Partial("Manage/commFUINC")
+    <script>
+        var Info_Insert_Success = '@Resources.Res.Info_Insert_Success';
+        var Info_Update_Success = '@Resources.Res.Info_Update_Success';
+    </script>
+    <script type="text/javascript" src="~/_Code/Scripts/ctrl/product.min.js"></script>
+}
+@section sidebar{
+    @Html.Partial("Manage/vucMenu")
+}
+<form ng-submit="Init_Query()">
+    <fieldset class="search-form">
+        <legend class="sr-only">@Resources.Res.Search</legend>
+        <p>
+            <label>標題</label>
+            <input type="text" placeholder="請輸入產品關鍵字" ng-model="@Html.ngName(x => x.q.product_name, Html.ngSH())">
+        </p>
+        <button type="submit"><i class="fa-search"></i></button>
+    </fieldset>
+
+    <h3>@MvcSiteMapProvider.SiteMaps.Current.CurrentNode.ParentNode.Title</h3>
+
+    <table>
+        <caption>
+            @ViewBag.Caption
+        </caption>
+        <thead>
+            <tr>
+                <th class="col-xs-1 text-center">
+                    <label>
+                        <input type="checkbox" ng-click="SelectAllCheckDel($event)" />
+                        <i class="fa-check"></i>
+                    </label>
+                </th>
+                <th class="col-xs-1">@Resources.Res.Button_Modify</th>
+                <th class="col-xs-1">@Html.Lang(x => x.m.product_sn)</th>
+                <th class="col-xs-3">@Html.Lang(x => x.m.product_name)</th>
+
+            </tr>
+        </thead>
+        <tbody bindonce ng-repeat="gd in Grid_Items track by gd.product_id">
+            <tr>
+                <td class="text-center">
+                    <label>
+                        <input type="checkbox" ng-model="@Html.ngName(x => x.m.check_del, Html.ngGD())" />
+                        <i class="fa-check"></i>
+                    </label>
+                </td>
+                <td class="text-center">
+                    <a class="popup-show" href="#" ng-click="Master_Open_Modify($index)" title="@Resources.Res.Button_Sure_Modify" tabindex="-1"><i class="fa-pencil"></i></a>
+                </td>
+                <td>{{@Html.ngName(x => x.m.product_sn, Html.ngGD()) | date:'yyyy-MM-dd'}}</td>
+                <td>
+                    <a href="#" title="{{@Html.ngName(x => x.m.product_name, Html.ngGD())}}">
+                        {{@Html.ngName(x => x.m.product_name, Html.ngGD()) | left:27}}
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+        <!--page-->
+        <tr class="page">
+            <td colspan="7">
+                @Html.Partial("Manage/GridPager")
+            </td>
+        </tr>
+    </table>
+</form>
+@using (Html.popWindow("show_master_edit", "Master_Edit_Close()", (String)ViewBag.Caption))
+{
+    <form ng-submit="Master_Submit()">
+        <fieldset class="profile">
+            <legend>基本資料</legend>
+            <p>
+                <label class="col-xs-2">@Html.Lang("product_picture")</label>
+                <filehandleshadowbox sysid="fd.product_id" filekind="SingleImg">
+                </filehandleshadowbox>
+            </p>
+            <p>
+                <label class="col-xs-2">@Html.Lang(x => x.m.product_sn)</label>
+                <input class="col-xs-5"
+                       type="text"
+                       id="@Html.ngName(x => x.m.product_sn,null)"
+                       ng-model="@Html.ngName(x => x.m.product_sn, Html.ngFD())"
+                       required tabindex="1"
+                       capitalize />
+                <em class="text-danger col-xs-5">*產品序號新增完成後不可修改</em>
+            </p>
+            <p>
+                <label class="col-xs-2">@Html.Lang(x => x.m.product_name)</label>
+                <input class="col-xs-5" type="text"
+                       ng-model="@Html.ngName(x => x.m.product_name, Html.ngFD())"
+                       required tabindex="2" />
+            </p>
+
+            <p>
+                <label class="col-xs-2">備註</label>
+                <textarea class="col-xs-5" rows="3"
+                          ng-model="@Html.ngName(x => x.m.introduction, Html.ngFD())"
+                          tabindex="7"></textarea>
+            </p>
+        </fieldset>
+
+        <fieldset class="send">
+            <button type="submit" class="btn btn-primary" tabindex="8"><i class="fa-check"></i> @Resources.Res.Button_Sure</button>
+        </fieldset>
+    </form>
+}

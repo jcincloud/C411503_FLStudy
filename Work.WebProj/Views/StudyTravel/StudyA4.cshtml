@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "密集式體驗營";
+    ViewBag.BodyClass = "StudyTravel p5";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div id="PageContent"></div>
+
+@section Scripts {
+    <script>
+        var gb_category = '@Request.QueryString["category"]' == "" ? 0 : '@Request.QueryString["category"]';
+    </script>
+    <script src="~/Scripts/build/commincW.js"></script>
+    <script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+    <script src="~/Scripts/build/func/w-StudyAbroadA4_list.js"></script>
+    <script>
+    	$(window).lazyLoadXT({});
+    </script>
+}

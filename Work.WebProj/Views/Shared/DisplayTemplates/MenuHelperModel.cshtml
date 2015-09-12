@@ -1,0 +1,43 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.MenuHelperModel
+@using System.Web.Mvc.Html
+@using MvcSiteMapProvider.Web.Html.Models
+
+<h3 class="title">
+    <span class="icon">
+        <i class="fa-square text-success"></i>
+        <i class="fa-square text-info"></i>
+        <i class="fa-square text-warning"></i>
+        <i class="fa-square text-danger"></i>
+    </span>
+    @Resources.Res.Info_Menu MENU
+</h3>
+<!--選單入口-->
+<div id="submenu">
+    <ul class="panel">
+        @foreach (var node in Model.Nodes)
+        {
+            if (node.Children.Any()) //是否有子選單
+            {
+                @Html.DisplayFor(m => node) //顯示主項選單
+
+                if (node.IsInCurrentPath) //是否為被選中的主項選單 選中的要展開次項選單
+                {
+                    <li id="menu-@node.Key" class="panel-collapse collapse in">
+                        <ul class="panel-body">
+                            @Html.DisplayFor(m => node.Children) <!--次項選單 -->
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li id="menu-@node.Key" class="panel-collapse collapse">
+                        <ul class="panel-body">
+                            @Html.DisplayFor(m => node.Children) <!--次項選單-->
+                        </ul>
+                    </li>
+                }
+            }
+        }
+    </ul>
+</div>
+

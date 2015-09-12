@@ -1,0 +1,32 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">產品選擇器By分類</h3>
+</div>
+<div class="modal-body">
+    <div ng-show="showCategoryL1">
+        <ul>
+            <li ng-repeat="category in categoryL1">
+                <button ng-click="selectCategoryL1(category.id)">{{category.name}}</button>
+            </li>
+        </ul>
+    </div>
+    <div ng-show="showCategoryL2">
+        <ul>
+            <li ng-repeat="category in categoryL2">
+                <button ng-click="selectCategoryL2(category.id)">{{category.name}}</button>
+            </li>
+        </ul>
+        <button ng-click="returnCategoryL1()">回主分類</button>
+    </div>
+    <div ng-show="showProduct">
+        <ul>
+            <li ng-repeat="product in products">
+                <button>{{product.name}}</button>
+            </li>
+        </ul>
+        <button ng-click="returnCategoryL2()">回次分類</button>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

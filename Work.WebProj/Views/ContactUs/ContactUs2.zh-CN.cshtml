@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "联络我们";
+    ViewBag.BodyClass = "ContactUs";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@section Scripts {
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script type="text/javascript">
+            // When the window has finished loading create our google map below
+            google.maps.event.addDomListener(window, 'load', init);
+
+            function init() {
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 17,
+
+                    // The latitude and longitude to center the map (always required)
+                    center: new google.maps.LatLng(25.0161618,121.299573), // New York
+
+                    // How you would like to style the map. 
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}]
+                };
+
+                // Get the HTML DOM element that will contain your map 
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('map');
+
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                	position: new google.maps.LatLng(25.0161618,121.299573),
+                	map: map,
+                	title: '富学海外游留学有限公司'
+                });
+            }
+</script>
+}
+
+@section Banner {
+    <div class="flexslider" id="banner">
+        <ul class="slides">
+            <li>
+            	<div id="map"></div>
+            </li>
+        </ul>
+    </div>
+}
+
+<ul class="breadcrumb">
+	<li><a href="~/Index">首页</a></li>
+	<li>@ViewBag.Title</li>
+</ul>
+
+<div id="content">
+	
+	<section class="wrap editor">
+
+        <header class="title">
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+        <article class="editor">
+        	<p class="float-l">
+        		<img data-src="@Url.Content("~/Content/images/ContactUs/pic2-1.jpg")" alt="" class="thumb">
+        	</p>
+        	<p class="leading"><strong class="strong2">富学海外游留学有限公司</strong>位于全桃园最具人文艺术气息的桃园艺文特区，地段精华，顾问团队经验丰富提供全桃园最优质且可信赖的游学服务。</p>
+        	<ul class="list-no-icon list-underline">
+        		<li><strong class="strong3 arrow-right">地址</strong>桃园市桃园区同德六街89号14楼 (<a href="https://goo.gl/maps/VQ0MA" target="new">MAP</a>)</li>
+        		<li><strong class="strong3 arrow-right">电话</strong>03-316-5128</li>
+        		<li><strong class="strong3 arrow-right">E-mail</strong><a href="mailto:fruitful.learning@gmail.com">fruitful.learning@gmail.com</a></li>
+        		<li><strong class="strong3 arrow-right">Facebook</strong><a href="https://www.facebook.com/Fruitful.Learning" target="new">facebook.com/Fruitful.Learning</a></li>
+        	</ul>
+        </article>
+
+    </section>
+
+</div>

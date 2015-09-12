@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Button_Delete" xml:space="preserve">
+    <value>刪除</value>
+    <comment>Delete &amp; 刪除</comment>
+  </data>
+  <data name="Button_Insert" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="Button_Return" xml:space="preserve">
+    <value>返回前頁</value>
+  </data>
+  <data name="Button_Search" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="Button_Sure" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="Button_Sure_Insert" xml:space="preserve">
+    <value>確定新增</value>
+  </data>
+  <data name="Button_Sure_Modify" xml:space="preserve">
+    <value>確定修改</value>
+  </data>
+  <data name="Info_Delete_Success" xml:space="preserve">
+    <value>資料刪除完成</value>
+  </data>
+  <data name="Info_Insert_Success" xml:space="preserve">
+    <value>資料新增完成</value>
+  </data>
+  <data name="Info_Trans_Success" xml:space="preserve">
+    <value>資料異動完成</value>
+  </data>
+  <data name="Info_Update_Success" xml:space="preserve">
+    <value>資料更新完成</value>
+  </data>
+  <data name="js_Info_Is_SureDelete" xml:space="preserve">
+    <value>確定刪除？</value>
+  </data>
+  <data name="Login_Err_Normal" xml:space="preserve">
+    <value>無法登錄!狀態不符。</value>
+  </data>
+  <data name="Login_Err_Password" xml:space="preserve">
+    <value>無法登錄!請重輸入帳號或密碼。</value>
+  </data>
+  <data name="Log_Err_ProdSerialExists" xml:space="preserve">
+    <value>該產品序號已存在。</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="js_Warn_Select_Delete_Data" xml:space="preserve">
+    <value>請選擇要刪除的列。</value>
+  </data>
+  <data name="Log_Err_NewPasswordNotSure" xml:space="preserve">
+    <value>確認密碼和新密碼不一致，請重新輸入。</value>
+  </data>
+  <data name="Log_Err_NewPasswordSame" xml:space="preserve">
+    <value>新密碼和舊密碼不可相同。</value>
+  </data>
+  <data name="Log_Err_Password" xml:space="preserve">
+    <value>密碼不正確，請重新輸入。</value>
+  </data>
+  <data name="Log_Err_MustHaveData" xml:space="preserve">
+    <value>系統錯誤，無任何資料傳出。</value>
+  </data>
+  <data name="Button_Modify" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="ButtonMakeExcelReport" xml:space="preserve">
+    <value>產生Excel報表</value>
+  </data>
+  <data name="Log_Err_FileCountOver" xml:space="preserve">
+    <value>檔案數量超過限制。</value>
+  </data>
+  <data name="Log_Err_FileSizeOver" xml:space="preserve">
+    <value>檔案容量超過限制。</value>
+  </data>
+  <data name="Log_Err_LimitedFileType" xml:space="preserve">
+    <value>該檔案類型禁止上傳。</value>
+  </data>
+  <data name="Log_Err_HasSubTreeData" xml:space="preserve">
+    <value>此節仍其下仍有資料，需先刪除其下節點才能刪除此節點。</value>
+  </data>
+  <data name="Button_Print" xml:space="preserve">
+    <value>列印</value>
+  </data>
+  <data name="Log_Err_PrintCondition" xml:space="preserve">
+    <value>列印報表需輸入正確查詢條件。</value>
+  </data>
+  <data name="Button_Choice_Files" xml:space="preserve">
+    <value>選擇上傳檔案</value>
+  </data>
+  <data name="Button_Choice_Images" xml:space="preserve">
+    <value>選擇上傳圖片</value>
+  </data>
+  <data name="Button_Start_FilesUp" xml:space="preserve">
+    <value>開始上傳檔案</value>
+  </data>
+  <data name="Button_Start_ImagesUp" xml:space="preserve">
+    <value>開始上傳圖片</value>
+  </data>
+  <data name="System_Name" xml:space="preserve">
+    <value>富學網站管理系統</value>
+  </data>
+  <data name="CurrencySign" xml:space="preserve">
+    <value>NT$</value>
+  </data>
+  <data name="Log_Err_AllowFileType" xml:space="preserve">
+    <value>此檔案類型不在充許範圍。</value>
+  </data>
+  <data name="Log_Err_ImgValideNotEquel" xml:space="preserve">
+    <value>輸入的驗證碼不正確，請重新輸入。</value>
+  </data>
+  <data name="Log_Err_AccountExists" xml:space="preserve">
+    <value>帳號已存在，不可使用。</value>
+  </data>
+  <data name="js_Err_System_Failure" xml:space="preserve">
+    <value>系統錯誤</value>
+  </data>
+  <data name="Button_Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Button_Insert_Detail" xml:space="preserve">
+    <value>新增明細</value>
+  </data>
+  <data name="Button_Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="C_product_state_NOR" xml:space="preserve">
+    <value>使用中</value>
+  </data>
+  <data name="C_product_state_STP" xml:space="preserve">
+    <value>停止使用</value>
+  </data>
+  <data name="Log_Err_Stock_NotEnough" xml:space="preserve">
+    <value>庫存不足[{0}:{1}]，目前庫存數[{2}]。</value>
+  </data>
+  <data name="Info_Home" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="Info_Close_Layer" xml:space="preserve">
+    <value>關閉視窗</value>
+  </data>
+  <data name="Info_Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="Button_ToImport" xml:space="preserve">
+    <value>直接入庫</value>
+  </data>
+  <data name="Button_Save" xml:space="preserve">
+    <value>儲存</value>
+  </data>
+  <data name="Err_PasswordLength" xml:space="preserve">
+    <value>密碼長度不符(至少6個字元)</value>
+  </data>
+  <data name="Err_PasswordRule" xml:space="preserve">
+    <value>密碼規則不符(需包含英、數位)</value>
+  </data>
+  <data name="Info_ChangePassword_Success" xml:space="preserve">
+    <value>變更密碼完成，下次登錄請使用新密碼。</value>
+  </data>
+  <data name="js_Info_Toast_Return_Title" xml:space="preserve">
+    <value>系統回報訊息</value>
+  </data>
+  <data name="Button_Add_Detail" xml:space="preserve">
+    <value>新增明細</value>
+  </data>
+  <data name="Button_Edit" xml:space="preserve">
+    <value>編輯</value>
+  </data>
+  <data name="Info_Detail_Picture" xml:space="preserve">
+    <value>產品圖</value>
+  </data>
+  <data name="Button_Logout" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="FirstPage" xml:space="preserve">
+    <value>第一頁</value>
+  </data>
+  <data name="Info_Last_Login" xml:space="preserve">
+    <value>上次登錄</value>
+  </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>最後頁</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>下一頁</value>
+  </data>
+  <data name="PrevPage" xml:space="preserve">
+    <value>上一頁</value>
+  </data>
+  <data name="Button_Change_Password" xml:space="preserve">
+    <value>變更密碼</value>
+  </data>
+  <data name="Info_Menu" xml:space="preserve">
+    <value>功能選單</value>
+  </data>
+  <data name="ePassword" xml:space="preserve">
+    <value>1111</value>
+  </data>
+  <data name="Button_Confirm_Doc" xml:space="preserve">
+    <value>確認單據</value>
+  </data>
+  <data name="Log_Err_NoThisUser" xml:space="preserve">
+    <value>系統無此使用者。</value>
+  </data>
+  <data name="Log_Err_Not_Select_Customer" xml:space="preserve">
+    <value>未選擇客戶</value>
+  </data>
+  <data name="Log_Err_Not_Select_Supplier" xml:space="preserve">
+    <value>未選擇廠商</value>
+  </data>
+  <data name="Log_Err_Delete_DetailExist" xml:space="preserve">
+    <value>無法刪除!刪除主檔前需先刪除明細檔。</value>
+  </data>
+  <data name="Log_Err_StockNotEnough" xml:space="preserve">
+    <value>庫存不足</value>
+  </data>
+  <data name="Button_SaveAndMail" xml:space="preserve">
+    <value>儲存,並送信</value>
+  </data>
+  <data name="Button_Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Info_Mail_Title_JoinUs" xml:space="preserve">
+    <value>申請加入中壢青商-{0}</value>
+  </data>
+  <data name="ViewbagCapton" xml:space="preserve">
+    <value>無項目</value>
+  </data>
+  <data name="ViewbagMenuName" xml:space="preserve">
+    <value>功能選單</value>
+  </data>
+  <data name="Log_Err_Delete_CategoryExist" xml:space="preserve">
+    <value>無法刪除!刪除選項前需先刪除有使用該選項的資料。</value>
+  </data>
+</root>

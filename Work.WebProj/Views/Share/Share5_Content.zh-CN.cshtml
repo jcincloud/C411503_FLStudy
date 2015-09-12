@@ -1,0 +1,69 @@
+﻿@model ProcCore.Business.DB0.Albums
+@{
+    ViewBag.Title = Model.title;
+    ViewBag.BodyClass = "Share p2";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/fancyBox/source/jquery.fancybox.css">
+}
+@section Scripts {
+    <script src="~/Scripts/vendor/fancyBox/source/jquery.fancybox.pack.js"></script>
+    <script src="~/Scripts/vendor/fancyBox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+    </script>
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首页</a></li>
+    <li><a href="~/Share">学员与家长肯定</a></li>
+    <li><a href="~/Share/p5">相簿回顾</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content" class="no-padding">
+
+    <article>
+
+        <header class="title wrap">
+            <a href="~/Share/p5" class="btn goBack">回列表</a>
+            <h2 class="styled">@ViewBag.Title<em>Our Memories</em></h2>
+        </header>
+
+        <div class="intro">
+            <div class="wrap">
+                <div class="article-content editor">
+                    @Html.Raw(Model.albums_content)
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="wrap">
+                <p class="caption">
+                    点选照片可放大观赏 <i class="fa-arrow-circle-down"></i>
+                    @if (Model.url != "" && Model.url != null)
+                    {
+                        <a href="@Model.url" target="new"><strong class="arrow-right">按此看更多精彩照片</strong></a>
+                    }
+                </p>
+                <ul class="photos">
+                    @foreach (var item in Model.photos_imgsrc)
+                    {
+                        <li>
+                            <a href="@item" class="fancybox" rel="gallery">
+                                <img data-src="@item" alt="">
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+        </div>
+
+    </article>
+
+</div>

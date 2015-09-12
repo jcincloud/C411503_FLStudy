@@ -1,0 +1,16 @@
+﻿<span>
+    <input type="file"
+           ng-file-select="FileUpload($files)"
+           multiple
+           class="outer col-xs-2">
+    <span ng-repeat="f in filedata">
+        <a class="pic-upload" href="#" ng-click="openShadowbox(f.OriginFilePath)" rel="shadowbox[{{filekind}}]" tabindex="-1">
+            <i>
+                <img ng-src="{{f.RepresentFilePath}}"
+                     popover="{{f.FileName}} size:{{f.Size/1024|number:0}} KB"
+                     popover-trigger="mouseenter" />
+            </i>
+        </a>
+        <a href="#" ng-click="FileDelete(f.FileName)" class="btn btn-link" tabindex="-1"><i class="fa fa-times"></i></a>
+    </span>
+</span>

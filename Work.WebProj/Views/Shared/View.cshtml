@@ -1,0 +1,47 @@
+﻿<div classname="table-footer">
+    <div classname="pull-left">
+        <button classname="btn-link text-success"
+                type="button"
+                onclick={this.props.InsertType}>
+            <i classname="fa-plus-circle"></i> 新增
+        </button>
+        <button classname="btn-link text-danger" type="button"
+                onclick={this.props.deleteSubmit}>
+            <i classname="fa-trash-o"></i> 刪除
+        </button>
+    </div>
+    <small classname="pull-right">第{this.props.StartCount}-{this.props.EndCount}筆，共{this.props.RecordCount}筆</small>
+
+    <ul classname="pager">
+        <li>
+            <a href="#" title="移至第一頁" tabindex="-1" onclick={this.firstPage}>
+                <i classname="fa-angle-double-left"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" title="下一頁" tabindex="-1" onclick={this.prvePage}>
+                <i classname="fa-angle-left"></i>
+            </a>
+        </li>
+        <li classname="form-inline">
+            <div classname="form-group">
+                <label>第</label>
+                {' '}
+                <input classname="form-control" type="number" min="1" tabindex="-1" value={this.props.NowPage}
+                       onchange={this.jumpPage} />
+                {' '}
+                <label>頁，共{this.props.TotalPage}頁</label>
+            </div>
+        </li>
+        <li>
+            <a href="#" title="@Resources.Res.NextPage" tabindex="-1" onclick={this.nextPage}>
+                <i class="btn-warning"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" title="移至最後一頁" tabindex="-1" onclick={this.lastPage}>
+                <i classname="fa-angle-double-right"></i>
+            </a>
+        </li>
+    </ul>
+</div>

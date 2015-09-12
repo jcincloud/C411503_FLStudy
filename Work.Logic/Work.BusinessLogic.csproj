@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProcCore.Business</RootNamespace>
+    <AssemblyName>Proc.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.40\lib\net45\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Proc.Core">
+      <HintPath>..\Core.Dll\Proc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base.cs" />
+    <Compile Include="DB0\AbroadSchool.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\Albums.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\All_Category_L1.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\All_Category_L2.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\AspNetRoles.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\AspNetUsers.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\Banner.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\C41A0_FLStudy.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C41A0_FLStudy.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\C41A0_FLStudy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\C41A0_FLStudy.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C41A0_FLStudy.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\DBPart.cs" />
+    <Compile Include="DB0\Department.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\EmailContact.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\Feedback.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\HelpfulInfo.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\Info.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\InfoDetail.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\i_Currency.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\i_IDX.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\i_Lang.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\i_Parm.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\i_SN.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\i_UserLoginLog.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_AbroadSchool.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_Albums.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_All_Category_L1.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_All_Category_L2.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_AspNetRoles.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_AspNetUsers.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_Banner.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_Department.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_EmailContact.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_Feedback.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_HelpfulInfo.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_Info.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_InfoDetail.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_i_Currency.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_i_IDX.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_i_Lang.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_i_Parm.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_i_SN.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_i_UserLoginLog.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_News.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_StudyAbroad.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_TestInfo.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\m_Video.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\News.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\StudyAbroad.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\TestInfo.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB0\Video.cs">
+      <DependentUpon>C41A0_FLStudy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogicCenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DB0\C41A0_FLStudy.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>C41A0_FLStudy.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB0\C41A0_FLStudy.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>C41A0_FLStudy.edmx</DependentUpon>
+      <LastGenOutput>C41A0_FLStudy.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DB0\C41A0_FLStudy.edmx.diagram">
+      <DependentUpon>C41A0_FLStudy.edmx</DependentUpon>
+    </None>
+    <None Include="DB0\C41A0_FLStudy.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>C41A0_FLStudy.edmx</DependentUpon>
+      <LastGenOutput>C41A0_FLStudy.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參照此電腦中缺少的  NuGet 套件。啟用「NuGet 套件還原」以便下載。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案為 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

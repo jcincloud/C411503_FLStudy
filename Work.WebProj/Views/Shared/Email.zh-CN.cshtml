@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Email";
+    Layout = null;
+    if (Model.category == 1)
+    {
+        ViewBag.Category = "索取简章";
+    }
+    else
+    {
+        ViewBag.Category = "参加游学说明会";
+    }
+}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>富学海外游留学 - @ViewBag.Category</title>
+</head>
+<body style="font: .8em/140% '微軟正黑體', 'Microsoft JhengHei', Helvetica, sans-serif;">
+    <h1 style="font-size:1.5em;">富学海外游留学 - @ViewBag.Category</h1>
+    <table border="1" bordercolor="#ddd" style="border:1px solid #ccc">
+        <caption style="background:#FCF8E3; color:#9C7163; font-size:1.2em; font-weight:bold; padding:5px; text-align:center;">
+            以下为联络人资料
+        </caption>
+        <tr>
+            <td style="color:#9C7163; padding:5px; border:1px solid #ccc">姓名</td>
+            <td style="width:150px; padding:5px; border:1px solid #ccc" colspan="2">@Model.send_name</td>
+        <tr>
+            <td style="color:#9C7163; padding:5px; border:1px solid #ccc">电话/手机</td>
+            <td style="width:150px; padding:5px; border:1px solid #ccc" colspan="2">@Model.tel</td>
+        </tr>
+        <tr>
+            <td style="color:#9C7163; padding:5px; border:1px solid #ccc">EMail</td>
+            <td style="width:150px; padding:5px; border:1px solid #ccc" colspan="2">@Model.email</td>
+        </tr>
+        @if (Model.how_findout != null)
+        {
+            <tr>
+                <td style="color:#9C7163; padding:5px; border:1px solid #ccc">如何得知</td>
+                <td style="width:150px; padding:5px; border:1px solid #ccc" colspan="2">
+                    <span>@Model.findout_name</span>
+                </td>
+            </tr>
+        }
+        @if (Model.interest != null)
+        {
+            <tr>
+                <td style="color:#9C7163; padding:5px; border:1px solid #ccc">对那些行程感兴趣</td>
+                <td style="width:150px; padding:5px; border:1px solid #ccc" colspan="2">
+                    <span>@Model.interest_name</span>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+

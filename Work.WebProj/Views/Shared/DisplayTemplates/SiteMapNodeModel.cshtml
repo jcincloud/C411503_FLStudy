@@ -1,0 +1,82 @@
+﻿@model MvcSiteMapProvider.Web.Html.Models.SiteMapNodeModel
+@using System.Web.Mvc.Html
+@using MvcSiteMapProvider.Web.Html.Models
+
+@if (Model.IsCurrentNode && Model.SourceMetadata["HtmlHelper"].ToString() != "MvcSiteMapProvider.Web.Html.MenuHelper")
+{
+    <!-- 主節點有子選單 -->
+    <li class="panel-heading">
+        <a class="panel-title" data-toggle="collapse" data-parent="#submenu" href="#submenu-1">
+            <i class="fa-list-alt"></i> @Model.Title
+        </a>
+    </li>
+}
+else if (Model.IsClickable)
+{
+
+    if (Model.IsCurrentNode)
+    {
+        <!--目前的的子節點-->
+        if (string.IsNullOrEmpty(Model.Description))
+        {
+            <a href="@Model.Url" class="current">
+                <i class="fa-caret-right"></i>@Model.Title
+            </a>
+        }
+        else
+        {
+            <a href="@Model.Url" class="current" title="@Model.Description">
+                <i class="fa-caret-right"></i>@Model.Title
+            </a>
+        }
+    }
+    else
+    {
+        <!--非目前的的子節點-->
+        if (string.IsNullOrEmpty(Model.Description))
+        {
+            <a href="@Model.Url"><i class="fa-caret-right"></i>@Model.Title</a>
+        }
+        else
+        {
+            <a href="@Model.Url" title="@Model.Description"><i class="fa-caret-right"></i>@Model.Title</a>
+        }
+    }
+}
+else
+{
+    <li class="panel-heading">
+        <!-- 主節點有子選單-->
+        @if (Model.Parent != null)
+        {
+            <a href="#menu-@Model.Key" class="panel-title"
+               data-toggle="collapse"
+               data-parent="#submenu">
+
+                @if (Model.Attributes.Any(x => x.Key == "IconClass"))
+                {
+                    <i class="@Model.Attributes["IconClass"]"></i> @Model.Title
+                }
+                else
+                {
+                    <i></i>@Model.Title
+                }
+            </a>
+        }
+        else
+        {
+            <a href="#menu-@Model.Key" class="panel-title"
+               data-toggle="collapse">
+
+                @if (Model.Attributes.Any(x => x.Key == "IconClass"))
+                {
+                    <i class="@Model.Attributes["IconClass"]"></i> @Model.Title
+                }
+                else
+                {
+                    <i></i>@Model.Title
+                }
+            </a>
+        }
+    </li>
+}

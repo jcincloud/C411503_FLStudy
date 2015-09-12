@@ -1,0 +1,98 @@
+﻿@using DotWeb.CommSetup
+@using ProcCore.Business.DB0
+@{
+    var LastLoginDateTime = Request.Cookies[CommWebSetup.Cookie_LastLogin];
+    LastLoginDateTime = new HttpCookie(CommWebSetup.Cookie_LastLogin, DateTime.Now.ToString());
+
+    var Cookie_UserName = Request.Cookies[CommWebSetup.Cookie_UserName];
+}
+@using MvcSiteMapProvider.Web.Html
+<!DOCTYPE html>
+<html ng-app="angularApp" id="ng-app">
+<head>
+    <title>@Resources.Res.System_Name 網站管理系統</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/_Code/CSS/css/page.css" rel="stylesheet" />
+    <link href="~/Content/css/toastr.css" rel="stylesheet" />
+    @RenderSection("IncludeCSS", false)
+</head>
+<body>
+    <toaster-container toaster-options="{'time-out': 2000}"> </toaster-container>
+    <div id="container" ng-controller="ctrl">
+        <div id="header">
+            <div class="wrap">
+                <h1>
+                    <a href="#" title="@Resources.Res.Info_Home" tabindex="-1">@Resources.Res.System_Name 網站管理系統</a>
+                </h1><!-- logo -->
+                <div id="menu">
+                    <ul class="menu">
+                        <li class="dropdown activity">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa-clock-o"></i>活動紀錄</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="title" tabindex="-1"><i class="fa-eye"></i> @Resources.Res.Info_Last_Login</li>
+                                <li tabindex="-1">@LastLoginDateTime.Value</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa-user"></i>登入身分: @Cookie_UserName.Value</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="~/Sys_Base/Users/ChangePassword" tabindex="-1"><i class="fa-lock"></i> @Resources.Res.Button_Change_Password</a></li>
+                                <li><a href="~/MNGLogin/Logout" tabindex="-1"><i class="fa-power-off"></i> @Resources.Res.Button_Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- header //-->
+
+        <div id="main">
+
+            <div id="content">
+                <ul class="breadcrumb">
+                    <li><i class="fa-list-alt"></i> @ViewBag.MenuName</li>
+                </ul>
+                @RenderBody()
+            </div><!-- content //-->
+
+            <div id="sidebar">
+                @RenderSection("sidebar", false)
+            </div><!-- sidebar //-->
+        </div><!-- main //-->
+
+    </div><!-- container //-->
+
+    <div id="footer">
+
+        <a href="#header" class="goTop"><i class="fa-angle-double-up"></i></a>
+
+    </div><!-- footer //-->
+    <script type="text/javascript">
+        var gb_approot = '@Url.Content("~")';
+        var gb_area = '@ViewBag.area';
+        var gb_controller = '@ViewBag.controller';
+        var gb_allpath = gb_approot + gb_area + '/' + gb_controller + '/';
+    </script>
+    @RenderSection("IncludeScript", false)
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script><!-- Bootstrap -->
+    <script>
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $(".goTop").addClass("show");
+            } else {
+                $(".goTop").removeClass("show");
+            }
+        });  //goTop按鈕顯示
+
+        $(".goTop").click(function () {
+            $("html, body").animate({
+                scrollTop: $($.attr(this, "href")).offset().top
+            }, 500);
+            return false;
+        });  //goTop按鈕點選滑動至頂端
+
+    </script>
+</body>
+</html>

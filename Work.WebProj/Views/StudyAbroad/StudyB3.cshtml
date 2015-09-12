@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "各英文能力考試";
+    ViewBag.BodyClass = "StudyAbroad p3";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首頁</a></li>
+    <li><a href="~/StudyAbroad">海外留學</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+<div id="PageContent"></div>
+
+@section Scripts {
+    <script src="~/Scripts/build/commincW.js"></script>
+    <script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+    <script src="~/Scripts/build/func/w-TestInfoP3_list.js"></script>
+}

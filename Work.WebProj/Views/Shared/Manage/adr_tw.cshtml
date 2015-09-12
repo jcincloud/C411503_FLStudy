@@ -1,0 +1,146 @@
+﻿<div id="dialog-address_edit" title="臺灣地址編輯器">
+    <input type="text" value="" id="adr_edit" />
+    <select id="editaddress_city" style="width: 64px">
+        <option value=""></option>
+        <option value="基隆市">基隆市</option>
+        <option value="臺北市">臺北市</option>
+        <option value="新北市">新北市</option>
+        <option value="桃園縣">桃園縣</option>
+        <option value="新竹市">新竹市</option>
+        <option value="新竹縣">新竹縣</option>
+        <option value="苗栗縣">苗栗縣</option>
+        <option value="臺中市">臺中市</option>
+        <option value="彰化縣">彰化縣</option>
+        <option value="南投縣">南投縣</option>
+        <option value="雲林縣">雲林縣</option>
+        <option value="嘉義市">嘉義市</option>
+        <option value="嘉義縣">嘉義縣</option>
+        <option value="臺南市">臺南市</option>
+        <option value="高雄市">高雄市</option>
+        <option value="屏東縣">屏東縣</option>
+        <option value="宜蘭縣">宜蘭縣</option>
+        <option value="花蓮縣">花蓮縣</option>
+        <option value="臺東縣">臺東縣</option>
+        <option value="澎湖縣">澎湖縣</option>
+        <option value="金門縣">金門縣</option>
+        <option value="連江縣">連江縣</option>
+    </select>
+    <select id="editaddress_country" style="width: 64px">
+    </select>
+    <select id="editaddress_road" style="width: 96px">
+    </select>
+
+    <button class="buttonchar">一</button>
+    <button class="buttonchar">二</button>
+    <button class="buttonchar">三</button>
+    <button class="buttonchar">四</button>
+    <button class="buttonchar">五</button>
+    <button class="buttonchar">六</button>
+    <button class="buttonchar">七</button>
+    <button class="buttonchar">八</button>
+    <button class="buttonchar">九</button>
+    <button class="buttonchar">十</button>
+    <button class="buttonchar">1</button>
+    <button class="buttonchar">2</button>
+    <button class="buttonchar">3</button>
+    <button class="buttonchar">4</button>
+    <button class="buttonchar">5</button>
+    <button class="buttonchar">6</button>
+    <button class="buttonchar">7</button>
+    <button class="buttonchar">8</button>
+    <button class="buttonchar">9</button>
+    <button class="buttonchar">0</button>
+    <button class="buttonchar">～</button>
+    <button class="buttonchar">－</button>
+    <button class="buttonchar">區</button>
+    <button class="buttonchar">里</button>
+    <button class="buttonchar">村</button>
+    <button class="buttonchar">鄰</button>
+    <button class="buttonchar">路</button>
+    <button class="buttonchar">段</button>
+    <button class="buttonchar">街</button>
+    <button class="buttonchar">巷</button>
+    <button class="buttonchar">弄</button>
+    <button class="buttonchar">衖</button>
+    <button class="buttonchar">號</button>
+    <button class="buttonchar">樓</button>
+    <button class="buttonchar">之</button>
+    <button class="buttonchar">B</button>
+    <button class="buttonchar">F</button>
+    <button class="buttonchar">,</button>
+    
+    <button id="btn_editaddress_ok">確定</button>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("btn_editaddress_ok").click(function () {
+
+        });
+
+        $("#editaddress_city").change(function () {
+            var getObj = $(this);
+            $("#editaddress_country").empty();
+            $.post(gb_approot + "_Code/Ashx/AjaxGetCounty.ashx?uid=" + uniqid(), { "city": $(this).val() })
+            .done(function (data, textStatus, jqXHR) {
+                var jsonobj = jQuery.parseJSON(data);
+
+                if (jsonobj.result) {
+                    $("#editaddress_country").append('<option value=""></option>');
+                    for (var property in jsonobj.data) {
+                        var option_html;
+                        option_html = '<option value="' + property + '">' + jsonobj.data[property] + '</option>';
+                        $("#editaddress_country").append(option_html);
+                    }
+                }
+                $.UiMessage(jsonobj);
+
+                if (getObj.val() != '')
+                    $("#adr_edit").val(getObj.val());
+            });
+        });
+
+        $("#editaddress_country").change(function () {
+            var getObj = $(this);
+            $("#editaddress_road").empty();
+            $.post(gb_approot + "_Code/Ashx/AjaxGetRoad.ashx?uid=" + uniqid(), { "city": $("#editaddress_city").val(), "country": $(this).val() })
+            .done(function (data, textStatus, jqXHR) {
+                var jsonobj = jQuery.parseJSON(data);
+
+                if (jsonobj.result) {
+                    $("#editaddress_road").append('<option value=""></option>');
+                    for (var property in jsonobj.data) {
+                        var option_html;
+                        option_html = '<option value="' + property + '">' + jsonobj.data[property] + '</option>';
+                        $("#editaddress_road").append(option_html);
+                    }
+                }
+                $.UiMessage(jsonobj);
+
+                if (getObj.val() != '')
+                    $("#adr_edit").val($("#editaddress_city").val() + getObj.val());
+
+            });
+        });
+
+        $("#editaddress_road").change(function () {
+
+            if ($(this).val() != '')
+                $("#adr_edit").val($("#editaddress_city").val() + $("#editaddress_country").val() + $(this).val());
+        });
+
+        $(".buttonchar").click(function () {
+            var nowText = $("#adr_edit").val();
+            var getWord = $(this).text();
+            $("#adr_edit").val(nowText + getWord);
+        });
+    });
+
+    (function ($) {
+        $("#dialog-address_edit").dialog({
+            autoOpen: false,
+            height: 300,
+            width: 300
+        });
+    })(jQuery);
+</script>

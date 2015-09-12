@@ -1,0 +1,53 @@
+﻿@model ProcCore.Business.Logic.q__ParmFloat
+@using ProcCore.Business.Logic.TablesDescription
+@using ProcCore.JqueryHelp
+@using ProcCore.JqueryHelp.JQGridScript
+
+@{
+    _ParmFloat Tab = new _ParmFloat();
+}
+@section IncludeScript{
+    @Html.Partial("Manage/includeScript_Comm")
+    @Html.Partial("Manage/includeScript_Grid")
+}
+
+@section menu{
+    @Html.Raw(Session["MenuHtmlString"].ToString())
+}
+
+@{
+    //===================================================================================================    
+    var gridObj = Html.jqGrid_Edit(
+CommWebSetup.MasterGridID,
+(String)ViewBag.Caption,
+ViewData["Page"].ToString(),
+Url.Action(CommWebSetup.acNameMasterDataGridUrl),
+Url.Action(CommWebSetup.acNameMasterDataDelete),
+Url.Action(CommWebSetup.acNameMasterDataUpdateData),
+CommWebSetup.MasterGridDefHight, null,
+new MakeColumnModule() { CN = Html.FLang(Tab.ParmName.N), CM = { name = Tab.ParmName.N, width = "180px", align = "center", editable = true, key = true, editoptions = new jqGrid.colObject.editOptions { _readonly = "readonly" } } },
+new MakeColumnModule() { CN = Html.FLang(Tab.Value.N), CM = { name = Tab.Value.N, width = "180px", editable = true } }
+);
+    //設定主Grid的功能Button區
+
+    gridObj.GridModule.multiboxonly = false;
+    gridObj.GridModule.multiselect = false;
+
+    gridObj.NavGridModule.navOption.add = false;
+    gridObj.NavGridModule.navOption.edit = true;
+    gridObj.NavGridModule.navOption.del = false; 
+
+}
+
+@Html.Raw(gridObj.ToScriptString())
+@Html.AjaxFormSearch(CommWebSetup.eleNameSearchForm, CommWebSetup.MasterGridID, CommWebSetup.eleNameSearchButton, true)
+@Html.OpenDialogPlugin(ViewData["DialogTitle"].ToString(), ViewData["DialogMessage"].ToString())
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+
+    (function ($) {
+        $.ajax_MasterFormShowAfterHandle = function () {
+        }
+    })(jQuery);
+</script>

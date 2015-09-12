@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+  <mvcSiteMapNode title="功能選單" clickable="false" >
+
+    <mvcSiteMapNode title="首頁" clickable="false" area="Active" IconClass="fa-list-alt" key="10" roles="Admins,Managers">
+      <mvcSiteMapNode title="Banner 圖片" controller="Banner" action="Main" description="Banner 管理"/>
+      <mvcSiteMapNode title="最新消息" controller="NewsData" action="Main" description="最新消息管理"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="大家都選擇富學" clickable="false" area="Active" IconClass="fa-list-alt" key="20" roles="Admins,Managers">
+      <mvcSiteMapNode title="精彩影片分享" controller="Video" action="P1" description="精彩影片分享管理"/>
+      <mvcSiteMapNode title="語言的重要性" controller="InfoData" action="Main" description="語言的重要性管理"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="海外遊學" clickable="false" area="Active" IconClass="fa-list-alt" key="30" roles="Admins,Managers">
+      <mvcSiteMapNode title="各國遊學行程" controller="StudyAbroadData" action="Main" description="各國遊學行程管理"/>
+      <mvcSiteMapNode title="各國語言學校資料" controller="AbroadSchool" action="Language" description="各國語言學校資料管理"/>
+      <mvcSiteMapNode title="多元課程規劃" controller="InfoData2" action="Main" description="多元課程規劃管理"/>
+      <mvcSiteMapNode title="密集式體驗營" controller="StudyAbroadData" action="P4" description="密集式體驗營管理"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="海外留學" clickable="false" area="Active" IconClass="fa-list-alt" key="40" roles="Admins,Managers">
+      <mvcSiteMapNode title="世界大學資料庫" controller="AbroadSchool" action="Main" description="世界大學資料庫管理"/>
+      <mvcSiteMapNode title="各學術/英語能力測驗" controller="TestInfo" action="Main" description="各學術/英語能力測驗 管理"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="學員與家長肯定" clickable="false" area="Active" IconClass="fa-list-alt" key="50" roles="Admins,Managers">
+      <mvcSiteMapNode title="心得分享" controller="Feedback" action="Main" description="心得分享管理"/>
+      <mvcSiteMapNode title="相簿回顧" controller="Albums" action="Main" description="相簿回顧管理"/>
+      <mvcSiteMapNode title="出國影片" controller="Video" action="P2" description="出國影片管理"/>
+      <mvcSiteMapNode title="成果發表" controller="Video" action="P3" description="成果發表影片管理"/>
+      <mvcSiteMapNode title="形象影片" controller="Video" action="P4" description="客戶形象影片管理"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="遊學/留學小幫手" clickable="false" area="Active" IconClass="fa-list-alt" key="60" roles="Admins,Managers">
+      <mvcSiteMapNode title="遊學/留學小幫手管理" controller="HelpfulInfo" action="Main" description="遊留學小幫手管理"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="索取簡章/預約說明會" clickable="false" area="Active" IconClass="fa-list-alt" key="70" roles="Admins,Managers">
+      <mvcSiteMapNode title="名單查詢" controller="EmailContact" action="Main" description="名單查詢"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="類別選項設定" clickable="false" area="Active" IconClass="fa-list-alt" key="80" roles="Admins,Managers">
+      <mvcSiteMapNode title="選項管理" controller="Category" action="Main" description="選項管理"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="測試用" clickable="false" area="Active" IconClass="fa-list-alt" key="100" roles="Admins">
+      <mvcSiteMapNode title="測試" controller="TestData" action="Main" description="測試"/>
+    </mvcSiteMapNode>
+      
+    <mvcSiteMapNode title="系統設定" clickable="false" area="Base" IconClass="fa-cogs" key="90" roles="Admins,Managers,Users">
+      <mvcSiteMapNode title="教學影片" controller="Doc" action="Index" description="教學影片"/>
+      <mvcSiteMapNode title="Email 信箱設定" controller="ChangeParm" action="Main" description="Email 信箱設定"/>
+      <mvcSiteMapNode title="使用者管理" controller="Users" action="Main" roles="Admins"/>
+      <mvcSiteMapNode title="角色管理" controller="Roles" action="Main" roles="Admins"/>
+      <mvcSiteMapNode title="變更密碼" controller="ChangeParm" action="ChangePassword" description="變更密碼"/>
+    </mvcSiteMapNode>
+  </mvcSiteMapNode>
+</mvcSiteMap>

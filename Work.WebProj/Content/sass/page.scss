@@ -1,0 +1,926 @@
+﻿/* import
+-----------------------------------------------------*/
+
+/* tools */
+@import "variables";
+@import "mixins";
+
+/* base */
+@import "basic";
+
+/* layout */
+@import "layout";
+
+/* modules */
+@import "modules";
+@import "scripts";
+
+
+/* Layout
+-----------------------------------------------------*/
+#content {
+	padding-top:40px;
+	padding-bottom:30px;
+	color:#453d3d;
+	background:url('../images/bg2.gif') repeat-x 0 0 #fff;
+	@include clearfix;
+	@include screen-sm {padding-top:30px;}
+	&.no-padding {padding-bottom:0;}
+	.title {
+		@include clearfix;
+		h2 {line-height:130%;}
+	}
+}
+
+
+/* Component - 列表
+-----------------------------------------------------*/
+
+/*- 圖文列表 -*/
+.article-list {
+	margin-bottom:30px;
+	.pic-article {
+		@include clearfix;
+		margin-bottom:20px;
+		padding-bottom:20px;
+		border-bottom:1px dotted #ddd;
+		@include screen-xxs {text-align:center;}
+		&:last-child {
+			margin-bottom:0;
+			padding-bottom:0;
+			border-bottom:0;
+		}
+		.thumb {
+			display: block;
+			float:left;
+			width:400px;
+			height:250px;
+			margin-right:20px;
+			border:3px solid #eee;
+			@include screen-sm {width:340px; height:213px;}
+			@include screen-xs {width:280px; height:175px;}
+			@include screen-xxs {width:100%; max-width:400px; height:190px; float:none; margin:0 auto 10px auto;}
+			img {
+				min-height: 100%;
+				width: 100%;
+				transition: opacity 0.3s;
+				@include hover {opacity:0.7;}
+			}
+		}
+		h4 {
+			height:1.43em;
+			margin-bottom:15px;
+			font-weight: bold;
+			font-size: px-em(20px);
+			color:#383838;
+			@extend .text-ellipsis;
+			@include screen-xs {margin-bottom:10px;}
+		}
+		em {
+			display: block;
+			margin-bottom:15px;
+			font-size: px-em(16px);
+			font-weight: bold;
+			color:#999;
+			@include screen-xs {margin-bottom:10px;}
+		}
+		p {
+			max-height:8.4em;
+			margin-bottom:15px;
+			overflow: hidden;
+			@include screen-xs {max-height:5.6em; margin-bottom:10px;}
+		}
+	}
+}
+
+/*- 圖片列表 -*/
+.pic-list {
+	margin-bottom:20px;
+	text-align: center;
+	li {
+		width:370px;
+		float:none;
+		display: inline-block;
+		margin:0 10px 17px 6px;
+		@include screen-md {width:300px;}
+		@include screen-sm {width:355px;}
+		@include screen-xs {width:48%; margin-left:0.5%; margin-right:0.3%;}
+		@include screen-xxs {display:block; width:100%; max-width:370px; margin:0 auto 15px auto;}
+		.thumb {
+			width:100%;
+			height:230px;
+			margin-bottom:8px;
+			overflow: hidden;
+			@include screen-md {height:186px;}
+			@include screen-sm {height:220px;}
+			@include screen-xs {height:168px;}
+			img {min-height:100%;}
+		}
+		h3 {
+			@extend .text-ellipsis;
+			height:1.2em;
+			margin-bottom:0;
+			font-size: px-em(16px);
+		}
+	}
+	.Share.p1 & {
+		li {
+			.thumb {
+				&:before, &:after {display:none;}
+				span {
+					display: block;
+					width: 100%;
+					height:100%;
+					padding:15px;
+					position:absolute;
+					left:100%; top:0;
+					text-align: left;
+					line-height: 140%;
+					font-weight: bold;
+					color:#fff;
+					background:hsla(0,0,0,0.5);
+					opacity: 0;
+					transition: opacity 0.3s, left 0.4s;
+					em {
+						display: block;
+						max-height: 9.8em;
+						padding:0 15px;
+						position:absolute;
+						left:0; top:40%;
+						transform: translateY(-50%);
+						overflow: hidden;
+						@include screen-md {max-height:7em;}
+						@include screen-sm {max-height:8.4em;}
+						@include screen-xs {max-height:5.6em;}
+					}
+					i {
+						display: block;
+						position:absolute;
+						right:15px; bottom:15px;
+						padding:5px 23px 5px 5px;
+						text-align: center;
+						letter-spacing: 0.1em;
+						font-weight: normal;
+						border:1px solid #fff;
+						transition: letter-spacing 0.3s;
+						&:before {
+							display: block;
+							content:"\f0a9";
+							font-family: "fontAwesome";
+							position:absolute;
+							right:5px;
+						}
+						&:hover {letter-spacing:0.2em;}
+					}
+				}
+				@include hover {
+					span {left:0; opacity:1;}
+				}
+			}
+		}
+	}
+}
+
+/*- 分類頁籤、下拉選單 -*/
+h2.float-l {
+	@include screen-sm {margin-bottom:15px;}
+}
+.category {
+	float:left;
+	margin-left:20px;
+	margin-top:-2px;
+	@include screen-xxs {margin-left:0; margin-top:0; margin-bottom:10px;}
+	li {
+		float:left;
+		margin-right:10px;
+		font-size: px-em(18px);
+		@include screen-xxs {margin-bottom:10px; font-size:px-em(16px);}
+		a {
+			display: block;
+			position:relative;
+			padding:6px 12px;
+			color:#999;
+			border:1px solid;
+			@include screen-xxs {padding:6px;}
+			&:after {
+				@include make-caret(down,#766F67,10px);
+				content:" ";
+				position:absolute;
+				left:50%;
+				bottom:-11px;
+				margin-left:-5px;
+				display:none;
+			}
+			@include hover {
+				color:#fff;
+				background:#766F67;
+				border-color:#766F67;
+				&:after {
+					display:block;
+					@include screen-xxs {display:none;}
+				}
+			}
+		}
+	}
+}
+.select {
+	float:left;
+	margin-left:15px;
+	line-height: 30px;
+	@include screen-xs {clear:both; float:none; margin-bottom:25px; margin-left:0;}
+	label {
+		position:relative;
+		margin-right:10px;
+		padding-left:10px;
+		font-size: px-em(16px);
+		font-weight: bold;
+		color:#666;
+		&:before {
+			content:" ";
+			position:absolute;
+			left:0; top:50%;
+			margin-top:-4px;
+			@include make-caret(right,#897662,10px);
+		}
+		&:not(:first-child) {
+			margin-left:12px;
+			@include screen-xxs {margin-left:0;}
+		}
+	}
+	select, input {padding:0 3px;}
+	br {
+		display: none;
+		@include screen-xxs {display:block;}
+	}
+
+	/* 遊學行程 */
+	.StudyTravel.p1 & {
+		float:right; margin-left:0;
+		@include screen-xs {float:none;}
+	}
+
+	/* 密集式體驗營 */
+	.StudyTravel.p4 & {
+		//@include screen-sm {clear:none;}
+	}
+
+	/* 海外留學 */
+	.StudyAbroad & {
+		select + label {
+			@include screen-xxs {margin-left:12px;}
+		}
+	}
+
+	/* 學員與家長肯定 */
+	.Share & {
+		//@include screen-sm {clear:none;}
+		@include screen-xs {margin-left:0;}
+		hr {
+			display:none;
+			@include screen-xxs {display:block; margin:8px 0 5px 0;}
+		}
+	}
+}
+
+/* 引言 */
+.quotes {
+	margin-bottom:35px;
+	background:none;
+	border:none;
+	@include screen-xxs {margin-bottom:20px;}
+	.slides {
+		li {
+			background:url('../images/Share/banner1.jpg') no-repeat center center;
+			&:nth-child(even) {background-image:url('../images/Share/banner2.jpg');}
+			.wrap {
+				height:100%;
+				position:relative;
+				.feedback {
+					width:70%;
+					max-height:14em;
+					padding: 0 75px;
+					position:absolute;
+					right:0; top:50%;
+					transform:translateY(-50%);
+					font-size: px-em(20px);
+					font-weight: bold;
+					overflow:hidden;
+					@include screen-sm {padding:0 62px; width:100%; max-height:9.6em;}
+					@include screen-xs {padding:0 59px; max-height:8.3em;}
+					@include screen-xxs {padding:0 54px; max-height:5.6em;}
+					&:before, &:after {
+						display: block;
+						width:55px; height:58px;
+						position:absolute;
+						color:#fff;
+						font-family: 'fontAwesome';
+						font-size: px-em(40px);
+						background-size:100%;
+						opacity: 0.5;
+						@include screen-sm {width:47px; height:49px; font-size: px-em(34px);}
+						@include screen-xs {width:41px; height:43px; font-size: px-em(30px);}
+						@include screen-xxs {width:36px; height:38px; font-size: px-em(26px);}
+					}
+					&:before {
+						content:"\f10d"; left:0; top:0;
+						@include screen-xs {left:8px;}
+				}
+					&:after {
+						content:"\f10e"; right:0; bottom:0;
+						@include screen-xs {right:8px;}
+					}
+					blockquote {
+						margin-bottom:10px;
+						line-height:140%;
+						@include screen-sm {margin-bottom:5px;}
+						a {
+							color:#fff;
+							&:hover {color:#f6f6f6;}
+						}
+					}
+					h4 {
+						margin-top:15px;
+						font-size: px-em(16px,20px);
+						color:#D13000;
+						text-shadow: 0 0 5px #fff;
+						@include screen-xs {margin-top:5px;}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* Component - 內容頁
+-----------------------------------------------------*/
+
+/*- 回列表 -*/
+.goBack {
+	height:auto;
+	padding:8px 20px;
+	float:right;
+	line-height: 100%;
+	color:#757575;
+	background:#fff;
+	border:1px solid #aaa;
+	border-radius:0;
+	@include screen-sm {float:none; margin-bottom:15px;}
+	@include hover {
+		color:#2aa5b5;
+		background:#fff;
+		border:1px solid #2aa5b5;
+	}
+}
+
+/*- 標題 -*/
+.title {
+	.styled {
+		padding-left:76px;
+		background:url('../images/iconH3-3.png') no-repeat 0 0;
+		em {
+			display: block;
+			color:#c8c8c8;
+			font-weight: 300;
+			font-style: italic;
+		}
+	}
+	h2.styled {
+		min-height: 55px;
+		.Share.p2 & {background-position:0 -120px;}
+		em {margin-top:4px; font-size: px-em(12px,26px); line-height:100%;}
+	}
+	h3.styled {
+		margin-bottom:20px;
+		padding:8px 0 8px 76px;
+		@include screen-sm {margin-bottom: 15px;}
+		em {margin-top:8px; font-size: px-em(12px,20px);}
+		.StudyAbroad & {background-image:url('../images/iconH3-4.png');}
+	}
+}
+
+/*- 內文區塊 -*/
+.article-content {
+	.StudyTravel &, .StudyAbroad &, .Share &, .Info &, .News & {
+		margin-left:43px;
+		@include screen-xxs {margin-left:18px;}
+	}
+}
+
+/*- 圖文區塊 -*/
+.grid {
+	/* AboutUs */
+	.AboutUs & {
+		width:555px;
+		@include screen-md {width:455px;}
+		@include screen-sm {
+			width:100%;
+			& + hr {display:none;}
+		}
+		@include screen-xxs {text-align: center;}
+		.thumb {
+			@include screen-sm {width:370px;float:left;margin-right:15px;}
+			@include screen-xs {width:300px;}
+			@include screen-xxs {width:100%; max-width:555px; margin-left:auto; margin-right:auto; float:none;}
+		}
+	}
+	.StudyTravel.p1 &, .StudyTravel.p4 & {
+			width:370px;
+			position: relative;
+			margin: 0 25px 0 0;
+			@include screen-md {width:306px;}
+			@include screen-sm {width:100%; @include clearfix;}
+			&:last-child {margin:0;}
+			header {
+				h4 {
+					position: absolute;
+					right:15px; top:125px;
+					font-size: px-em(32px);
+					font-weight: bold;
+					color:#fff;
+					letter-spacing: 0.072em;
+					text-shadow: 0 0 5px hsla(0,0,0,0.5);
+					@include screen-md {top:95px}
+					@include screen-sm {left:285px; top:125px;}
+					@include screen-xs {left:170px; top:72px;}
+				}
+			}
+			.thumb {
+				margin-bottom:16px;
+				@include screen-sm {float:left; margin:0 16px 8px 0;}
+				@include screen-xs {width:255px; height:119px;}
+				@include screen-xxs {float:none;}
+			}
+		}
+	.StudyTravel.p3 & {
+		width:360px;
+		@include screen-md  {width:293px;}
+		@include screen-sm {width:100%;}
+		@include screen-xs {
+			* {overflow:auto;}
+		}
+		.thumb {
+			@include screen-sm {float:left; margin:0 10px 10px 0;}
+			@include screen-xs {max-width:49%;}
+			@include screen-xxs {width: 100%; max-width:360px; float:none; margin:0 0 10px 0;}
+		}
+	}
+}
+
+/*- 相簿 -*/
+.gallery {
+	.StudyTravel & {
+		@include clearfix;
+		padding-bottom:40px;
+		background:url('../images/bg.png');
+		.tab-nav {
+			@include clearfix;
+			margin-bottom:30px;
+			li {
+				height:90px;
+				float:left;
+				margin-right:27px;
+				padding:8px 0;
+				font-weight: bold;
+				font-size: px-em(20px);
+				@include screen-xxs {height:60px;}
+				em {
+					display: block;
+					padding:8px 0;
+					color:#b8b8b8;
+					cursor: pointer;
+					i {
+						display: block;
+						margin-top:8px;
+						color:#7a7a7a;
+						font-weight: 300;
+						font-style: italic;
+						font-size: px-em(12px,20px);
+						@include screen-xxs {display:none;}
+					}
+					@include hover(true,true,false) {color:#fff;}
+				}
+				&.current {
+					width:233px;
+					padding:8px 38px;
+					background:url('../images/bgTab.gif') no-repeat;
+					@include screen-xxs {
+						width:160px;
+						padding:5px 38px;
+						background-size:150px auto;
+					}
+					em {
+						padding:8px 0 8px 76px;
+						color:#383838;
+						background:url('../images/iconH3-3.png') no-repeat 0 0;
+						i {color:#c8c8c8;}
+						@include screen-xxs {padding:8px 0;	background:none;}
+					}
+					&.photo {
+						em {background-position:0 -120px;}
+					}
+					&.video {
+						em {background-position:0 -239px;}
+					}
+				}
+			}
+		}
+		.gallery-slider {
+			width:890px;
+			height:560px;
+			position:relative;
+			float:left;
+			border:1px solid #fff;
+			@include screen-md {width:720px; height:453px;}
+			@include screen-sm {width:100%; height:472px; float:none;}
+			@include screen-xs {height:350px;}
+			@include screen-xxs {height:250px;}
+			li {
+				width:100%;
+				height:100%;
+				padding:2px;
+				position:absolute;
+				left:0; top:0;
+				text-align:center;
+				line-height: 550px;
+				@include screen-md {line-height: 443px;}
+				@include screen-sm {line-height: 462px;}
+				@include screen-xs {line-height:340px;}
+				@include screen-xs {line-height:240px;}
+				img {
+					max-height: 100%;
+					vertical-align:middle;
+				}
+			}
+		}
+		.gallery-slider-nav {
+			width:240px;
+			float:right;
+			padding:40px 0;
+			@include screen-md {width:216px; margin-top:-31px;}
+			@include screen-sm {width:100%; height:133px; float:none; margin-top:20px; padding:0 40px;}
+			@include screen-xs {width:604px; height:103px; padding:0 35px;}
+			@include screen-xxs {width:304px; height:66px;}
+			.als-viewport {
+				height: 480px;
+				@include screen-md {height:435px;}
+				ul {
+					li {
+						width:240px;
+						height: 150px;
+						position: relative;
+						margin:6px 0;
+						border:1px solid #fff;
+						overflow: hidden;
+						@include screen-md {width:216px; height:135px;}
+						@include screen-sm {width:212px; height:133px; margin:0 6px;}
+						@include screen-xs {width:165px; height:103px;}
+						@include screen-xxs {width:105px; height:66px;}
+						&:after {
+							content:"\f002";
+							display: block;
+							width:100%;
+							height: 100%;
+							position: absolute;
+							left: 0; top:0;
+							line-height: 40px;
+							font-family: 'fontAwesome';
+							font-size: 2em;
+							color:#fff;
+							background:hsla(0,0,0,0.5);
+							opacity: 0;
+							transition: line-height 0.3s, opacity 0.3s;
+						}
+						@include hover {
+							&:after {line-height: 140px; opacity:1;}
+							@include screen-xs {
+								&:after {line-height: 100px;}
+							}
+							@include screen-xxs {
+								&:after {line-height: 64px;}
+							}
+						}
+						img {
+							min-height: 100%;
+							width: 100%;
+							transition: opacity 0.3s;
+						}
+					}
+				}
+			}
+			.als-prev, .als-next {
+				font-size: px-em(60px);
+				color:#848484;
+				transition: color 0.3s;
+				@include hover {color:#aaa;}
+			}
+			.als-prev {
+				top:-20px; left:50%;
+				margin-left:-17px;
+				@include screen-sm {
+					top:50%; left:0;
+					margin-left:0;
+					margin-top:-30px;
+					.fa-angle-up:before {content:"\f104";}
+				}
+			}
+			.als-next {
+				bottom:-15px; right:50%;
+				margin-right:-17px;
+				@include screen-sm {
+					bottom:50%; right:0;
+					margin-right:0;
+					margin-bottom:-30px;
+					.fa-angle-down:before {content:"\f105";}
+				}
+			}
+		}
+		.embed {
+			iframe {
+				width:100% !important;
+				height:550px !important;
+				@include screen-md {height:456px !important;}
+				@include screen-sm {height:425px !important;}
+				@include screen-xs {height:421px !important;}
+				@include screen-xxs {height:257px !important;}
+			}
+		}
+	}
+	.Share &, .StudyTravel.p2 & {
+		@include clearfix;
+		padding:30px 0 40px 0;
+		background:#f4f4f4;
+		h3.styled {background-position:0 -120px;}
+		.caption {
+			@include clearfix;
+			font-weight: bold;
+			font-size: px-em(16px);
+			a {
+				float:right;
+				@include screen-xxs {
+					display: block;
+					float:none;
+					margin-top:5px;
+				}
+			}
+		}
+	}
+}
+
+/*- 點小圖放大圖 -*/
+.photos {
+	li {
+		float:left;
+		margin:5px;
+		border:1px solid #ddd;
+		.editor & {
+			list-style: none;
+			left:0;
+			margin:5px;
+		}
+		a {
+			display:block;
+			height:140px;
+			padding:4px;
+			background:#fff;
+			@include hover {background:#F7D445;}
+			img {min-width:100%; max-height:100%;}
+		}
+	}
+}
+
+/*- row1 行程簡介、學校簡介 -*/
+.intro {
+	padding-bottom:45px;
+	.Share &, .Info & {
+		h3.styled {background-position:0 -358px;}
+	}
+}
+
+/*- row2 課程住宿 -*/
+.course {
+	.StudyTravel & {
+		@include clearfix;
+		padding:35px 0;
+		background: #f9f9f9;
+		h3.styled {
+			margin-bottom:34px;
+			background-position:0 -358px;
+			@include screen-sm {margin-bottom:28px;}
+		}
+	}
+}
+
+/*- row3 說明會 -*/
+.orientation {
+	@include clearfix;
+	padding:35px 0;
+	background:#f0f0f0;
+	.join {
+		width:670px;
+		float:left;
+		@include screen-md {width:620px;}
+		@include screen-sm {width:100%; float:none; margin-bottom:25px;}
+		h3.styled {background-position:0 -478px;}
+	}
+	.apply {
+		width:445px;
+		float:right;
+		box-shadow: 0 0 3px hsla(0,0,0,0.2);
+		@include screen-md {width:320px;}
+		@include screen-sm {width:90%; float:none; margin:0 auto;}
+		header {
+			h3 {
+				height:auto;
+				padding:0;
+				background:none;
+			}
+		}
+	}
+}
+
+/*- row4 學校特色 -*/
+.feature {
+	@include clearfix;
+	padding:30px 0 40px 0;
+	background:#f4f4f4;
+	overflow: hidden;
+	h3.styled {background-position:0 -95px;}
+	.gallery {
+		width:45%;
+		float:right;
+		border:2px solid #fff;
+		border-radius:0;
+		position: relative;
+		margin: 0 0 0 20px;
+		padding:4px;
+		background:none;
+		@include screen-xxs {width:100%; float:none; margin:0 0 20px 0;}
+		.slides {
+			height:330px;
+			background:#fff;
+			@include screen-md {height:271px;}
+			@include screen-sm {height:208px;}
+			li {
+				height:100%;
+				figure {
+					height:100%;
+					line-height: 320px;
+					text-align: center;
+					@include screen-md {line-height:265px;}
+					@include screen-sm {line-height:208px;}
+					img {
+						display: inline-block;
+						vertical-align:middle;
+						width:auto;
+						max-width: 100%;
+						max-height:100%;
+					}
+				}
+			}
+		}
+		.flex-direction-nav {
+			a {
+				&:before {font-family: 'fontAwesome';}
+				&.flex-prev {
+					&:before {content:"\f104";}
+				}
+				&.flex-next {
+					&:before {content:"\f105";}
+				}
+			}
+		}
+		.flex-control-nav {
+			bottom:-25px;
+			li {
+				margin:0;
+				padding:0 4px;
+				a {
+					display: block;
+					width:8px;
+					height:8px;
+					margin:3px 0;
+					color:transparent;
+					background:#ccc;
+					border-radius:4px;
+					opacity: 1;
+					box-shadow:none;
+					&.flex-active {background:#C9323C;}
+				}
+			}
+		}
+	}
+}
+
+/*- row5 學校資訊 -*/
+.info {
+	.StudyAbroad & {
+		@include clearfix;
+		padding:40px 0;
+		[class*="info"] {
+			@extend .half;
+			width:45%; margin:0 2.5%;
+			@include screen-sm {width:100%; float:none; margin:0 0 30px 0;}
+			h3.styled {background-position:0 -286px;}
+			&:first-child {
+				h3.styled {background-position:0 -191px;}
+			}
+		}
+	}
+}
+
+/*- Google 地圖 -*/
+#map {height:100%;}
+
+
+/* Editor
+-----------------------------------------------------*/
+.editor {
+	overflow:auto;
+	& + & {margin-top:30px;}
+
+	/* Basic Elements (for styles & format) */
+
+	// paragraph & inline elements
+	.thumb {border:4px solid #e9e9e9; height:auto !important;}
+
+	// heading
+	h1, h2, h3, h4, h5, h6 {line-height: 140%;}
+	h1 {font-size:px-em(30px); margin-bottom:20px;}
+	h2 {font-size:px-em(26px); margin-bottom:15px;}
+	h3 {font-size:px-em(22px); margin-bottom:10px;}
+	h4 {font-size:px-em(20px); margin-bottom:10px;}
+	h5 {font-size:px-em(18px); margin-bottom:10px;}
+	h6 {font-size:px-em(16px); margin-bottom:10px;}
+
+	// other elements
+	ul,ol {
+		margin-bottom:15px;
+		li {
+			position:relative;
+			line-height: 140%;
+			> ul,ol {margin-bottom:5px;}
+		}
+		&.list-icon, &.list-no-icon, &.list-styled {
+			li {list-style: none; left:0; margin-right:0;}
+		}
+	}
+	ul {
+		li {
+			left: 1em;
+			margin-right: 1em;
+			list-style: disc;
+		}
+	}
+	ol {
+		li {
+			left: 2.2em;
+			margin-right: 2.2em; 
+			list-style: decimal;
+		}
+	}
+	hr {clear:none;}
+
+	/* Customized layout & elements (for inline editing mode) */
+	.title {
+		h3 {
+			margin-bottom:20px;
+			background-image:url('../images/iconH3.gif');
+			@include screen-sm {margin-bottom:15px;}
+		}
+	}
+	&:nth-child(even) {
+		.title h3 {background-image:url('../images/iconH3-2.gif');}
+	}
+	.float-l, .float-r {
+		max-width: 100%;
+		@include screen-sm {max-width:48%;}
+		@include screen-xxs {max-width:100%; float:none;}
+	}
+	.float-l {
+		margin:0 15px 15px 0;
+		@include screen-xs {margin:0 10px 10px 0;}
+		@include screen-xxs {margin:0 0 10px 0;}
+	}
+	.float-r {
+		margin:0 0 15px 15px;
+		@include screen-xs {margin:0 0 10px 10px;}
+		@include screen-xxs {margin:0 0 10px 0;}
+	}
+	.article-content {
+		@include clearfix;
+		margin-left:43px;
+		@include screen-xxs {margin-left:18px;}
+	}
+}
+
+
+/* working
+-----------------------------------------------------*/
+.working {
+	padding-bottom:40px;
+	text-align:center;
+	p {
+		font-size:px-em(16px);
+	}
+}

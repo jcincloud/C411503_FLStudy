@@ -1,0 +1,52 @@
+﻿@model ProcCore.Business.DB0.TestInfo
+@{
+    ViewBag.Title = Model.category_name;
+    if (Model.category == 9001)
+    {
+        ViewBag.BodyClass = "StudyAbroad p2";
+    }
+    else if (Model.category == 9002)
+    {
+        ViewBag.BodyClass = "StudyAbroad p3";
+    }
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+    <li><a href="~/Index">首页</a></li>
+    <li><a href="~/StudyAbroad">海外留学</a></li>
+    <li>@ViewBag.Title</li>
+</ul>
+
+<div id="content">
+
+    <section class="intro wrap">
+
+        <header class="title">
+            @if (Model.category == 9001)
+            {
+                <a href="~/StudyAbroad/p2" class="btn goBack">回列表</a>
+            }
+            else if (Model.category == 9002)
+            {
+                <a href="~/StudyAbroad/p3" class="btn goBack">回列表</a>
+            }
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+        <article>
+            <header class="title">
+                <h3 class="styled">@Model.title<em>Introduction</em></h3>
+            </header>
+            <div class="article-content editor">
+                @if (Model.imgsrc != null & Model.imgsrc != "" && Model.imgsrc != "../../Content/images/no-pic.jpg")
+                {
+                    <p class="float-r"><img data-src="@Model.imgsrc" alt="" class="thumb"></p>
+                }
+                @Html.Raw(Model.test_info_content)
+            </div>
+        </article>
+
+    </section>
+
+</div>

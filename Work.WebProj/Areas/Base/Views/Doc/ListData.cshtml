@@ -1,0 +1,39 @@
+﻿@model  IEnumerable<DotWeb.Controller.DocInfo>
+
+@using DotWeb.Controller;
+@{
+    Layout = "~/Views/Shared/Manage/RLayout.cshtml";
+    ViewBag.MenuName = "系統設定";
+    ViewBag.Caption="教學影片";
+}
+@section IncludeScript{
+    @Html.Partial("Manage/jsCommVar")
+    <script src="~/Scripts/build/comminc.js"></script>
+    <script>
+        var getRootDOM = document.getElementById('content');
+        var rootParm = { menuName: '@ViewBag.MenuName', caption: '@ViewBag.Caption' };
+        //var compObject = React.render(React.createElement(GirdForm, rootParm), getRootDOM);
+    </script>
+    
+}
+@section sidebar{
+    @Html.Partial("Manage/vucMenu")
+}
+
+<ul class="breadcrumb">
+    <li><i class="fa-list-alt"></i> @ViewBag.MenuName</li>
+</ul>
+
+<h3 class="title">@ViewBag.Caption</h3>
+
+<div class="alert alert-warning" role="alert">
+    <p>1. 如無法觀看操作教學影片，請<a class="alert-link" href="http://get.adobe.com/shockwave/" target="new">按此下載 Flash 播放器</a>並安裝。</p>
+    <p>2. 影片開啟後，可點選右上方的 <i class="fa-arrows-alt"></i> 圖示，以全螢幕方式觀看。</p>
+</div>
+
+<ul class="list-link list-unstyled">
+    @foreach (DocInfo doc in Model)
+    {
+    <li><a href="@doc.Link" target="new"><i>@doc.Sort</i>@doc.Momo</a></li>
+    }
+</ul>

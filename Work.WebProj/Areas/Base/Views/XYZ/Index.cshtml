@@ -1,0 +1,107 @@
+﻿@section IncludeScript{
+    @Html.Partial("includeScript_Comm")
+    @Html.Partial("includeScript_Grid")
+}
+<script type="text/javascript" src="@(Url.Content("~"))_Code/JQScript/ajaxfileupload.js"></script>
+@section menu{}
+@{
+    MVCFormHelper mFormHelper = new MVCFormHelper(this.ViewContext, CommWebSetup.eleNameMasterDataForm);
+}
+@Html.DropDownList("f_folders", (List<SelectListItem>)ViewData["Folders"])<br />
+檔案：<select id="f_files"></select>
+<input type="button" id="ClientDownFile" value="下載" /><br />
+上傳：<input type="file" id="ClientUpFile" name="ClientUpFile" value="" />
+<input type="button" id="upfile" value="上傳" />
+<progress></progress>
+@{mFormHelper.FormEnd();}
+SQL：<br />
+<textarea cols="90" rows="5" id="textSQL" name="textSQL"></textarea>
+<input type="button" id="QuerySQL" value="查詢" />
+
+<table id="showdata" style="width:100%;">
+<thead></thead>
+<tbody></tbody>
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#f_folders').selectajax({
+            relation_element: $('#f_files'),
+            data_url: 'GetFilesList'
+        });
+
+        $('#upload').change(function () {
+        });
+
+        $('#upfile').click(function () {
+            $.ajaxFileUpload
+		    (
+			    {
+			        url: 'ajax_UploadFiles',
+			        secureuri: false,
+			        fileElementId: 'ClientUpFile',
+			        dataType: 'json',
+			        data: { path: $('#f_folders').val() },
+			        success: function (data, status) {
+
+			            if (data.result)
+			                $("#textSQL").val('Upload Finish');
+			            else
+			                alert(data.message);
+			        },
+			        error: function (data, status, e) {
+			            alert(e);
+			        }
+			    })
+        });
+    });
+
+    (function ($) {
+    })(jQuery);
+
+    function progressHandlingFunction(e) {
+        if (e.lengthComputable) {
+            $('progress').attr({ value: e.loaded, max: e.total });
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#QuerySQL').click(function () {
+
+            $.post('ajax_SQLExecute', { SQL: $("#textSQL").val() })
+                .done(function (data, textStatus, jqXHR) {
+                    var jsonObject = jQuery.parseJSON(data);
+
+                    if (jsonObject.result) {
+
+                        var tabColumn = $('thead', $('#showdata'));
+                        tabColumn.html('');
+
+                        var colums = jsonObject.Columns;
+                        var trobj = $('<tr style="background-color:#CCCCff">');
+                        for (var i = 0; i < colums.length; i++)
+                            trobj.append($('<td style="border:1px;margin:3px;padding:3px;border-style:solid">').html(colums[i]));
+
+                        tabColumn.append(trobj);
+
+                        var tabBody = $('tbody', $('#showdata'));
+                        tabBody.html('');
+
+                        for (var j = 0; j < jsonObject.DataItems.length; j++) {
+                            var trobj = $('<tr>');
+                            for (var i = 0; i < colums.length; i++)
+                                trobj.append($('<td style="border:1px;margin: 10 px;padding: 10 px;border-style:solid">').html(jsonObject.DataItems[j][i]));
+
+                            tabBody.append(trobj);
+                        }
+                    }
+                    else
+                        alert(jsonObject.message);
+
+                })
+        })
+    })
+</script>

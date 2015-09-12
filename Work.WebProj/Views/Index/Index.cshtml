@@ -1,0 +1,365 @@
+﻿@model DotWeb.Controllers.IndexInfo
+@{
+    ViewBag.Title = "";
+    ViewBag.BodyClass = "Index";
+    ViewBag.IsFirstPage = true;
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@section css {
+    <link rel="stylesheet" href="~/Scripts/vendor/flexSlider/flexslider.css">
+    <link rel="stylesheet" href="~/Scripts/vendor/als/als.css">
+}
+@section Scripts {
+    <script src="~/Scripts/vendor/flexSlider/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/vendor/als/jquery.als-1.7.min.js"></script>
+    <script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $('#banner').flexslider({
+                pauseOnAction: false
+            });
+
+            $('.quotes').flexslider({
+                smoothHeight: true,
+                pauseOnAction: false,
+                controlNav: false,
+                directionNav: false
+            });
+
+            marqueeRWD();
+
+            // tab switcher - 預設顯示第一個
+            $(".tab-nav li:first-child").addClass('current');
+            var tab1 = $(".tab-nav li:first-child").attr("rel");
+            $(tab1).fadeIn().siblings().hide();
+            // tab switcher
+            $(".tab-nav li").click(function () {
+                $(this).addClass('current').siblings().removeClass('current');
+                var tab = $(this).attr("rel");
+                $(tab).fadeIn().siblings().hide();
+                $('html, body').trigger('scroll'); //for lazyload
+                return false;
+            });
+
+        });
+
+        function marqueeRWD() {
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (width > 1200) {
+                $("#marquee1").als({
+                    visible_items: 4,
+                    scrolling_items: 2,
+                    circular: "yes",
+                    autoscroll: "yes"
+                });
+            }
+            if (width > 767 && width < 1200) {
+                $("#marquee1").als({
+                    visible_items: 3,
+                    scrolling_items: 1,
+                    circular: "yes",
+                    autoscroll: "yes"
+                });
+            }
+            if (width > 620 && width < 768) {
+                $("#marquee1").als({
+                    visible_items: 2,
+                    scrolling_items: 1,
+                    circular: "yes",
+                    autoscroll: "yes"
+                });
+            }
+            if (width < 621) {
+                $("#marquee1").als({
+                    visible_items: 1,
+                    scrolling_items: 1,
+                    circular: "yes",
+                    autoscroll: "yes"
+                });
+            }
+            if (width > 991) {
+                $("#marquee2").als({
+                    visible_items: 2,
+                    scrolling_items: 1,
+                    circular: "yes",
+                    autoscroll: "yes"
+                });
+            }
+            if (width > 620 && width < 992) {
+                $("#marquee2").als({
+                    visible_items: 2,
+                    scrolling_items: 1,
+                    orientation: "vertical",
+                    circular: "yes",
+                    autoscroll: "yes"
+                });
+            }
+            if (width < 621) {
+                $("#marquee2").als({
+                    visible_items: 1,
+                    scrolling_items: 1,
+                    circular: "yes",
+                    autoscroll: "yes"
+                });
+            }
+        }
+    </script>
+}
+@section Banner {
+    <div class="flexslider" id="banner">
+        <ul class="slides">
+            @foreach (var item in Model.banner)
+            {
+                <li>
+                    <figure>
+                        <a href="@item.banner_url"><img data-src="@item.imgsrc" alt=""></a>
+                        <figcaption>
+                            <a href="@item.banner_url">@item.banner_name</a>
+                        </figcaption>
+                    </figure>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+<div class="intro">
+    <div class="wrap">
+
+        <div class="tour">
+            <ul class="tab-nav">
+                <li rel="#tab1">HOT 行程</li>
+                <li rel="#tab2">寒假行程</li>
+                <li rel="#tab3">暑假行程</li>
+            </ul>
+            <div class="tab-content">
+                <section id="tab1">
+                    <header class="hidden"><h2>HOT 行程</h2></header>
+                    @foreach (var item in Model.hot)
+                    {
+                        <article class="pic-article">
+                            <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
+                                <img data-src="@item.imgsrc" alt="">
+                                <span>
+                                    <em>@item.intro</em>
+                                    <i>READ MORE</i>
+                                </span>
+                            </a>
+                            <header><h3>@item.planning_name</h3></header>
+                        </article>
+                    }
+                    <a href="~/StudyTravel?category=0" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
+                </section>
+                <section id="tab2">
+                    <header class="hidden"><h2>寒假行程</h2></header>
+                    @foreach (var item in Model.winter)
+                    {
+                        <article class="pic-article">
+                            <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
+                                <img data-src="@item.imgsrc" alt="">
+                                <span>
+                                    <em>@item.intro</em>
+                                    <i>READ MORE</i>
+                                </span>
+                            </a>
+                            <header><h3>@item.planning_name</h3></header>
+                        </article>
+                    }
+                    <a href="~/StudyTravel?category=1001" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
+                </section>
+
+                <section id="tab3">
+                    <header class="hidden"><h2>暑假行程</h2></header>
+                    @foreach (var item in Model.summer)
+                    {
+                        <article class="pic-article">
+                            <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
+                                <img data-src="@item.imgsrc" alt="">
+                                <span>
+                                    <em>@item.intro</em>
+                                    <i>READ MORE</i>
+                                </span>
+                            </a>
+                            <header><h3>@item.planning_name</h3></header>
+                        </article>
+                    }
+                    <a href="~/StudyTravel?category=1002" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
+                </section>
+            </div>
+        </div>
+
+        <aside class="apply">
+            <header><h3>免費索取簡章</h3></header>
+            <div id="ContactUsContent"></div>
+        </aside>
+
+    </div>
+</div><!-- intro // -->
+
+<div class="info">
+    <div class="wrap">
+
+        <section class="news">
+            <header><h2>最新消息</h2></header>
+            @foreach (var item in Model.news)
+            {
+                <article class="pic-article">
+                    <a href="~/News/Content?id=@item.news_id" class="thumb"><img data-src="@item.imgsrc" alt=""></a>
+                    <header><h3>@item.title</h3></header>
+                    <p>@item.list_intro</p>
+                    <a href="~/News/Content?id=@item.news_id" class="btn2">MORE</a>
+                </article>
+            }
+            <a href="~/News" class="more">All news</a>
+        </section>
+
+        <section class="news2">
+            <header><h2>留學資訊</h2></header>
+            @foreach (var item in Model.helpfulinfo)
+            {
+                <article class="pic-article">
+                    <a href="~/Info/p1_content?id=@item.helpful_info_id" class="thumb"><img data-src="@item.imgsrc" alt=""></a>
+                    <header><h3>@item.title</h3></header>
+                    <p>@item.list_intro</p>
+                    <a href="~/Info/p1_content?id=@item.helpful_info_id" class="btn2">MORE</a>
+                </article>
+            }
+            <a href="~/Info" class="more">All information</a>
+        </section>
+
+    </div>
+</div><!-- info // -->
+
+<section class="gallery">
+    <div class="wrap">
+        <header><h2>精彩照片分享</h2><span>為自己的成長過程留下美好的回憶</span></header>
+        <a href="~/Share/p5" class="btn2">MORE</a>
+        <div class="marquee als-container" id="marquee1">
+            <span class="als-prev"><i class="fa-angle-left"></i></span>
+            <div class="als-viewport">
+                <ul class="pic-list als-wrapper">
+                    @foreach (var item in Model.albums)
+                    {
+                        <li class="als-item">
+                            <article>
+                                <a href="~/Share/p5_content?id=@item.albums_id" class="thumb"><img src="@item.imgsrc" alt=""></a>
+                                <header><h3>@item.title</h3></header>
+                            </article>
+                        </li>
+                    }
+         @*<li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery1.jpg" alt=""></a>
+                    <header><h3>2014 新加坡 - 環球影城</h3></header>
+                </article>
+            </li>
+            <li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery2.jpg" alt=""></a>
+                    <header><h3>澳洲黃金海岸生態教育之旅</h3></header>
+                </article>
+            </li>
+            <li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery3.jpg" alt=""></a>
+                    <header><h3>曙光女中新加坡國際教育之旅</h3></header>
+                </article>
+            </li>
+            <li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery4.jpg" alt=""></a>
+                    <header><h3>澳洲 HOMESTAY 全紀錄</h3></header>
+                </article>
+            </li>
+            <li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery1.jpg" alt=""></a>
+                    <header><h3>2014 新加坡 - 環球影城</h3></header>
+                </article>
+            </li>
+            <li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery2.jpg" alt=""></a>
+                    <header><h3>澳洲黃金海岸生態教育之旅</h3></header>
+                </article>
+            </li>
+            <li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery3.jpg" alt=""></a>
+                    <header><h3>曙光女中新加坡國際教育之旅</h3></header>
+                </article>
+            </li>
+            <li class="als-item">
+                <article>
+                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery4.jpg" alt=""></a>
+                    <header><h3>澳洲 HOMESTAY 全紀錄</h3></header>
+                </article>
+            </li>*@
+                    @* 至少8張輪播 *@
+                </ul>
+
+            </div>
+            <span class="als-next"><i class="fa-angle-right"></i></span>
+        </div>
+    </div>
+</section><!-- gallery // -->
+
+<div class="share">
+    <div class="wrap">
+        <section class="feedback">
+            <header class="hidden"><h2>聽聽我們的學員和家長怎麼說</h2></header>
+            <div class="quotes flexslider">
+                <ul class="slides">
+                    @foreach (var item in Model.feedback)
+                    {
+                        <li>
+                            <article class="quote">
+                                <blockquote>
+                                    <p><a href="~/Share/p1_content?id=@item.feedback_id">@item.feedback_sort</a></p>
+                                </blockquote>
+                                <header><h3>@item.title</h3></header>
+                            </article>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="marquee als-container" id="marquee2">
+                <div class="als-viewport">
+                    <ul class="pic-list als-wrapper">
+                        @foreach (var item in Model.feedback)
+                        {
+                            <li class="als-item">
+                                <article>
+                                    <a href="~/Share/p1_content?id=@item.feedback_id" class="thumb">
+                                        <img src="@item.imgsrc" alt="">
+                                        <span>
+                                            <em>@item.feedback_content</em>
+                                            <i>READ MORE</i>
+                                        </span>
+                                    </a>
+                                    <header><h3>@item.title</h3></header>
+                                </article>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <aside class="fb">
+            <header class="hidden"><h2>Facebook</h2></header>
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-page" data-href="https://www.facebook.com/Fruitful.Learning" data-width="340" data-height="395" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Fruitful.Learning"><a href="https://www.facebook.com/Fruitful.Learning">富學海外遊留學有限公司</a></blockquote></div></div>
+        </aside>
+    </div>
+</div><!-- share // -->
+<script src="~/Scripts/build/commincW.js"></script>
+<script src="~/Scripts/build/func/w-contactUs_index.js"></script>

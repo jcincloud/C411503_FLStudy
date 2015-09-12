@@ -1,0 +1,135 @@
+﻿@model ProcCore.Business.DB0.c_AspNetUsers
+@using Resources
+@{
+    ViewBag.Caption = MvcSiteMapProvider.SiteMaps.Current.CurrentNode.Title;
+    ViewBag.MenuName = MvcSiteMapProvider.SiteMaps.Current.CurrentNode.ParentNode.Title;
+    string popWindowTitle = "使用者【編輯】";
+    string popWindowID = "Edit";
+    string popWindowSize = null;
+}
+@section IncludeCSS{
+}
+
+@section IncludeScript{
+    @Html.Partial("Manage/jsCommVar")
+    <script>
+        var Info_Insert_Success = '@Resources.Res.Info_Insert_Success';
+        var Info_Update_Success = '@Resources.Res.Info_Update_Success';
+    </script>
+    @Scripts.Render("~/usersController")
+}
+@section sidebar{
+    @Html.Partial("Manage/vucMenu")
+}
+<h3 class="title">
+    <span>@ViewBag.Caption</span>
+</h3>
+
+<form ng-submit="Init_Query()">
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-xs-1 text-center">
+                        <label class="cbox">
+                            <input type="checkbox" ng-click="SelectAllCheckDel($event)">
+                            <i class="fa-check"></i>
+                        </label>
+                    </th>
+                    <th class="col-xs-1 text-center">@Res.Button_Modify</th>
+                    <th class="col-xs-3">@Html.Lang(x => x.m.Id)</th>
+                    <th class="col-xs-3">@Html.Lang(x => x.m.UserName)</th>
+                    <th class="col-xs-4">@Html.Lang(x => x.m.Email)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr bindonce ng-repeat="gd in Grid_Items">
+                    <td class="text-center">
+                        <label class="cbox">
+                            <input type="checkbox" ng-model="@Html.ngName(x => x.m.check_del, Html.ngGD())" />
+                            <i class="fa-check"></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <button class="btn-link btn-lg"
+                                data-toggle="modal" data-target="#@popWindowID"
+                                ng-click="Master_Open_Modify($index)"
+                                title="@Resources.Res.Button_Sure_Modify">
+                            <i class="fa-pencil"></i>
+                        </button>
+                    </td>
+                    <td>{{@Html.ngName(x => x.m.Id, Html.ngGD())}}</td>
+                    <td>{{@Html.ngName(x => x.m.UserName, Html.ngGD())}}</td>
+                    <td>{{@Html.ngName(x => x.m.Email, Html.ngGD())}}</td>
+                </tr>
+            </tbody>
+        </table><!-- table本體 -->
+
+        <div class="table-footer">
+            @Html.Partial("Manage/GridPager", new IncludePagerParm() { show_add = false, show_del = false })
+        </div><!-- table-footer -->
+
+    </div><!-- table外殼 -->
+</form>
+
+@using (Html.popWindow("show_master_edit", "Master_Edit_Close()", popWindowTitle, popWindowID, popWindowSize))
+{
+    <form class="form-horizontal" ng-submit="Master_Submit()">
+
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label for="" class="col-xs-2  control-label">@Html.Lang(x => x.m.UserName)</label>
+                <div class="col-xs-6">
+                    <input class="form-control" type="text" ng-model="@Html.ngName(x => x.m.UserName, Html.ngFD())" maxlength="16" required />
+                </div>
+                <small class="help-inline text-danger col-xs-2">必填</small>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-xs-2  control-label">@Html.Lang("Email")</label>
+                <div class="col-xs-6">
+                    <input class="form-control" type="email" ng-model="fd.Email" maxlength="64" required />
+                </div>
+                <small class="help-inline text-danger col-xs-2">必填</small>
+            </div>
+
+            <div class="form-group" ng-show="isPassword">
+                <label for="" class="col-xs-2  control-label">@Html.Lang("Password")</label>
+                <div class="col-xs-6">
+                    <input class="form-control" type="password" ng-model="fd.Password" maxlength="16" ng-required="isPassword" />
+                </div>
+                <small class="help-inline text-danger col-xs-2">必填</small>
+            </div>
+
+            <div class="form-group" ng-show="isPassword">
+                <label for="" class="col-xs-2  control-label">@Html.Lang("ConfirmPassword")</label>
+                <div class="col-xs-6">
+                    <input class="form-control" type="password" ng-model="fd.ConfirmPassword" maxlength="16" ng-required="isPassword" />
+                </div>
+                <small class="help-inline text-danger col-xs-2">必填</small>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="col-xs-2  control-label">@Html.Lang("Role")</label>
+                <div class="col-xs-6">
+                    <div class="checkbox-inline" ng-repeat="m in fd.role_array">
+                        <label>
+                            <input type="checkbox" ng-model="m.role_use" />
+                            <span>{{m.role_name}}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <small class="help-inline text-danger col-xs-2">必填</small>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" class="btn-primary"><i class="fa-check"></i> @Resources.Res.Button_Sure</button>
+            <button type="button" data-dismiss="modal"><i class="fa-times"></i> 取消並關閉</button>
+        </div>
+
+    </form>
+}

@@ -1,0 +1,122 @@
+@charset "utf-8";
+
+/*	  CSS reset::YUI 3.6.0 (20130312)
+-----------------------------------------------------------------------*/
+body,div,
+dl,dt,dd,ul,ol,li,
+h1,h2,h3,h4,h5,h6,
+pre,code,
+form,fieldset,legend,input,textarea,
+p,blockquote,
+th,td{margin:0;padding:0;vertical-align:baseline;vertical-align:bottom\9;}
+
+body{line-height:1;-webkit-text-size-adjust:none;} /* -webkit-...消除chrome的最小字型限制 */
+
+table{border-collapse:collapse;border-spacing:0}
+
+fieldset,img{border:0}
+
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+
+ol,ul{list-style:none}
+
+caption,th{text-align:left}
+
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: ''; content: none;}
+
+abbr,acronym{border:0;font-variant:normal}
+
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}
+input,textarea,select{*font-size:100%}
+
+
+a,a:link,a:active,a:visited {
+	text-decoration: none;
+	vertical-align:baseline; vertical-align:middle\9;
+	outline: none; /* ff 消除虛線框*/
+	blur:expression(this.onFocus=this.blur()); /* ie消除虛線框 */
+	}
+a:focus {
+	outline: none;
+	-moz-outline-style: none; /* ff 消除虛線框 */
+	}
+
+
+/*	  basic elements
+-----------------------------------------------------------------------*/
+body {
+	background: #454F4F url('bg.gif') repeat-y center 0;
+	color: #F2F2F2;
+	font: 1em/140% '微軟正黑體', 'Microsoft JhengHei', Georgia, sans-serif;
+	}
+html,body {
+	height:100%;
+	text-align:center;
+	}
+
+a {
+	color:#AFD3D6;
+	line-height:120%;
+	
+	-webkit-transition: color .5s ease;
+	-moz-transition: color .5s ease;
+	-o-transition: color .5s ease;
+	transition: color .5s ease;
+	}
+a:hover {
+	color: #fff;
+	}
+
+h1 {
+	color:#7A9191;
+	font-size:2.1em;
+	font-weight:bold;
+	margin:25px 0;
+	}
+
+h3 {
+	font-size:1.2em;
+	font-weight:bold;
+	text-align:left;
+	margin:30px 0 10px 15px;
+	}
+
+p {
+	font-size:1.2em;
+	font-weight:bold;
+	line-height:150%;
+	text-align:left;
+	margin:0 15px;
+	}
+
+#main { 
+	background: url('line.gif') no-repeat center 245px;
+	width:890px; height:480px;
+	padding:20px 15px;
+	position: absolute;
+	top:50%; left:50%;
+	margin-top:-270px;
+	margin-left:-460px;
+	}
+	
+li {
+	background: url('browBg.png') no-repeat center 0;
+	_background: url('browBg.gif') no-repeat center 0;
+	float:left; display:inline;
+	width:222px; height:204px;
+	}
+li a {
+	display:block;
+	padding-top:150px;
+	}
+.brow a { background: url('brow.gif') no-repeat center 40px; }
+.brow2 a { background: url('brow2.gif') no-repeat center 28px; }
+.brow3 a { background: url('brow3.gif') no-repeat center 30px; }
+.brow4 a { background: url('brow4.gif') no-repeat center 20px; }

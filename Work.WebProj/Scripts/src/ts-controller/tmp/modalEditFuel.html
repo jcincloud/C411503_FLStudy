@@ -1,0 +1,48 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">使用燃料編輯</h3>
+</div>
+<form class="form-horizontal" ng-submit="submitFuel_Apply()">
+    <div class="modal-body">
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label">燃料種類</label>
+            <div class="col-xs-9">
+                <select class="form-control"
+                        ng-model="fuel.category"
+                        ng-options="m.code as m.value for m in fuelCategory"
+                        required></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">燃料名稱</label>
+            <div class="col-xs-9">
+                <input class="form-control" type="text" ng-model="fuel.category_name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">低熱值</label>
+            <div class="col-xs-4">
+                <input class="form-control" type="number" ng-model="fuel.low_hot_value" />
+            </div>
+            <label class="col-xs-1 control-label">單位</label>
+            <div class="col-xs-4">
+                <select ng-model="fuel.low_hot_unit" ng-options="m.unit_all_name as m.unit_all_name for m in get_fuel_unit"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label">燃料量</label>
+            <div class="col-xs-4">
+                <input class="form-control" type="number" ng-model="fuel.year_fuel_amount" />
+            </div>
+            <label class="col-xs-1 control-label">單位</label>
+            <div class="col-xs-4">
+                <select ng-model="fuel.year_fuel_unit" ng-options="m.unit_short_name as m.unit_short_name for m in get_fuel_unit"></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">送出</button>
+        <button class="btn btn-warning" type="button" ng-click="close()">關閉</button>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/Manage/RLayout.cshtml";
+}
+@section IncludeCSS{
+    <link rel="stylesheet" href="~/Content/css/bootstrap-datetimepicker-build.css" />
+}
+@section IncludeScript{
+    @Html.Partial("Manage/jsCommVar")
+
+    <script src="~/Scripts/build/comminc.js"></script>
+
+    <script src="http://clouddelivery.textbox.io/1/getEditor?apiKey=rt9as2ywyb3kx0j90wysvmc9sv9t49eajs6q0omnpn7u8umi"></script>
+    <script type="text/javascript" src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+
+    	var editor = textboxio.replace('#editor');
+
+        tinymce.init({
+            selector: "#editor2",
+            plugins: [
+         "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+         "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+         "table contextmenu directionality emoticons paste textcolor responsivefilemanager"
+   ],
+   toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+   toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+   image_advtab: true ,
+   
+   external_filemanager_path:"/filemanager/",
+   filemanager_title:"Responsive Filemanager" ,
+   external_plugins: { "filemanager" : "/filemanager/plugin.min.js"}
+        });
+
+    </script>
+}
+@section sidebar{
+    @Html.Partial("Manage/vucMenu")
+}
+
+<h1>textbox.io</h1>
+
+<textarea id="editor"> 這是 textbox.io </textarea>
+
+<h1>tinyMCE</h1>
+
+<textarea id="editor2"> 這是 tinyMCE </textarea>

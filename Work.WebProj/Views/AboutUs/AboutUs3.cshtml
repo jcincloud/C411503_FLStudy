@@ -1,0 +1,109 @@
+﻿@model IList<ProcCore.Business.DB0.InfoDetail>
+@{
+ViewBag.Title = "語言的重要性";
+ViewBag.BodyClass = "AboutUs p3";
+Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<ul class="breadcrumb">
+	<li><a href="~/Index">首頁</a></li>
+	<li><a href="~/AboutUs">大家都選擇富學</a></li>
+	<li>@ViewBag.Title</li>
+</ul>
+
+<div id="content">
+	
+    <section class="wrap">
+
+        <header class="title">
+            <h2>@ViewBag.Title</h2>
+        </header>
+
+        @foreach (var item in Model)
+        {
+            if (item.stereotype == 1)
+            {
+                <article class="editor">
+                    <header class="title">
+                        <h3>@item.detail_title</h3>
+                    </header>
+                    <div class="article-content">
+                        @Html.Raw(item.detail_content)
+                    </div>
+                </article>
+            }
+            else if (item.stereotype == 2)
+            {
+                <article class="editor">
+                    <header class="title">
+                        <h3>@item.detail_title</h3>
+                    </header>
+                    <div class="article-content">
+                        @if (item.imgsrc != null & item.imgsrc != "" && item.imgsrc != "../../Content/images/no-pic.jpg")
+                        {
+                            <p class="float-r"><img data-src="@item.imgsrc" alt="" class="thumb"></p>
+                        }
+                        @Html.Raw(item.detail_content)
+                    </div>
+                </article>
+            }
+            else if (item.stereotype == 3)
+            {
+                <article class="editor">
+                    <header class="title">
+                        <h3>@item.detail_title</h3>
+                    </header>
+                    <div class="article-content">
+                        @if (item.imgsrc != null & item.imgsrc != "" && item.imgsrc != "../../Content/images/no-pic.jpg")
+                        {
+                            <p class="float-l"><img data-src="@item.imgsrc" alt="" class="thumb" width="800"></p>
+                        }
+                        @Html.Raw(item.detail_content)
+                    </div>
+                </article>
+            }
+        }
+        @* <article class="editor">
+                <header class="title">
+                    <h3>版型一</h3>
+                </header>
+                <div class="article-content">
+                    <p>版型一包含：</p>
+                    <ul>
+                        <li>標題</li>
+                        <li>內文</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="editor">
+                <header class="title">
+                    <h3>版型二</h3>
+                </header>
+                <div class="article-content">
+                    <p class="float-r"><img data-src="@Url.Content("~/Content/images/AboutUs/pic3-1.jpg")" alt="" class="thumb"></p>
+                    <p>版型二包含：</p>
+                    <ul>
+                        <li>標題</li>
+                        <li>內文</li>
+                        <li>圖片在右邊(限定1張)</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="editor">
+                <header class="title">
+                    <h3>版型三</h3>
+                </header>
+                <div class="article-content">
+                    <p class="float-l"><img data-src="@Url.Content("~/Content/images/AboutUs/pic3-1.jpg")" alt="" class="thumb" width="800"></p>
+                    <p>版型三包含：</p>
+                    <ol>
+                        <li>標題</li>
+                        <li>內文</li>
+                        <li>圖片在左邊(限定1張)</li>
+                    </ol>
+                </div>
+            </article> *@
+    </section>
+</div>
