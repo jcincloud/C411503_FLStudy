@@ -33,14 +33,14 @@ namespace DotWeb.AppStart
             if (WebLang == null)
             {
                 //強制預設語系
-                WebLang = new HttpCookie(VarCookie + ".Lang", "zh-TW");
-                //if (Request.UserLanguages != null)
-                //    if (Request.UserLanguages.Length > 0)
-                //        WebLang = new HttpCookie(VarCookie + ".Lang", Request.UserLanguages[0]);
-                //    else
-                //        WebLang = new HttpCookie(VarCookie + ".Lang", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
-                //else
-                //    WebLang = new HttpCookie(VarCookie + ".Lang", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
+                //WebLang = new HttpCookie(VarCookie + ".Lang", "zh-TW");
+                if (Request.UserLanguages != null)
+                    if (Request.UserLanguages.Length > 0)
+                        WebLang = new HttpCookie(VarCookie + ".Lang", Request.UserLanguages[0]);
+                    else
+                        WebLang = new HttpCookie(VarCookie + ".Lang", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
+                else
+                    WebLang = new HttpCookie(VarCookie + ".Lang", System.Threading.Thread.CurrentThread.CurrentCulture.Name);
 
                 Response.Cookies.Add(WebLang);
             }
@@ -48,7 +48,7 @@ namespace DotWeb.AppStart
             if (WebLang != null)
             {
 
-                if (WebLang.Value != "zh-TW" || WebLang.Value != "zh-CN")
+                if (WebLang.Value != "zh-TW" && WebLang.Value != "zh-CN")
                 {
                     HttpCookie setWebLang = new HttpCookie(DotWeb.CommSetup.CommWebSetup.WebCookiesId + ".Lang", "zh-TW");
                     System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(setWebLang.Value);

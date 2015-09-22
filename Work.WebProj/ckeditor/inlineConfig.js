@@ -25,6 +25,10 @@ CKEDITOR.editorConfig = function( config ) {
         { name: "styles", items: ["Styles", "Format"] },
         { name: "editing" }
     ];
+    config.filebrowserBrowseUrl = "../ckfinder/ckfinder.html";
+    config.filebrowserImageBrowseUrl = "../ckfinder/ckfinder.html?type=Images";
+    config.filebrowserImageUploadUrl = "../ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images";
+    config.autoUpdateElement = true;
 };
 
 CKEDITOR.stylesSet.add('default', [

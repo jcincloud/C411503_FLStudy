@@ -28,6 +28,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CKFinder">
+      <HintPath>ckfinder\bin\Release\CKFinder.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -940,7 +944,6 @@
     <Content Include="Scripts\app\toastr.min.js" />
     <Content Include="Scripts\build\comminc.js" />
     <Content Include="Scripts\build\commincW.js" />
-    <Content Include="Scripts\build\func\c-Comm.js" />
     <Content Include="Scripts\build\func\inc\c-Comm.js" />
     <Content Include="Scripts\build\func\inc\c-ImgFileSort.js" />
     <Content Include="Scripts\build\func\index.js" />
@@ -1379,6 +1382,7 @@
     <Content Include="_Code\Maindoor\body\images\login_out.gif" />
     <Content Include="_Code\Maindoor\body\images\topBg.gif" />
     <Content Include="_Code\SysDoc\Doc.xml" />
+    <Content Include="_Code\SysUpFiles\CKfinderUpload\memo.txt" />
     <Content Include="_Code\SysUpFiles\memo.txt" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
