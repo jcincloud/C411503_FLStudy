@@ -46,7 +46,7 @@ namespace ProcCore.Business.DB0
         public virtual DbSet<Albums> Albums { get; set; }
         public virtual DbSet<TestInfo> TestInfo { get; set; }
         public virtual DbSet<EmailContact> EmailContact { get; set; }
-        public virtual DbSet<StudyAbroad> StudyAbroad { get; set; }
         public virtual DbSet<AbroadSchool> AbroadSchool { get; set; }
+        public virtual DbSet<StudyAbroad> StudyAbroad { get; set; }
     }
 }

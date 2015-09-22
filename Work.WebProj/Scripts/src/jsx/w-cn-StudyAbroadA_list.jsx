@@ -90,6 +90,13 @@ var PageContent = React.createClass({
 	countryChange:function(event){
 		this.queryDataC(event.target.value);
 	},
+	filterDate:function(start,end){
+		var val="";
+		if(start!=null || end !=null){
+			val=moment(start).format('YYYY-MM-DD')+"~"+moment(end).format('YYYY-MM-DD');
+		}
+		return val;
+	},
 	render:function(){
 
 		var dpage = [];
@@ -141,7 +148,7 @@ var PageContent = React.createClass({
 								<article className="pic-article" key={i}>
 									<a href={this.props.contextUrl + itemData.study_abroad_id} className="thumb"><img src={itemData.imgsrc}/></a>
 									<header><h4>{itemData.planning_name}</h4></header>
-								    <em>{moment(itemData.start_date).format('YYYY-MM-DD')}~{moment(itemData.end_date).format('YYYY-MM-DD')}</em>
+								    <em>{this.filterDate(itemData.start_date,itemData.end_date)}</em>
 								  	<p dangerouslySetInnerHTML={this.createMarkupHtml(itemData.intro)}></p>
 									<a href={this.props.contextUrl + itemData.study_abroad_id} className="btn">查看更多</a>
 								</article>;

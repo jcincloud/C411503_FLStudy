@@ -30,8 +30,8 @@
         <EntityTypeShape EntityType="C41A0_FLStudyModel.Albums" Width="1.5" PointX="14.375" PointY="11.75" />
         <EntityTypeShape EntityType="C41A0_FLStudyModel.TestInfo" Width="1.5" PointX="0.75" PointY="15.75" />
         <EntityTypeShape EntityType="C41A0_FLStudyModel.EmailContact" Width="1.5" PointX="16.375" PointY="0.75" />
-        <EntityTypeShape EntityType="C41A0_FLStudyModel.StudyAbroad" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="C41A0_FLStudyModel.AbroadSchool" Width="1.5" PointX="14.375" PointY="5.75" />
+        <EntityTypeShape EntityType="C41A0_FLStudyModel.StudyAbroad" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -473,7 +473,7 @@ var GirdForm = React.createClass({
 					</div>
 
 					<div className="form-group has-feedback">
-								<label className="col-xs-1 control-label text-danger">出團日期</label>
+								<label className="col-xs-1 control-label">出團日期</label>
 
 								<div className="col-xs-3">
 									<span className="has-feedback">

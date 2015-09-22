@@ -328,8 +328,8 @@
           <Property Name="intro" Type="ntext" />
           <Property Name="intro_titile" Type="nvarchar" MaxLength="255" />
           <Property Name="intro_content" Type="ntext" />
-          <Property Name="start_date" Type="date" Nullable="false" />
-          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="start_date" Type="date" />
+          <Property Name="end_date" Type="date" />
           <Property Name="is_past" Type="bit" Nullable="false" />
           <Property Name="is_hot" Type="bit" Nullable="false" />
           <Property Name="vacation_category" Type="int" Nullable="false" />
@@ -652,8 +652,8 @@
           <EntitySet Name="Albums" EntityType="C41A0_FLStudyModel.Albums" />
           <EntitySet Name="TestInfo" EntityType="C41A0_FLStudyModel.TestInfo" />
           <EntitySet Name="EmailContact" EntityType="C41A0_FLStudyModel.EmailContact" />
-          <EntitySet Name="StudyAbroad" EntityType="C41A0_FLStudyModel.StudyAbroad" />
           <EntitySet Name="AbroadSchool" EntityType="C41A0_FLStudyModel.AbroadSchool" />
+          <EntitySet Name="StudyAbroad" EntityType="C41A0_FLStudyModel.StudyAbroad" />
         </EntityContainer>
         <EntityType Name="All_Category_L1">
           <Key>
@@ -907,35 +907,6 @@
           <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
           <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
         </EntityType>
-        <EntityType Name="StudyAbroad">
-          <Key>
-            <PropertyRef Name="study_abroad_id" />
-          </Key>
-          <Property Name="study_abroad_id" Type="Int32" Nullable="false" />
-          <Property Name="planning_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="intro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="intro_titile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="intro_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="is_past" Type="Boolean" Nullable="false" />
-          <Property Name="is_hot" Type="Boolean" Nullable="false" />
-          <Property Name="vacation_category" Type="Int32" Nullable="false" />
-          <Property Name="country_category" Type="Int32" Nullable="false" />
-          <Property Name="youtube_iframe" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="curriculum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="lodging" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="activity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="sort" Type="Single" />
-          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
-          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="i_InsertDeptID" Type="Int32" />
-          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
-          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="i_UpdateDeptID" Type="Int32" />
-          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
-          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
-        </EntityType>
         <EntityType Name="AbroadSchool">
           <Key>
             <PropertyRef Name="abroad_school_id" />
@@ -950,6 +921,35 @@
           <Property Name="category" Type="Int32" Nullable="false" />
           <Property Name="country_category" Type="Int32" Nullable="false" />
           <Property Name="operation_category" Type="Int32" Nullable="false" />
+          <Property Name="sort" Type="Single" />
+          <Property Name="i_Hide" Type="Boolean" Nullable="false" />
+          <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_InsertDeptID" Type="Int32" />
+          <Property Name="i_InsertDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_UpdateUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="i_UpdateDeptID" Type="Int32" />
+          <Property Name="i_UpdateDateTime" Type="DateTime" Precision="3" />
+          <Property Name="i_Lang" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StudyAbroad">
+          <Key>
+            <PropertyRef Name="study_abroad_id" />
+          </Key>
+          <Property Name="study_abroad_id" Type="Int32" Nullable="false" />
+          <Property Name="planning_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="intro" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="intro_titile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="intro_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="is_past" Type="Boolean" Nullable="false" />
+          <Property Name="is_hot" Type="Boolean" Nullable="false" />
+          <Property Name="vacation_category" Type="Int32" Nullable="false" />
+          <Property Name="country_category" Type="Int32" Nullable="false" />
+          <Property Name="youtube_iframe" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="curriculum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lodging" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="activity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="sort" Type="Single" />
           <Property Name="i_Hide" Type="Boolean" Nullable="false" />
           <Property Name="i_InsertUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
@@ -1314,6 +1314,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AbroadSchool">
+            <EntityTypeMapping TypeName="C41A0_FLStudyModel.AbroadSchool">
+              <MappingFragment StoreEntitySet="AbroadSchool">
+                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
+                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
+                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
+                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
+                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
+                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
+                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
+                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+                <ScalarProperty Name="operation_category" ColumnName="operation_category" />
+                <ScalarProperty Name="country_category" ColumnName="country_category" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="school_apply" ColumnName="school_apply" />
+                <ScalarProperty Name="school_info" ColumnName="school_info" />
+                <ScalarProperty Name="school_features" ColumnName="school_features" />
+                <ScalarProperty Name="content_intro" ColumnName="content_intro" />
+                <ScalarProperty Name="list_intro" ColumnName="list_intro" />
+                <ScalarProperty Name="school_title" ColumnName="school_title" />
+                <ScalarProperty Name="abroad_school_id" ColumnName="abroad_school_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="StudyAbroad">
             <EntityTypeMapping TypeName="C41A0_FLStudyModel.StudyAbroad">
               <MappingFragment StoreEntitySet="StudyAbroad">
@@ -1341,31 +1366,6 @@
                 <ScalarProperty Name="intro" ColumnName="intro" />
                 <ScalarProperty Name="planning_name" ColumnName="planning_name" />
                 <ScalarProperty Name="study_abroad_id" ColumnName="study_abroad_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AbroadSchool">
-            <EntityTypeMapping TypeName="C41A0_FLStudyModel.AbroadSchool">
-              <MappingFragment StoreEntitySet="AbroadSchool">
-                <ScalarProperty Name="i_Lang" ColumnName="i_Lang" />
-                <ScalarProperty Name="i_UpdateDateTime" ColumnName="i_UpdateDateTime" />
-                <ScalarProperty Name="i_UpdateDeptID" ColumnName="i_UpdateDeptID" />
-                <ScalarProperty Name="i_UpdateUserID" ColumnName="i_UpdateUserID" />
-                <ScalarProperty Name="i_InsertDateTime" ColumnName="i_InsertDateTime" />
-                <ScalarProperty Name="i_InsertDeptID" ColumnName="i_InsertDeptID" />
-                <ScalarProperty Name="i_InsertUserID" ColumnName="i_InsertUserID" />
-                <ScalarProperty Name="i_Hide" ColumnName="i_Hide" />
-                <ScalarProperty Name="sort" ColumnName="sort" />
-                <ScalarProperty Name="operation_category" ColumnName="operation_category" />
-                <ScalarProperty Name="country_category" ColumnName="country_category" />
-                <ScalarProperty Name="category" ColumnName="category" />
-                <ScalarProperty Name="school_apply" ColumnName="school_apply" />
-                <ScalarProperty Name="school_info" ColumnName="school_info" />
-                <ScalarProperty Name="school_features" ColumnName="school_features" />
-                <ScalarProperty Name="content_intro" ColumnName="content_intro" />
-                <ScalarProperty Name="list_intro" ColumnName="list_intro" />
-                <ScalarProperty Name="school_title" ColumnName="school_title" />
-                <ScalarProperty Name="abroad_school_id" ColumnName="abroad_school_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

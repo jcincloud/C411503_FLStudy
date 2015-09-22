@@ -481,7 +481,8 @@ var GirdForm = React.createClass({
 									<InputDate id="date" 
 									onChange={this.changeFDValue} 
 									field_name="date" 
-									value={fieldData.date} />
+									value={fieldData.date}
+									required={true} />
 								</span>
 							</div>
 						</div>

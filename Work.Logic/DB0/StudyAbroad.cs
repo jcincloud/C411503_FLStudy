@@ -20,8 +20,8 @@ namespace ProcCore.Business.DB0
         public string intro { get; set; }
         public string intro_titile { get; set; }
         public string intro_content { get; set; }
-        public System.DateTime start_date { get; set; }
-        public System.DateTime end_date { get; set; }
+        public Nullable<System.DateTime> start_date { get; set; }
+        public Nullable<System.DateTime> end_date { get; set; }
         public bool is_past { get; set; }
         public bool is_hot { get; set; }
         public int vacation_category { get; set; }
