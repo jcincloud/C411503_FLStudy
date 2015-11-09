@@ -62,8 +62,23 @@ var PageContent = React.createClass({
 		}
 	},
 	getVieoUrl:function(url){
-		url=url.substring(url.lastIndexOf("/")+1,url.length);
-		return url;
+		var result="";
+		if(url.indexOf('youtu.be')!=-1 || url.indexOf('youtube')!=-1){
+			if(url.indexOf('embed')==-1){
+				result="http://www.youtube.com/embed/"+url.substring(url.lastIndexOf("/")+1,url.length)+"?autoplay=1";
+			}else{
+				result=url;
+			}
+		}else if(url.indexOf('qq.com')!=-1){
+			if(url.indexOf('page')!=-1){
+				result="http://static.video.qq.com/TPout.swf?vid="+url.substring(url.lastIndexOf("/")+1,url.lastIndexOf("."))+"&auto=0";
+			}else{
+				result=url;
+			}
+		}else{
+			result=url;
+		}
+		return result;
 	},
 	render:function(){
 
@@ -90,7 +105,7 @@ var PageContent = React.createClass({
 						var subOutHtml =
 						<li key={i}>
 							<article>
-								<a href={"http://www.youtube.com/embed/"+this.getVieoUrl(itemData.video_url)+"?autoplay=1"}  className="thumb video" data-fancybox-type="iframe">
+								<a href={this.getVieoUrl(itemData.video_url)}  className="thumb video" data-fancybox-type="iframe">
 									<img src={itemData.imgsrc} alt="" />
 								</a>
 								<header><h3>{itemData.video_title}</h3></header>
