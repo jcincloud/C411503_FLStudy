@@ -27,7 +27,7 @@
     <SccProvider>SAK</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -329,6 +329,7 @@
     <Content Include="Content\images\bgForm.gif" />
     <Content Include="Content\images\bgSubmenu.gif" />
     <Content Include="Content\images\bgTab.gif" />
+    <Content Include="Content\images\ContactUs\map-cn.jpg" />
     <Content Include="Content\images\ContactUs\pic1-1.jpg" />
     <Content Include="Content\images\ContactUs\pic2-1.jpg" />
     <Content Include="Content\images\fb.gif" />
@@ -337,6 +338,7 @@
     <Content Include="Content\images\iconH3-3.png" />
     <Content Include="Content\images\iconH3-4.png" />
     <Content Include="Content\images\iconH3.gif" />
+    <Content Include="Content\images\iconShare.gif" />
     <Content Include="Content\images\Index\banner1.jpg" />
     <Content Include="Content\images\Index\banner2.jpg" />
     <Content Include="Content\images\Index\FB.jpg" />
@@ -359,8 +361,10 @@
     <Content Include="Content\images\Index\share1.jpg" />
     <Content Include="Content\images\Index\share2.jpg" />
     <Content Include="Content\images\Index\tour1.jpg" />
+    <Content Include="Content\images\logo-cn.jpg" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo2-cn.gif" />
     <Content Include="Content\images\logo2.gif" />
     <Content Include="Content\images\no-pic.jpg" />
     <Content Include="Content\images\noIE\bg.gif" />

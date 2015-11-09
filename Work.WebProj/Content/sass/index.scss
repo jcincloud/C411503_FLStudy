@@ -386,6 +386,9 @@
 		float:left;
 		@include screen-md {width:590px;}
 		@include screen-sm {width:100%; float:none;}
+
+		.cn & {width:100%; float:none;}
+
 		.quotes {
 			margin-bottom:0;
 			background:none;
@@ -445,21 +448,35 @@
 			@include screen-sm {width:370px;float:left;}
 			@include screen-xs {width:49%;}
 			@include screen-xxs {width:100%; float:none; margin-bottom:15px;}
+
+			.cn & {width:100%;}
+
 			.pic-list {
 				li {
 					margin:0 13px;
-					@include screen-sm {margin:6px 0;}
+					@include screen-sm {
+						margin:6px 0;
+						.cn & {margin:0 13px;}
+					}
 					@include screen-xxs {margin:0 6px;}
-					.thumb {
+
+					article {
 						width: 366px;
+						@include screen-md {width: 275px;}
+						@include screen-sm {width: 275px;}
+						@include screen-xs {width: 230px;}
+						@include screen-xxs {width: 292px;}
+					}
+					.thumb {
+						width: 100%;
 						height: 236px;
 						position: relative;
 						margin-bottom:10px;
 						border-color:#525252;
-						@include screen-md {width: 275px; height:177px}
-						@include screen-sm {width: 275px; height:177px}
-						@include screen-xs {width: 230px; height:148px}
-						@include screen-xxs {width: 292px; height:188px;}
+						@include screen-md {height:177px}
+						@include screen-sm {height:177px}
+						@include screen-xs {height:148px}
+						@include screen-xxs { height:188px;}
 						&:before, &:after {display: none;}
 						img {
 							min-height: 100%;
@@ -512,6 +529,7 @@
 						}
 					}
 					h3 {
+						@extend .text-ellipsis;
 						text-align: left;
 						color:#fff;
 					}
