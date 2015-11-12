@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.WebProj.FLStudy", "Work.WebProj\Work.WebProj.FLStudy.csproj", "{821195B6-1744-4E05-B003-7DA64385CFB6}"
 EndProject
@@ -14,24 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{736BE4
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.UnitTests", "Work.UnitTest\Work.UnitTests.csproj", "{2F85AAB8-A2EE-4313-B46D-817BA1802901}"
-EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://www.fly.idv.tw:8080/tfs/jcinproject
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Work.Logic\\Work.BusinessLogic.csproj
-		SccProjectName1 = Work.Logic
-		SccLocalPath1 = Work.Logic
-		SccProjectUniqueName2 = Work.UnitTest\\Work.UnitTests.csproj
-		SccProjectName2 = Work.UnitTest
-		SccLocalPath2 = Work.UnitTest
-		SccProjectUniqueName3 = Work.WebProj\\Work.WebProj.FLStudy.csproj
-		SccProjectName3 = Work.WebProj
-		SccLocalPath3 = Work.WebProj
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -45,10 +28,6 @@ Global
 		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F85AAB8-A2EE-4313-B46D-817BA1802901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F85AAB8-A2EE-4313-B46D-817BA1802901}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F85AAB8-A2EE-4313-B46D-817BA1802901}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F85AAB8-A2EE-4313-B46D-817BA1802901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
