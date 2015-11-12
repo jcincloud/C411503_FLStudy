@@ -1,4 +1,3 @@
-
 var PageContent = React.createClass({
 	mixins: [React.addons.LinkedStateMixin], 
 	getInitialState: function() {  
