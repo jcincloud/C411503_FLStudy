@@ -30,7 +30,8 @@ $(document).ready(function () {
             "act": act,
             "pwd": pwd
         };
-        jqPost(gb_approot + 'Sys_Base/MNGLogin/ajax_MemberLogin', data).done(function (data, textStatus, jqXHRdata) {
+        jqPost(gb_approot + 'Sys_Base/MNGLogin/ajax_MemberLogin', data)
+            .done(function (data, textStatus, jqXHRdata) {
             if (!data.result) {
                 alert(data.message);
                 $('#pwd').val('');
@@ -38,7 +39,8 @@ $(document).ready(function () {
             else {
                 document.location.href = gb_approot + 'Sys_Active/MemberData';
             }
-        }).fail(function (jqXHR, textStatus, errorThrown) {
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
             showAjaxError(errorThrown);
         });
     });
@@ -56,7 +58,8 @@ $(document).ready(function () {
             "email": m_email,
             "interest": m_interest
         };
-        jqPost(gb_approot + 'Index/ajaxSendMail', data).done(function (data, textStatus, jqXHRdata) {
+        jqPost(gb_approot + 'Index/ajaxSendMail', data)
+            .done(function (data, textStatus, jqXHRdata) {
             if (!data.result) {
                 alert(data.message);
             }
@@ -68,7 +71,8 @@ $(document).ready(function () {
                 $("#m_email").val('');
                 $("#m_interest").val('');
             }
-        }).fail(function (jqXHR, textStatus, errorThrown) {
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
             showAjaxError(errorThrown);
         });
     });

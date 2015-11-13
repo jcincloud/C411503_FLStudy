@@ -148,17 +148,17 @@ function jqDelete(url: string, data: any): JQueryXHR {
         dataType: 'json'
     });
 }
-function tosMessage(title: string, message: string, type: emToastrType) {
-    if (type == emToastrType.success)
+function tosMessage(title: string, message: string, type: ToastrType) {
+    if (type == ToastrType.success)
         toastr.success(message, title);
 
-    if (type == emToastrType.error)
+    if (type == ToastrType.error)
         toastr.error(message, title);
 
-    if (type == emToastrType.warning)
+    if (type == ToastrType.warning)
         toastr.warning(message, title);
 
-    if (type == emToastrType.info)
+    if (type == ToastrType.info)
         toastr.info(message, title);
 }
 function formatFileSize(byte_size: number): string {

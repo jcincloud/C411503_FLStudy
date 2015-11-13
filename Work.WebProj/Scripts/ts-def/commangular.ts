@@ -1,7 +1,7 @@
 ﻿module services {
     export class workService {
         getId: (tab: string) => ng.IHttpPromise<number>;
-        showToaster: (type: emToasterType, title: string, message: string) => void;
+        showToaster: (type: ToasterType, title: string, message: string) => void;
     }
 };
 
@@ -10,20 +10,20 @@ angular.module('commfun', ['toaster'])
         this.getId = function (tab) {
             return $http.put(gb_approot + apiPutActionId, <IPutIdParm>{ tab: tab });
         };
-        this.showToaster = function (type: emToasterType, title: string, message: string) {
-            if (type == emToasterType.success)
+        this.showToaster = function (type: ToasterType, title: string, message: string) {
+            if (type == ToasterType.success)
                 toaster.pop('success', title, message);
 
-            if (type == emToasterType.error)
+            if (type == ToasterType.error)
                 toaster.pop('error', title, message);
 
-            if (type == emToasterType.wait)
+            if (type == ToasterType.wait)
                 toaster.pop('wait', title, message);
 
-            if (type == emToasterType.warning)
+            if (type == ToasterType.warning)
                 toaster.pop('warning', title, message);
 
-            if (type == emToasterType.note)
+            if (type == ToasterType.note)
                 toaster.pop('note', title, message);
         }
     }]);
