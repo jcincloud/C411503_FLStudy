@@ -19,13 +19,15 @@ var MasterImageUpload = React.createClass({
 		};
 	},
 	componentDidUpdate:function(prevProps, prevState){
-		// if(this.props.ParentEditType==2){
-		// 	this.createFileUpLoadObject();
-		// }
+		if(this.props.ParentEditType==2 && prevProps.ParentEditType==1){
+			if(this.props.uploader==null){
+				this.createFileUpLoadObject();
+			}
+		}
 
 	},
 	componentDidMount:function(){
-		if(this.props.MainId>0){
+		if(this.props.MainId>0 && this.props.ParentEditType!=1){
 			this.createFileUpLoadObject();
 			this.getFileList();
 		}
@@ -126,12 +128,13 @@ var MasterImageUpload = React.createClass({
 				},
 				onExtError: function() {
 					//errBox.innerHTML = 'Invalid file type. Please select a PNG, JPG, GIF image.';
+					alert('檔案格式請選擇 png、jpg、gif 格式圖片');
 				},
 		        onComplete: function(file, response) {
 		        	if(response.result){ 
 						r_this.getFileList();
 					}else{
-						alert(response.error);
+						alert(response.message);
 					}
 		        }
 			});
