@@ -47,20 +47,8 @@ namespace DotWeb.AppStart
 
             if (WebLang != null)
             {
-
-                if (WebLang.Value != "zh-TW" && WebLang.Value != "zh-CN")
-                {
-                    HttpCookie setWebLang = new HttpCookie(DotWeb.CommSetup.CommWebSetup.WebCookiesId + ".Lang", "zh-TW");
-                    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(setWebLang.Value);
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(setWebLang.Value);
-                    Response.Cookies.Add(setWebLang); ;
-                }
-                else
-                {
-                    System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(WebLang.Value);
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(WebLang.Value);
-                }
-
+                System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture(WebLang.Value);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(System.Threading.Thread.CurrentThread.CurrentCulture.Name, false);
             }
         }
     }
