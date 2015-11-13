@@ -121,6 +121,10 @@
     <value>富學海外遊留學有限公司</value>
     <comment>網站標題</comment>
   </data>
+  <data name="WebTitle_cn" xml:space="preserve">
+    <value>朝扬海外游留学有限公司</value>
+    <comment>網站標題</comment>
+  </data>
   <data name="PublicUrl" xml:space="preserve">
     <value>http://www.fruitful-learning.com.tw/</value>
     <comment>正式網址</comment>
@@ -134,5 +138,11 @@
   </data>
   <data name="keywords" xml:space="preserve">
     <value>遊學,遊學代辦,美國遊學代辦,英國遊學代辦,澳洲遊學代辦,新加坡遊學代辦,菲律賓遊學代辦,留學,留學代辦,美國留學申請,英國留學申請,澳洲留學申請,新加坡留學申請,菲律賓留學申請,暑假遊學團,國外遊學,美國遊學,英國遊學,澳洲遊學,新加坡遊學,菲律賓遊學,國外留學,桃園,桃園遊學代辦,桃園留學代辦</value>
+  </data>
+  <data name="description_cn" xml:space="preserve">
+    <value>朝扬海外游留学有限公司为首屈一指的游留学公司，提供英国游学，美国游学，澳洲游学，新加坡游学，菲律宾游学等世界各国的游学代办。聘有资深顾问群及专业领队，提供游学代办丶留学代办丶游学相关谘询等专业服务。</value>
+  </data>
+  <data name="keywords_cn" xml:space="preserve">
+    <value>游学,游学代办,美国游学代办,英国游学代办,澳洲游学代办,新加坡游学代办,菲律宾游学代办,留学,留学代办,美国留学申请,英国留学申请,澳洲留学申请,新加坡留学申请,菲律宾留学申请,暑假游学团,国外游学,美国游学,英国游学,澳洲游学,新加坡游学,菲律宾游学,国外留学</value>
   </data>
 </root>

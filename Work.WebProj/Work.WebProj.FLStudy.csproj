@@ -27,7 +27,7 @@
     <SccProvider>SAK</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CKFinder">
-      <HintPath>ckfinder\bin\Release\CKFinder.dll</HintPath>
+      <HintPath>..\..\C381421_ChengShen\Core.Dll\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -310,13 +310,17 @@
     <Content Include="Content\fonts\fontAwesome\fontawesome-webfont.svg" />
     <Content Include="Content\images\AboutUs\pic1-1.jpg" />
     <Content Include="Content\images\AboutUs\pic1-10.jpg" />
+    <Content Include="Content\images\AboutUs\pic1-10_cn.jpg" />
     <Content Include="Content\images\AboutUs\pic1-2.jpg" />
     <Content Include="Content\images\AboutUs\pic1-3.jpg" />
+    <Content Include="Content\images\AboutUs\pic1-3_cn.jpg" />
     <Content Include="Content\images\AboutUs\pic1-4.jpg" />
     <Content Include="Content\images\AboutUs\pic1-5.jpg" />
     <Content Include="Content\images\AboutUs\pic1-6.jpg" />
+    <Content Include="Content\images\AboutUs\pic1-6_cn.jpg" />
     <Content Include="Content\images\AboutUs\pic1-7.jpg" />
     <Content Include="Content\images\AboutUs\pic1-8.jpg" />
+    <Content Include="Content\images\AboutUs\pic1-8_cn.jpg" />
     <Content Include="Content\images\AboutUs\pic1-9.jpg" />
     <Content Include="Content\images\AboutUs\pic3-1.jpg" />
     <Content Include="Content\images\AboutUs\pic3-2.jpg" />
@@ -329,6 +333,7 @@
     <Content Include="Content\images\bgForm.gif" />
     <Content Include="Content\images\bgSubmenu.gif" />
     <Content Include="Content\images\bgTab.gif" />
+    <Content Include="Content\images\ContactUs\map-cn.jpg" />
     <Content Include="Content\images\ContactUs\pic1-1.jpg" />
     <Content Include="Content\images\ContactUs\pic2-1.jpg" />
     <Content Include="Content\images\fb.gif" />
@@ -337,6 +342,7 @@
     <Content Include="Content\images\iconH3-3.png" />
     <Content Include="Content\images\iconH3-4.png" />
     <Content Include="Content\images\iconH3.gif" />
+    <Content Include="Content\images\iconShare.gif" />
     <Content Include="Content\images\Index\banner1.jpg" />
     <Content Include="Content\images\Index\banner2.jpg" />
     <Content Include="Content\images\Index\FB.jpg" />
@@ -359,8 +365,10 @@
     <Content Include="Content\images\Index\share1.jpg" />
     <Content Include="Content\images\Index\share2.jpg" />
     <Content Include="Content\images\Index\tour1.jpg" />
+    <Content Include="Content\images\logo-cn.jpg" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo2-cn.gif" />
     <Content Include="Content\images\logo2.gif" />
     <Content Include="Content\images\no-pic.jpg" />
     <Content Include="Content\images\noIE\bg.gif" />
@@ -1352,6 +1360,7 @@
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <None Include="Properties\PublishProfiles\File.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -1393,7 +1402,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Active\Views\Shared\" />
     <Folder Include="Areas\Base\Views\Shared\" />
-    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="_Code\CReport\" />
     <Folder Include="_Code\CSS\css\bootstrap\" />
     <Folder Include="_Code\CSS\css\fa\" />

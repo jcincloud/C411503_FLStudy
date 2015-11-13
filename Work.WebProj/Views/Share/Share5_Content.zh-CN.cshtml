@@ -45,10 +45,6 @@
             <div class="wrap">
                 <p class="caption">
                     点选照片可放大观赏 <i class="fa-arrow-circle-down"></i>
-                    @if (Model.url != "" && Model.url != null)
-                    {
-                        <a href="@Model.url" target="new"><strong class="arrow-right">按此看更多精彩照片</strong></a>
-                    }
                 </p>
                 <ul class="photos">
                     @foreach (var item in Model.photos_imgsrc)

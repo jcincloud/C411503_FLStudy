@@ -1,7 +1,4 @@
-/// <reference path="E:\VS-AJoe\C411503_FLStudy\Work.WebProj\Scripts/angular/angular.js" />
-/// <reference path="E:\VS-AJoe\C411503_FLStudy\Work.WebProj\Scripts/build/func/inc/c-ImgFileSort.js" />
-/// <reference path="E:\VS-AJoe\C411503_FLStudy\Work.WebProj\Scripts/build/func/inc/c-ImgFileSort.js" />
-/// <vs />
+
 var gulp = require('gulp');
 //var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
