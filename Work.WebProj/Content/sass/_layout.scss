@@ -505,8 +505,10 @@ html,body {min-width:$min-width-xxs;}
 	}
 	.main-menu {
 		float:left;
+
 		@include screen-md {float:none; margin-bottom:20px; @include clearfix;} 
-		@include screen-sm {float:none; margin-bottom:20px; @include clearfix;}
+		@include screen-sm {float:none; margin-bottom:20px; @include clearfix;} 
+
 		> li {
 			width:120px;
 			float:left;
@@ -514,7 +516,11 @@ html,body {min-width:$min-width-xxs;}
 			color:#fff;
 			font-size: px-em(16px);
 			font-weight: bold;
-			@include screen-sm {width:auto; margin-left:40px;}
+			@include screen-sm {
+				width:auto; 
+				margin-left:40px;
+				&:first-child {margin-left:0;}
+			}
 			@include screen-xs {
 				width:100%;
 				float:none;

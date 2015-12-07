@@ -1202,6 +1202,9 @@ html, body {
     width: auto;
     margin-left: 40px;
   }
+  #footer .main-menu > li:first-child {
+    margin-left: 0;
+  }
 }
 @media (max-width: 767px) {
   #footer .main-menu > li {
