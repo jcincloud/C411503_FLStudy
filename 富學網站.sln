@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.WebProj.FLStudy", "Work.WebProj\Work.WebProj.FLStudy.csproj", "{821195B6-1744-4E05-B003-7DA64385CFB6}"
 EndProject
@@ -18,16 +18,21 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Shanghai|Any CPU = Shanghai|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{821195B6-1744-4E05-B003-7DA64385CFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{821195B6-1744-4E05-B003-7DA64385CFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{821195B6-1744-4E05-B003-7DA64385CFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{821195B6-1744-4E05-B003-7DA64385CFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821195B6-1744-4E05-B003-7DA64385CFB6}.Shanghai|Any CPU.ActiveCfg = Shanghai|Any CPU
+		{821195B6-1744-4E05-B003-7DA64385CFB6}.Shanghai|Any CPU.Build.0 = Shanghai|Any CPU
 		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Shanghai|Any CPU.ActiveCfg = Shanghai|Any CPU
+		{81F31D0B-5D7A-44F7-BA5B-362BF27FCC8D}.Shanghai|Any CPU.Build.0 = Shanghai|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
