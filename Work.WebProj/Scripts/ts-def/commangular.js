@@ -14,15 +14,15 @@ angular.module('commfun', ['toaster'])
             return $http.put(gb_approot + apiPutActionId, { tab: tab });
         };
         this.showToaster = function (type, title, message) {
-            if (type == 0)
+            if (type == 0 /* success */)
                 toaster.pop('success', title, message);
-            if (type == 1)
+            if (type == 1 /* error */)
                 toaster.pop('error', title, message);
-            if (type == 2)
+            if (type == 2 /* wait */)
                 toaster.pop('wait', title, message);
-            if (type == 3)
+            if (type == 3 /* warning */)
                 toaster.pop('warning', title, message);
-            if (type == 4)
+            if (type == 4 /* note */)
                 toaster.pop('note', title, message);
         };
     }]);
@@ -32,6 +32,10 @@ angular.module('commfun')
         require: 'ngModel',
         link: function (scope, element, attrs, modelCtrl) {
             modelCtrl.$parsers.push(function (inputValue) {
+                // this next if is necessary for when using ng-required on your input. 
+                // In such cases, when a letter is typed first, this parser will be called
+                // again, and the 2nd time, the value will be undefined
+                // numbers-only="numbers-only"
                 if (inputValue == undefined)
                     return '';
                 var transformedInput = inputValue.replace(/[^0-9+.]/g, '');
@@ -167,3 +171,4 @@ angular.module('commfun')
         }
     };
 });
+//# sourceMappingURL=commangular.js.map
