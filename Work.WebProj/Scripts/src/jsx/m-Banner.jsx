@@ -379,7 +379,11 @@ var GirdForm = React.createClass({
 							url_sort={gb_approot+'Active/Banner/axFSort'}
 							/>
 						</div>
-						<small className="help-inline col-xs-5 text-danger">限 1 張圖片，建議尺寸 1680 x 500 px</small>
+						<small className="help-inline col-xs-5 text-danger">
+                            限 1 張圖片，建議尺寸 1680 x 500 px <br />
+                            建議圖片內容的左右各預留 255px 不要放置重點內容， <br />
+                            以免在較小的電腦螢幕無法完整顯示。
+                        </small>
 					</div>
 
 					<div className="form-group">
