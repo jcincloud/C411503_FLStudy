@@ -101,7 +101,7 @@ var MasterImageUpload = React.createClass({
 						bar = document.createElement('div'), // actual progress bar
 						fileSize = document.createElement('div'), // container for upload file size
 						wrapper = document.createElement('div'), // container for this progress bar
-						progressBox = document.getElementById('progressBox-' + r_this.props.MainId); // on page container for progress bars
+						progressBox = document.getElementById('progressBox-' + r_this.props.MainId + '-' + r_this.props.FileKind); // on page container for progress bars
 
 					// Assign each element its corresponding class
 					progress.className = 'progress';
@@ -181,8 +181,7 @@ var MasterImageUpload = React.createClass({
 		var imgButtonHtml=null;
 		if (this.props.ParentEditType==1) {
 			imgButtonHtml=(
-				<div className="form-control">
-				<small className="col-xs-6 help-inline">請先按儲存後方可上傳圖片</small>
+				<div className="form-control"><small className="col-xs-6 help-inline">請先按儲存後方可上傳圖片</small>
 				</div>
 				);
 		}else if(this.props.ParentEditType==2){
@@ -210,7 +209,7 @@ var MasterImageUpload = React.createClass({
 				},this)
 			}
 			</p>
-			<div id={'progressBox-' + this.props.MainId} className="progress-wrap"></div>
+			<div id={'progressBox-' + this.props.MainId + '-' + this.props.FileKind} className="progress-wrap"></div>
 		</div>
 		);
 		return outHtml;
