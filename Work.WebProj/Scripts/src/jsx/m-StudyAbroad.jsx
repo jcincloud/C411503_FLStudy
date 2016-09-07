@@ -365,6 +365,14 @@ var GirdForm = React.createClass({
 											})
 										}
 											</select>
+											<label>過往行程</label> { }
+											<select className="form-control input-sm" 
+											value={searchData.is_past}
+											onChange={this.changeGDValue.bind(this,'is_past')}>
+											<option value="">全部</option>
+											<option value="true">是</option>
+											<option value="false">否</option>
+											</select>
 										</div> { }
 									<div className="form-group">
 										<label>行程名稱</label> { }

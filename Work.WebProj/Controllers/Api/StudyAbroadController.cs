@@ -69,6 +69,10 @@ namespace DotWeb.Api
                 {
                     items = items.Where(x => x.country_category == q.country);
                 }
+                if (q.is_past != null)
+                {
+                    items = items.Where(x => x.is_past == q.is_past);
+                }
                 //if (q.i_Lang != null)
                 //{
                 //    items = items.Where(x => x.i_Lang == q.i_Lang);

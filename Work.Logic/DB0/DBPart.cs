@@ -252,6 +252,7 @@ namespace ProcCore.Business.DB0
         public int? country { get; set; }
         public int? vacation { get; set; }
         public int? category { get; set; }
+        public bool? is_past { get; set; }
     }
     public class q_Info : QueryBase
     {
