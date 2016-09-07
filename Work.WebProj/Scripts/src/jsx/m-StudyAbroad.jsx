@@ -239,7 +239,8 @@ var GirdForm = React.createClass({
 	},
 	insertType:function(){
 		var defaultC=this.state.countryCategory;
-		this.setState({edit_type:1,fieldData:{vacation_category:1001,country_category:defaultC[0].val}});
+		var defaultV=this.state.vacationCategory;
+		this.setState({edit_type:1,fieldData:{vacation_category:defaultV[0],country_category:defaultC[0].val}});
 	},
 	updateType:function(id){
 		jqGet(this.props.apiPathName,{id:id})
@@ -387,7 +388,7 @@ var GirdForm = React.createClass({
 									</th>
 									<th className="col-xs-1 text-center">修改</th>
 									<th className="col-xs-3">行程名稱</th>
-									<th className="col-xs-1">寒/暑假</th>
+									<th className="col-xs-1">行程分類</th>
 									<th className="col-xs-1">國家</th>
 									<th className="col-xs-3">出團日期</th>
 									<th className="col-xs-1">過往行程</th>

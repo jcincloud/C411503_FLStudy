@@ -33,7 +33,7 @@ namespace DotWeb.Areas.Sys_Active.Controllers
         {
             using (var db0 = getDB0())
             {
-                var options_vacation_category = db0.All_Category_L2.Where(x => x.all_category_l1_id == CategoryType.Vacation && x.i_Hide == false && x.category == 1).OrderBy(x => x.sort).Select(x => new option() { val = x.all_category_l2_id, Lname = x.l2_name }).ToList();
+                var options_vacation_category = db0.All_Category_L2.Where(x => x.all_category_l1_id == CategoryType.Vacation_2 && x.i_Hide == false).OrderBy(x => x.sort).Select(x => new option() { val = x.all_category_l2_id, Lname = x.l2_name }).ToList();
                 if (System.Globalization.CultureInfo.CurrentCulture.Name == "zh-CN")
                 {
                     foreach (var i in options_vacation_category)

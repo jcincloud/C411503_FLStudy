@@ -95,26 +95,28 @@ namespace DotWeb.Api
         }
         public async Task<IHttpActionResult> Post([FromBody]All_Category_L2 md)
         {
-            if (md.all_category_l1_id == CategoryType.Country)
-            {
-                md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.CountryCategroy);
-            }
-            else if (md.all_category_l1_id == CategoryType.Findout)
-            {
-                md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.EmailCategroy);
-            }
-            else if (md.all_category_l1_id == CategoryType.Feedback_year)
-            {
-                md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.YearCategroy);
-            }
-            else if (md.all_category_l1_id == CategoryType.Feedback_category)
-            {
-                md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.FeedbackCategroy);
-            }
-            else if (md.all_category_l1_id == CategoryType.Interest)
-            {
-                md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.Interest);
-            }
+            //if (md.all_category_l1_id == CategoryType.Country)
+            //{
+            //    md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.CountryCategroy);
+            //}
+            //else if (md.all_category_l1_id == CategoryType.Findout)
+            //{
+            //    md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.EmailCategroy);
+            //}
+            //else if (md.all_category_l1_id == CategoryType.Feedback_year)
+            //{
+            //    md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.YearCategroy);
+            //}
+            //else if (md.all_category_l1_id == CategoryType.Feedback_category)
+            //{
+            //    md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.FeedbackCategroy);
+            //}
+            //else if (md.all_category_l1_id == CategoryType.Interest)
+            //{
+            //    md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.Interest);
+            //}
+
+            md.all_category_l2_id = GetNewId(ProcCore.Business.CodeTable.All_Category_L2);
 
             ResultInfo rAjaxResult = new ResultInfo();
             if (!ModelState.IsValid)

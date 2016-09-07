@@ -194,6 +194,7 @@ namespace ProcCore.Business.DB0
         public static int Feedback_category = 8;//客戶反饋_分類(可變動)
         public static int TestInfo = 9;//(不可變動)
         public static int Interest = 11;//您對哪個行程感興趣?(可變動)
+        public static int Vacation_2 = 12;//行程?(可變動)
     }
     public static class VacationType
     {

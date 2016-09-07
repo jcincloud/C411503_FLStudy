@@ -40,15 +40,14 @@ namespace DotWeb.Api
                                  country_category = x.country_category,
                                  vacation_category = x.vacation_category,
                                  sort = x.sort,
-                                 is_past=x.is_past,
-                                 i_Lang=x.i_Lang
+                                 is_past = x.is_past,
+                                 i_Lang = x.i_Lang
                              });
                 if (q.category != null)
                 {
-                    List<int> category = new List<int> { VacationType.Winter, VacationType.Summer };
                     if (q.category == 1)//後台各國遊學行程
                     {
-                        items = items.Where(x => category.Contains(x.vacation_category));
+                        items = items.Where(x => x.vacation_category != VacationType.Intensive);
                     }
                     else if (q.category == 2)//後台密集式體驗營
                     {
