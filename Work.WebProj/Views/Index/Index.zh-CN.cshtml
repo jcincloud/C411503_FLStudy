@@ -130,8 +130,10 @@
         <div class="tour">
             <ul class="tab-nav">
                 <li rel="#tab1">HOT 行程</li>
-                <li rel="#tab2">寒假行程</li>
-                <li rel="#tab3">暑假行程</li>
+                @foreach (var i in Model.vacations)
+                {
+                    <li rel=@("#tab"+i.vacation_id)>@i.vacation_name</li>
+                }
             </ul>
             <div class="tab-content">
                 <section id="tab1">
@@ -151,41 +153,26 @@
                     }
                     <a href="~/StudyTravel?category=0" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
                 </section>
-                <section id="tab2">
-                    <header class="hidden"><h2>寒假行程</h2></header>
-                    @foreach (var item in Model.winter)
-                    {
-                        <article class="pic-article">
-                            <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
-                                <img data-src="@item.imgsrc" alt="">
-                                <span>
-                                    <em>@item.intro</em>
-                                    <i>READ MORE</i>
-                                </span>
-                            </a>
-                            <header><h3>@item.planning_name</h3></header>
-                        </article>
-                    }
-                    <a href="~/StudyTravel?category=1001" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
-                </section>
-
-                <section id="tab3">
-                    <header class="hidden"><h2>暑假行程</h2></header>
-                    @foreach (var item in Model.summer)
-                    {
-                        <article class="pic-article">
-                            <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
-                                <img data-src="@item.imgsrc" alt="">
-                                <span>
-                                    <em>@item.intro</em>
-                                    <i>READ MORE</i>
-                                </span>
-                            </a>
-                            <header><h3>@item.planning_name</h3></header>
-                        </article>
-                    }
-                    <a href="~/StudyTravel?category=1002" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
-                </section>
+                @foreach (var i in Model.vacations)
+                {
+                    <section id=@("tab"+i.vacation_id)>
+                        <header class="hidden"><h2>@i.vacation_name</h2></header>
+                        @foreach (var item in i.data)
+                        {
+                            <article class="pic-article">
+                                <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
+                                    <img data-src="@item.imgsrc" alt="">
+                                    <span>
+                                        <em>@item.intro</em>
+                                        <i>READ MORE</i>
+                                    </span>
+                                </a>
+                                <header><h3>@item.planning_name</h3></header>
+                            </article>
+                        }
+                        <a href="~/StudyTravel?category=@i.vacation_id" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
+                    </section>
+                }
             </div>
         </div>
 
