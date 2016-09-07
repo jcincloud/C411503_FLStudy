@@ -109,7 +109,7 @@ namespace DotWeb.Controllers
                 option hot = new option() { val = 0, Lname = "Hot 行程" };//hot行程
                 options.Add(hot);
 
-                var other_options = db0.All_Category_L2.Where(x => x.all_category_l1_id == CategoryType.Vacation && x.i_Hide == false && x.category==1).OrderBy(x => x.sort).Select(x => new { x.all_category_l2_id, x.l2_name });
+                var other_options = db0.All_Category_L2.Where(x => x.all_category_l1_id == CategoryType.Vacation_2 && x.i_Hide == false).OrderByDescending(x => x.sort).Select(x => new { x.all_category_l2_id, x.l2_name });
 
                 foreach (var item in other_options)
                 {

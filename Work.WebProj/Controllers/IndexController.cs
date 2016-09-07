@@ -24,21 +24,29 @@ namespace DotWeb.Controllers
                 }
                 #endregion
                 #region 行程
+                string lang = System.Globalization.CultureInfo.CurrentCulture.Name;
                 info.hot = db0.StudyAbroad.Where(x => x.i_Hide == false & x.is_hot & !x.is_past & x.i_Lang == System.Globalization.CultureInfo.CurrentCulture.Name).OrderByDescending(x => x.sort).Take(6).ToList();
-                info.summer = db0.StudyAbroad.Where(x => x.i_Hide == false & !x.is_past & x.vacation_category == VacationType.Summer & x.i_Lang == System.Globalization.CultureInfo.CurrentCulture.Name).OrderByDescending(x => x.sort).Take(6).ToList();
-                info.winter = db0.StudyAbroad.Where(x => x.i_Hide == false & !x.is_past & x.vacation_category == VacationType.Winter & x.i_Lang == System.Globalization.CultureInfo.CurrentCulture.Name).OrderByDescending(x => x.sort).Take(6).ToList();
+
+                info.vacations = db0.All_Category_L2.Where(x => x.all_category_l1_id == CategoryType.Vacation_2 && x.i_Hide == false).OrderByDescending(x => x.sort)
+                                  .Select(x => new Vacation()
+                                  {
+                                      vacation_id = x.all_category_l2_id,
+                                      vacation_name = x.l2_name,
+                                      data = db0.StudyAbroad
+                                                .Where(y => !y.i_Hide & !y.is_past & y.vacation_category == x.all_category_l2_id & y.i_Lang == lang)
+                                                .OrderByDescending(y => y.sort).Take(6).ToList()
+                                  }).ToList();
 
                 foreach (var item in info.hot)
                 {
                     item.imgsrc = GetImg(item.study_abroad_id, "Photo1", "StudyAbroad", "Photo");//顯示列表圖
                 }
-                foreach (var item in info.summer)
+                foreach (var item in info.vacations)
                 {
-                    item.imgsrc = GetImg(item.study_abroad_id, "Photo1", "StudyAbroad", "Photo");//顯示列表圖
-                }
-                foreach (var item in info.winter)
-                {
-                    item.imgsrc = GetImg(item.study_abroad_id, "Photo1", "StudyAbroad", "Photo");//顯示列表圖
+                    foreach (var i in item.data)
+                    {
+                        i.imgsrc = GetImg(i.study_abroad_id, "Photo1", "StudyAbroad", "Photo");//顯示列表圖
+                    }
                 }
                 #endregion
                 #region 最新消息
@@ -144,12 +152,17 @@ namespace DotWeb.Controllers
             return Redirect("~/Base/Login");
         }
     }
+    public class Vacation
+    {
+        public int vacation_id { get; set; }
+        public string vacation_name { get; set; }
+        public IList<StudyAbroad> data { get; set; }
+    }
     public class IndexInfo
     {
         public IList<Banner> banner { get; set; }
         public IList<StudyAbroad> hot { get; set; }
-        public IList<StudyAbroad> summer { get; set; }
-        public IList<StudyAbroad> winter { get; set; }
+        public IList<Vacation> vacations { get; set; }
         public IList<News> news { get; set; }
         public IList<HelpfulInfo> helpfulinfo { get; set; }
         public IList<Feedback> feedback { get; set; }

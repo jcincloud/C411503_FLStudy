@@ -131,8 +131,10 @@
         <div class="tour">
             <ul class="tab-nav">
                 <li rel="#tab1">HOT 行程</li>
-                <li rel="#tab2">寒假行程</li>
-                <li rel="#tab3">暑假行程</li>
+                @foreach (var i in Model.vacations)
+                {
+                    <li rel=@("#tab"+i.vacation_id)>@i.vacation_name</li>
+                }
             </ul>
             <div class="tab-content">
                 <section id="tab1">
@@ -152,41 +154,27 @@
                     }
                     <a href="~/StudyTravel?category=0" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
                 </section>
-                <section id="tab2">
-                    <header class="hidden"><h2>寒假行程</h2></header>
-                    @foreach (var item in Model.winter)
-                    {
-                        <article class="pic-article">
-                            <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
-                                <img data-src="@item.imgsrc" alt="">
-                                <span>
-                                    <em>@item.intro</em>
-                                    <i>READ MORE</i>
-                                </span>
-                            </a>
-                            <header><h3>@item.planning_name</h3></header>
-                        </article>
-                    }
-                    <a href="~/StudyTravel?category=1001" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
-                </section>
+                @foreach (var i in Model.vacations)
+                {
+                    <section id=@("tab"+i.vacation_id)>
+                        <header class="hidden"><h2>@i.vacation_name</h2></header>
+                        @foreach (var item in i.data)
+                        {
+                            <article class="pic-article">
+                                <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
+                                    <img data-src="@item.imgsrc" alt="">
+                                    <span>
+                                        <em>@item.intro</em>
+                                        <i>READ MORE</i>
+                                    </span>
+                                </a>
+                                <header><h3>@item.planning_name</h3></header>
+                            </article>
+                        }
+                        <a href="~/StudyTravel?category=@i.vacation_id" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
+                    </section>
+                }
 
-                <section id="tab3">
-                    <header class="hidden"><h2>暑假行程</h2></header>
-                    @foreach (var item in Model.summer)
-                    {
-                        <article class="pic-article">
-                            <a href="~/StudyTravel/p1_content?id=@item.study_abroad_id" class="thumb">
-                                <img data-src="@item.imgsrc" alt="">
-                                <span>
-                                    <em>@item.intro</em>
-                                    <i>READ MORE</i>
-                                </span>
-                            </a>
-                            <header><h3>@item.planning_name</h3></header>
-                        </article>
-                    }
-                    <a href="~/StudyTravel?category=1002" class="btn"><i class="fa-plus-circle"></i>更多行程</a>
-                </section>
             </div>
         </div>
 
@@ -249,54 +237,54 @@
                             </article>
                         </li>
                     }
-         @*<li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery1.jpg" alt=""></a>
-                    <header><h3>2014 新加坡 - 環球影城</h3></header>
-                </article>
-            </li>
-            <li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery2.jpg" alt=""></a>
-                    <header><h3>澳洲黃金海岸生態教育之旅</h3></header>
-                </article>
-            </li>
-            <li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery3.jpg" alt=""></a>
-                    <header><h3>曙光女中新加坡國際教育之旅</h3></header>
-                </article>
-            </li>
-            <li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery4.jpg" alt=""></a>
-                    <header><h3>澳洲 HOMESTAY 全紀錄</h3></header>
-                </article>
-            </li>
-            <li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery1.jpg" alt=""></a>
-                    <header><h3>2014 新加坡 - 環球影城</h3></header>
-                </article>
-            </li>
-            <li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery2.jpg" alt=""></a>
-                    <header><h3>澳洲黃金海岸生態教育之旅</h3></header>
-                </article>
-            </li>
-            <li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery3.jpg" alt=""></a>
-                    <header><h3>曙光女中新加坡國際教育之旅</h3></header>
-                </article>
-            </li>
-            <li class="als-item">
-                <article>
-                    <a href="" class="thumb"><img src="~/Content/images/Index/gallery4.jpg" alt=""></a>
-                    <header><h3>澳洲 HOMESTAY 全紀錄</h3></header>
-                </article>
-            </li>*@
+                    @*<li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery1.jpg" alt=""></a>
+                                <header><h3>2014 新加坡 - 環球影城</h3></header>
+                            </article>
+                        </li>
+                        <li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery2.jpg" alt=""></a>
+                                <header><h3>澳洲黃金海岸生態教育之旅</h3></header>
+                            </article>
+                        </li>
+                        <li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery3.jpg" alt=""></a>
+                                <header><h3>曙光女中新加坡國際教育之旅</h3></header>
+                            </article>
+                        </li>
+                        <li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery4.jpg" alt=""></a>
+                                <header><h3>澳洲 HOMESTAY 全紀錄</h3></header>
+                            </article>
+                        </li>
+                        <li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery1.jpg" alt=""></a>
+                                <header><h3>2014 新加坡 - 環球影城</h3></header>
+                            </article>
+                        </li>
+                        <li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery2.jpg" alt=""></a>
+                                <header><h3>澳洲黃金海岸生態教育之旅</h3></header>
+                            </article>
+                        </li>
+                        <li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery3.jpg" alt=""></a>
+                                <header><h3>曙光女中新加坡國際教育之旅</h3></header>
+                            </article>
+                        </li>
+                        <li class="als-item">
+                            <article>
+                                <a href="" class="thumb"><img src="~/Content/images/Index/gallery4.jpg" alt=""></a>
+                                <header><h3>澳洲 HOMESTAY 全紀錄</h3></header>
+                            </article>
+                        </li>*@
                     @* 至少8張輪播 *@
                 </ul>
 
@@ -350,13 +338,14 @@
         <aside class="fb">
             <header class="hidden"><h2>Facebook</h2></header>
             <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3";
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
+            <script>
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
             <div class="fb-page" data-href="https://www.facebook.com/Fruitful.Learning" data-width="340" data-height="395" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Fruitful.Learning"><a href="https://www.facebook.com/Fruitful.Learning">富學海外遊留學有限公司</a></blockquote></div></div>
         </aside>
     </div>
