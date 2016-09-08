@@ -267,7 +267,7 @@ var GridSubForm = React.createClass({
         group: "shared"
     },
 	render:function(){
-		var fieldData = this.state.fieldData;ㄈ
+		var fieldData = this.state.fieldData;
 
 		return (
                 <tr className="sub-grid">
