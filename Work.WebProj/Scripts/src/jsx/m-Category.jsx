@@ -267,7 +267,7 @@ var GridSubForm = React.createClass({
         group: "shared"
     },
 	render:function(){
-		var fieldData = this.state.fieldData;
+		var fieldData = this.state.fieldData;ㄈ
 
 		return (
                 <tr className="sub-grid">
@@ -663,6 +663,7 @@ var GirdForm = React.createClass({
 				</h3>
 				<div className="alert alert-warning clear" role="alert">
 					<p>點選 <i className="fa-bars"></i> 並拖曳，可修改排列順序。</p>
+					<p>「海外遊學行程分類」只有排序最大的兩筆才會顯示在首頁。</p>
 				</div>
 				<form onSubmit={this.handleSearch}>
 					<div className="table-responsive">

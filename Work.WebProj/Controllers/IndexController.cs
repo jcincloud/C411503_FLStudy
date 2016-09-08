@@ -27,7 +27,9 @@ namespace DotWeb.Controllers
                 string lang = System.Globalization.CultureInfo.CurrentCulture.Name;
                 info.hot = db0.StudyAbroad.Where(x => x.i_Hide == false & x.is_hot & !x.is_past & x.i_Lang == System.Globalization.CultureInfo.CurrentCulture.Name).OrderByDescending(x => x.sort).Take(6).ToList();
 
-                info.vacations = db0.All_Category_L2.Where(x => x.all_category_l1_id == CategoryType.Vacation_2 && x.i_Hide == false).OrderByDescending(x => x.sort)
+                info.vacations = db0.All_Category_L2.Where(x => x.all_category_l1_id == CategoryType.Vacation_2 && x.i_Hide == false)
+                                  .OrderByDescending(x => x.sort)
+                                  .Take(2)
                                   .Select(x => new Vacation()
                                   {
                                       vacation_id = x.all_category_l2_id,
