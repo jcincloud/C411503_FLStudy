@@ -115,11 +115,13 @@ var GirdForm = React.createClass({
 			在元件更新之後執行。這個方法同樣不在初始化時執行，使用時機為當元件被更新之後需要執行一些操作。
 		*/
 		//設定新增時的編輯器
-		if(prevState.edit_type==0 && this.state.edit_type==1){
-			CKEDITOR.replace( 'editor1', {});
-			CKEDITOR.replace( 'editor2', {});
-			CKEDITOR.replace( 'editor3', {});
-			CKEDITOR.replace( 'editor4', {});
+		if(prevState.edit_type==0 && (this.state.edit_type == 1 || this.state.edit_type == 2)){
+			var newDate = new Date();
+			console.log('test',newDate.getTime());
+            CKEDITOR.replace('editor1', { customConfig: '../../ckeditor/config_ver2.js?v='+ newDate.getTime() });
+            CKEDITOR.replace('editor2', { customConfig: '../../ckeditor/config_ver2.js?v='+ newDate.getTime() });
+            CKEDITOR.replace('editor3', { customConfig: '../../ckeditor/config_ver2.js?v='+ newDate.getTime() });
+            CKEDITOR.replace('editor4', { customConfig: '../../ckeditor/config_ver2.js?v='+ newDate.getTime() });
 		}
 	},
 	componentWillUnmount:function(){
@@ -240,16 +242,16 @@ var GirdForm = React.createClass({
 	insertType:function(){
 		var defaultC=this.state.countryCategory;
 		var defaultV=this.state.vacationCategory;
-		this.setState({edit_type:1,fieldData:{vacation_category:defaultV[0],country_category:defaultC[0].val}});
+		this.setState({edit_type:1,fieldData:{vacation_category:defaultV[0].val,country_category:defaultC[0].val}});
 	},
 	updateType:function(id){
 		jqGet(this.props.apiPathName,{id:id})
 		.done(function(data, textStatus, jqXHRdata) {
 			this.setState({edit_type:2,fieldData:data.data});
-			CKEDITOR.replace( 'editor1', {});
-			CKEDITOR.replace( 'editor2', {});
-			CKEDITOR.replace( 'editor3', {});
-			CKEDITOR.replace( 'editor4', {});
+			// CKEDITOR.replace( 'editor1', {});
+			// CKEDITOR.replace( 'editor2', {});
+			// CKEDITOR.replace( 'editor3', {});
+			// CKEDITOR.replace( 'editor4', {});
 		}.bind(this))
 		.fail(function( jqXHR, textStatus, errorThrown ) {
 			showAjaxError(errorThrown);
