@@ -297,6 +297,7 @@
     <Compile Include="_Code\Ashx\ValidateCode.ashx.cs">
       <DependentUpon>ValidateCode.ashx</DependentUpon>
     </Compile>
+    <Content Include="ckeditor\config_ver2.js" />
     <Content Include="ckeditor\inlineConfig.js" />
     <Content Include="Content\css\bootstrap-datetimepicker-build.css" />
     <Content Include="Content\css\bootstrap\bootstrap.css" />
