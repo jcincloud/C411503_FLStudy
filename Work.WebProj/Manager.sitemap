@@ -28,10 +28,10 @@
 
     <mvcSiteMapNode title="學員與家長肯定" clickable="false" area="Active" IconClass="fa-list-alt" key="50" roles="Admins,Managers">
       <mvcSiteMapNode title="心得分享" controller="Feedback" action="Main" description="心得分享管理"/>
-      <mvcSiteMapNode title="相簿回顧" controller="Albums" action="Main" description="相簿回顧管理"/>
+      <mvcSiteMapNode title="出團實績" controller="Albums" action="Main" description="出團實績管理"/>
       <mvcSiteMapNode title="出國影片" controller="Video" action="P2" description="出國影片管理"/>
       <mvcSiteMapNode title="成果發表" controller="Video" action="P3" description="成果發表影片管理"/>
-      <mvcSiteMapNode title="形象影片" controller="Video" action="P4" description="客戶形象影片管理"/>
+      <mvcSiteMapNode title="教育講座" controller="Video" action="P4" description="教育講座影片管理"/>
     </mvcSiteMapNode>
 
     <mvcSiteMapNode title="遊學/留學小幫手" clickable="false" area="Active" IconClass="fa-list-alt" key="60" roles="Admins,Managers">
