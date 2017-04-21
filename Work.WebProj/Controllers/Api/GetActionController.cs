@@ -713,7 +713,8 @@ namespace DotWeb.Api
             if (Directory.Exists(img_folder))
             {
                 var get_files = Directory.EnumerateFiles(img_folder)
-                    .Where(x => x.EndsWith("jpg") || x.EndsWith("jpeg") || x.EndsWith("png") || x.EndsWith("gif"))
+                    .Where(x => x.EndsWith("jpg") || x.EndsWith("jpeg") || x.EndsWith("png") || x.EndsWith("gif") ||
+                                x.EndsWith("JPG") || x.EndsWith("JPEG") || x.EndsWith("PNG") || x.EndsWith("GIF"))
                     .FirstOrDefault();
 
                 if (get_files != null)
