@@ -259,15 +259,16 @@ html,body {min-width:$min-width-xxs;}
 				&.active {
 					> a {color:#00adcf;}
 				}
-				.p1 &.active .sub-menu li:nth-child(1) a,
-				.p2 &.active .sub-menu li:nth-child(2) a,
-				.p3 &.active .sub-menu li:nth-child(3) a,
-				.p4 &.active .sub-menu li:nth-child(4) a,
-				.p5 &.active .sub-menu li:nth-child(5) a,
-				.p6 &.active .sub-menu li:nth-child(6) a {
-				 	color: #e5e5e5; background: #525252;
+				// .p1 &.active .sub-menu li:nth-child(1) a,
+				// .p2 &.active .sub-menu li:nth-child(2) a,
+				// .p3 &.active .sub-menu li:nth-child(3) a,
+				// .p4 &.active .sub-menu li:nth-child(4) a,
+				// .p5 &.active .sub-menu li:nth-child(5) a,
+				// .p6 &.active .sub-menu li:nth-child(6) a,
+				&.active .sub-menu li a.current {
+					color: #e5e5e5; background: #525252;
 				 	@include screen-xxs {color:#D13000; background:none;}
-				 }
+				}
 				&.menu-show {
 					> a {
 						color:#00adcf;

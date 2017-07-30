@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<!-- saved from url=(0014)about:internet -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="@Resources.ResWeb.keywords_cn" />
+    <meta name="description" content="@Resources.ResWeb.description_cn" />
+    <title>@Resources.ResWeb.WebTitle_cn:@ViewBag.Category:@ViewBag.Title:游学留学代办、美国游学、英国游学、澳洲游学、新加坡游学、菲律宾游学、暑假游学团</title>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>*@
+    @RenderSection("css", false)
+    @if (ViewBag.IsFirstPage)
+    {
+        <link href="~/Content/css/index.css" rel="stylesheet" type="text/css">
+    }
+    else
+    {
+        <link href="~/Content/css/page.css" rel="stylesheet" type="text/css">
+    }
+    <script src="~/Scripts/app/BrowerInfo.js"></script>
+    <script>
+        var gb_approot = '@Url.Content("~")';
+        var gb_lang = '@ViewBag.Lang';//語系
+    </script>
+
+</head>
+
+<body class="@ViewBag.BodyClass cn">
+
+    <div id="container">
+
+        <header id="header">
+
+            <div class="wrap active">
+                <h1><a href="~/Index" title="回首頁">朝扬海外游留学</a></h1>
+
+                <ul class="topNav">
+                    <li><a href="~/News">最新消息</a></li>
+                    <li><a href="~/ContactUs/p2">联络我们</a></li>
+                    <li><a href="~/Index">回首页</a></li>
+                    <li><a href="@Url.Action("SetLanguage")?L=zh-TW&A=index">繁体中文</a></li>
+                    <li><a href="@Url.Action("SetLanguage")?L=zh-CN&A=index">简体中文</a></li>
+                </ul>
+
+                <nav class="main-menu">
+                    <h2 class="menu-toggle"><button><i class="fa-plus"></i> 主选单 MENU</button></h2>
+                    <ul>
+                        <li>
+                            <a href="">大家都选择朝扬<span>Why Choose Us</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/AboutUs">朝扬十大优势</a></li>
+                                <li><a href="~/AboutUs/p2">精采影片分享</a></li>
+                                <li><a href="~/AboutUs/p3">语言的重要性</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">海外游学<span>Study &amp; Travel</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/StudyTravel">各国游学行程</a></li>
+                                <li><a href="~/StudyTravel/p6">各国语言学校资料</a></li>
+                                <li><a href="~/StudyTravel/p2">完善住宿安排</a></li>
+                                <li><a href="~/StudyTravel/p3">多元课程规划</a></li>
+                                <li><a href="~/StudyTravel/p4">密集式体验营</a></li>
+                                <li><a href="~/StudyTravel/p5">学习保证</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">海外留学<span>Study Abroad</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/StudyAbroad">世界大学资料库</a></li>
+                                <li><a href="~/StudyAbroad/p2">各学术能力测验</a></li>
+                                <li><a href="~/StudyAbroad/p3">各英语能力考试</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">学员与家长肯定<span>Feedback</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/Share">心得分享</a></li>
+                                <li><a href="~/Share/p5">相簿回顾</a></li>
+                                <li><a href="~/Share/p2">出国影片</a></li>
+                                <li><a href="~/Share/p3">成果发表</a></li>
+                                <li><a href="~/Share/p4">形象影片</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">游学/留学小帮手<span>Helpful Information</span></a>
+                            <ul class="sub-menu">
+                                <li><a href="~/Info">游留学百科</a></li>
+                                <li><a href="~/Info/p2">游留学新知</a></li>
+                                <li><a href="~/Info/p3">行前准备</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            @RenderSection("Banner", required: false)
+
+        </header><!-- header // -->
+
+        <div id="main">
+
+            @RenderBody()
+
+        </div><!-- main // -->
+
+    </div><!-- container // -->
+
+    <footer id="footer">
+        <div class="wrap">
+
+            <div class="contact">
+                <p class="logo">朝扬海外游留学</p>
+                <ul>
+                    <li><a href="http://j.map.baidu.com/C1jWD" target="new">上海市长宁区长宁路1027号<br>兆丰广场2806室</a></li>
+                    <li>021-52300010</li>
+                    <li><a href="mailto:Jerryzh@shzylx.com">Jerryzh@shzylx.com</a></li>
+                </ul>
+            </div>
+
+            <ul class="main-menu">
+                <li>
+                    大家都选择朝扬
+                    <ul class="sub-menu">
+                        <li><a href="~/AboutUs">朝扬十大优势</a></li>
+                        <li><a href="~/AboutUs/p2">精采影片分享</a></li>
+                        <li><a href="~/AboutUs/p3">语言的重要性</a></li>
+                        @* <li><a href="">最佳服務</a></li>
+                            <li><a href="">全新視野</a></li>
+                            <li><a href="">國際觀</a></li>
+                            <li><a href="">創造嶄新未來</a></li>
+                            <li><a href="">學習成效追蹤</a></li> *@
+                    </ul>
+                </li>
+                <li>
+                    海外游学
+                    <ul class="sub-menu">
+                        <li><a href="~/StudyTravel">选择游学行程</a></li>
+                        <li><a href="~/StudyTravel/p2">完善住宿安排</a></li>
+                        <li><a href="~/StudyTravel/p3">多元课程规划</a></li>
+                        <li><a href="~/StudyTravel/p4">密集式体验营</a></li>
+                        <li><a href="~/StudyTravel/p5">学习保证</a></li>
+                    </ul>
+                </li>
+                <li>
+                    海外留学
+                    <ul class="sub-menu">
+                        <li><a href="~/StudyAbroad">世界大学资料库</a></li>
+                        <li><a href="~/StudyAbroad/p2">各学术能力测验</a></li>
+                        <li><a href="~/StudyAbroad/p3">各英语能力考试</a></li>
+                    </ul>
+                </li>
+                <li>
+                    学员与家长肯定
+                    <ul class="sub-menu">
+                        <li><a href="~/Share">心得分享</a></li>
+                        <li><a href="~/Share/p5">相簿回顾</a></li>
+                        <li><a href="~/Share/p2">出国影片</a></li>
+                        <li><a href="~/Share/p3">成果发表</a></li>
+                        <li><a href="~/Share/p4">形象影片</a></li>
+                    </ul>
+                </li>
+                <li>
+                    游学/留学小帮手
+                    <ul class="sub-menu">
+                        <li><a href="~/Info">游学新知</a></li>
+                        <li><a href="~/Info/p2">游学百科</a></li>
+                        <li><a href="~/Info/p3">行前准备</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr>
+
+            <ul class="nav">
+                <li><a href="~/News">最新消息</a></li>
+                <li><a href="~/ContactUs">关于朝扬</a></li>
+                <li><a href="~/ContactUs/p2">联络我们</a></li>
+                <li><a href="~/Index">回首页</a></li>
+                <li class="hidden"><a href="https://www.facebook.com/Fruitful.Learning" target="new">Facebook</a></li>
+            </ul>
+
+            <p class="copyright">Copyright 2015. All rights reserved. Fruitful Learning Overseas Study Center</p>
+
+            <a href="#header" class="goTop"><i class="fa-angle-up"></i></a>
+
+        </div>
+    </footer><!-- footer // -->
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/vendor/jquery.lazyloadxt.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            submenuShow();
+            $('.main-menu > ul > li > a').click(function () {
+                if ($(this).parent().hasClass('no-sub-menu')) { }
+                else {
+                    $(this).parent().siblings().removeClass('menu-show');
+                    $('#header .wrap').removeClass('active');
+                    $(this).parent().addClass('menu-show');
+                    $('#header .wrap').addClass('active');
+                    return false;
+                }
+            });
+
+            $('.menu-toggle button').click(function () {
+                $(this).toggleClass('active');
+                $(this).parent().siblings('ul').slideToggle();
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.goTop').fadeIn();
+                } else {
+                    $('.goTop').fadeOut();
+                }
+            });
+            $('.goTop').click(function () {
+                $('html, body').animate({
+                    scrollTop: $($.attr(this, 'href')).offset().top
+                }, 1000);
+                return false;
+            });
+
+        });
+
+        function submenuShow() {
+            if ($('body').hasClass('Index') || $('body').hasClass('ContactUs') || $('body').hasClass('News'))
+            { $('#header .wrap').removeClass('active'); }
+            var i = 0;
+            if ($('body').hasClass('AboutUs')) { i = 1; }
+            if ($('body').hasClass('StudyTravel')) { i = 2; }
+            if ($('body').hasClass('StudyAbroad')) { i = 3; }
+            if ($('body').hasClass('Share')) { i = 4; }
+            if ($('body').hasClass('Info')) { i = 5; }
+            $('.main-menu > ul > li:nth-child(' + i + ')').addClass('active menu-show');
+        }
+    </script>
+    @RenderSection("Scripts", required: false)
+    <script src="~/Scripts/GoogleAnalytics.js"></script>
+</body>
+</html>

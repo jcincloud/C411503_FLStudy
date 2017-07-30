@@ -112,8 +112,8 @@ var PageContent = React.createClass({
 			<div id="content">
 				<section className="article-list wrap">
 					<header className="title">
-						<h2 className="float-l">密集式體驗營</h2>
-						<div className="select">
+                        <h2 className="float-l">菲律賓語言學校介紹</h2>
+                        {/*<div className="select">
 							<label for="">選擇國家</label>
 							<select onChange={this.countryChange}>
 								<option value="">全部國家</option>
@@ -124,7 +124,7 @@ var PageContent = React.createClass({
 									}.bind(this))
 								}
 							</select>
-						</div>
+						</div>*/}
 					</header>
 					{
 						this.state.gridData.rows.map(function(itemData,i) {
@@ -170,7 +170,7 @@ var Breadcrumb = React.createClass({
 			<ul className="breadcrumb">
 				<li><a href="Index">首頁</a></li>
 				<li><a href={gb_approot + 'StudyTravel'}>海外遊學</a></li>
-				<li>密集式體驗營</li>
+                <li>菲律賓語言學校介紹</li>
 			</ul>
 		);
 

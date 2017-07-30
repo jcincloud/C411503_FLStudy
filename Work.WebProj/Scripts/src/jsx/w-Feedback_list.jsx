@@ -113,7 +113,7 @@ var PageContent = React.createClass({
 		<div>
 				<section className="wrap">
 					<header className="title">
-						<h2 className="float-l">心得分享</h2>
+                        <h2 className="float-l">學員心得分享</h2>
 						<div className="select">
 							<label for="">選擇年度</label>
 							<select onChange={this.categoryYChange}>

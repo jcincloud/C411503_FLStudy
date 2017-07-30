@@ -96,7 +96,7 @@ var PageContent = React.createClass({
 			<section className="wrap">
 
 				<header className="title">
-					<h2>成果發表</h2>
+                        <h2>實績影片分享</h2>
 				</header>
 
 				<ol className="pic-list">

@@ -76,7 +76,7 @@ var PageContent = React.createClass({
 			<div id="content">
 				<section className="wrap">
 					<header className="title">
-						<h2 className="float-l">遊留學新知</h2>
+                            <h2 className="float-l">菲律賓實用資訊</h2>
 					</header>
 
 					<section className="article-list">
@@ -120,7 +120,7 @@ var Breadcrumb = React.createClass({
 				<ul className="breadcrumb">
 					<li><a href={gb_approot}>首頁</a></li>
 					<li><a href={gb_approot+'Info/p2'}>遊學/留學小幫手</a></li>
-					<li>遊留學新知</li>
+                    <li>菲律賓實用資訊</li>
 				</ul>
 		);
 

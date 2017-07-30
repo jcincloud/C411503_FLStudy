@@ -128,7 +128,7 @@ var PageContent = React.createClass({
 			<div id="content">
 				<section className="article-list wrap">
 					<header className="title">
-						<h2 className="float-l">各國語言學校資料</h2>
+                        <h2 className="float-l">各國語言學校介紹</h2>
 						<div className="select">
 							<label for="">國家</label>
 							<select onChange={this.countryChange}>
@@ -193,7 +193,7 @@ var Breadcrumb = React.createClass({
 			<ul className="breadcrumb">
 				<li><a href="Index">首頁</a></li>
 				<li><a href={gb_approot+'StudyTravel'}>海外遊學</a></li>
-				<li>各國語言學校資料</li>
+                <li>各國語言學校介紹</li>
 			</ul>
 		);
 
