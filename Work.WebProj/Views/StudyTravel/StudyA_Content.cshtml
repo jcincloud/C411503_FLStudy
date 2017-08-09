@@ -3,7 +3,7 @@
     ViewBag.Title = Model.planning_name;
     if (Model.vacation_category == 1003)
     {
-        ViewBag.BodyClass = "StudyTravel p5";
+        ViewBag.BodyClass = "StudyTravel p4";
     }
     else
     {
@@ -214,17 +214,17 @@
                 </header>
                 <article class="grid">
                     <header><h4>課程</h4></header>
-                    <img data-src="@Url.Content("~/Content/images/StudyA/pic1-1.jpg")" alt="" class="thumb">
+                    @* <img data-src="@Url.Content("~/Content/images/StudyA/pic1-1.jpg")" alt="" class="thumb"> *@
                     <div class="editor">@Html.Raw(Model.curriculum)</div>
                 </article>
                 <article class="grid">
                     <header><h4>住宿</h4></header>
-                    <img data-src="@Url.Content("~/Content/images/StudyA/pic1-2.jpg")" alt="" class="thumb">
+                    @* <img data-src="@Url.Content("~/Content/images/StudyA/pic1-2.jpg")" alt="" class="thumb"> *@
                     <div class="editor">@Html.Raw(Model.lodging)</div>
                 </article>
                 <article class="grid">
                     <header><h4>活動</h4></header>
-                    <img data-src="@Url.Content("~/Content/images/StudyA/pic1-3.jpg")" alt="" class="thumb">
+                    @* <img data-src="@Url.Content("~/Content/images/StudyA/pic1-3.jpg")" alt="" class="thumb"> *@
                     <div class="editor">@Html.Raw(Model.activity)</div>
                 </article>
             </div>

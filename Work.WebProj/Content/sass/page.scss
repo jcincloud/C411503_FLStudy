@@ -426,31 +426,36 @@ h2.float-l {
 	}
 	.StudyTravel.p1 &, .StudyTravel.p4 & {
 			width:370px;
-			position: relative;
+			// position: relative;
 			margin: 0 25px 0 0;
 			@include screen-md {width:306px;}
-			@include screen-sm {width:100%; @include clearfix;}
+			@include screen-sm {
+				width:100%;
+				margin: 0 0 20px 0;
+				@include clearfix;
+			}
 			&:last-child {margin:0;}
 			header {
 				h4 {
-					position: absolute;
-					right:15px; top:125px;
-					font-size: px-em(32px);
+					// position: absolute;
+					// right:15px; top:125px;
+					margin-bottom: 16px;
+					font-size: px-em(28px);
 					font-weight: bold;
 					color:#fff;
 					letter-spacing: 0.072em;
-					text-shadow: 0 0 5px hsla(0,0,0,0.5);
-					@include screen-md {top:95px}
-					@include screen-sm {left:285px; top:125px;}
-					@include screen-xs {left:170px; top:72px;}
+					// text-shadow: 0 0 5px hsla(0,0,0,0.5);
+					// @include screen-md {top:95px}
+					// @include screen-sm {left:285px; top:125px;}
+					// @include screen-xs {left:170px; top:72px;}
 				}
 			}
-			.thumb {
-				margin-bottom:16px;
-				@include screen-sm {float:left; margin:0 16px 8px 0;}
-				@include screen-xs {width:255px; height:119px;}
-				@include screen-xxs {float:none;}
-			}
+			// .thumb {
+			// 	margin-bottom:16px;
+			// 	@include screen-sm {float:left; margin:0 16px 8px 0;}
+			// 	@include screen-xs {width:255px; height:119px;}
+			// 	@include screen-xxs {float:none;}
+			// }
 		}
 	.StudyTravel.p3 & {
 		width:360px;
