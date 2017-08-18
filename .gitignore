@@ -212,3 +212,6 @@ _Pvt_Extensions/
 ModelManifest.xml
 /Work.WebProj/_Release/20151112/_release_20151112.rar
 /__Release
+
+._*
+*.map

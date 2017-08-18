@@ -64,12 +64,14 @@ html,body {min-width:$min-width-xxs;}
 		}
 	}
 	.topNav{
-		width:300px;
+		// width:300px;
 		height:30px;
 		margin-bottom:47px;
-		padding:0 24px;
+		padding:0 10px;
 		float:right;
-		background: url('../images/topNav.gif') no-repeat;
+		// background: url('../images/topNav.gif') no-repeat;
+		background:#D13000;
+		border-radius:0 0 5px 5px;
 		@include screen-xs {
 			width:auto;
 			height:24px;
@@ -99,6 +101,7 @@ html,body {min-width:$min-width-xxs;}
 					padding:0 3px;
 					line-height: 24px;
 				}
+				i {width: 1em;}
 			}
 		}
 	}
@@ -139,7 +142,8 @@ html,body {min-width:$min-width-xxs;}
 			height:38px;
 			position: relative;
 			@include clearfix;
-			@include screen-xxs {height:auto; padding:10px; background:lighten(#1FC1E1,40%); display:none;}
+			@include screen-xs {text-align: center;}
+			@include screen-xxs {height:auto; padding:10px; text-align: left; background:lighten(#1FC1E1,40%); display:none;}
 			> li {
 				height:100%;
 				float:left;
@@ -148,8 +152,19 @@ html,body {min-width:$min-width-xxs;}
 				border-left:1px solid #e6e6e6;
 				@include screen-md { margin-right:15px; padding-left:15px;}
 				@include screen-sm { margin-right:26px; padding-left:26px;}
-				@include screen-xs { margin-right:10px; padding-left:10px;}
-				@include screen-xxs { height:auto; float:none; margin:0;	padding:8px 0; border:0;}
+				@include screen-xs {
+					display: inline-block;
+					float: none;
+					margin-right:10px;
+					padding-left:10px;
+				}
+				@include screen-xxs {
+					display: block;
+					height:auto; 
+					margin:0; 
+					padding:8px 0;
+					border:0;
+				}
 				&:first-child {
 					padding-left:0; border-left:0;
 					@include screen-sm {padding-left:18px;}
@@ -167,8 +182,9 @@ html,body {min-width:$min-width-xxs;}
 					height:100%;
 					position: relative;
 					color:#000;
-					font-size: px-em(16px);
+					font-size: px-em(17px);
 					@include hover {color:#00adcf;}
+					@include screen-md {font-size: px-em(16px);}
 					@include screen-xxs {
 						height:auto;
 						padding-left:15px; color:#333;
@@ -194,10 +210,8 @@ html,body {min-width:$min-width-xxs;}
 						display: block;
 						margin-top:10px;
 						color:#c8c8c8;
-						font-size: px-em(9px,16px);
-						-webkit-transform:scale(0.75);
-						-webkit-transform-origin: 0 0 0;
-						@include screen-xxs {display: inline; margin-left:10px; font-size: px-em(12px,16px); color:#aaa;}
+						font-size: px-em(12px,17px);
+						@include screen-xxs {display: inline; margin-left:10px; color:#aaa;}
 					}
 				}
 				&.no-sub-menu {
@@ -505,27 +519,34 @@ html,body {min-width:$min-width-xxs;}
 		}
 	}
 	.main-menu {
+		width: calc(100% - 293px);
+		padding-left: 20px;
 		float:left;
 
-		@include screen-md {float:none; margin-bottom:20px; @include clearfix;} 
+		@include screen-md {
+			width: 100%;
+			float:none;
+			margin-bottom:20px;
+			padding: 0;
+			@include clearfix;
+		} 
 		@include screen-sm {float:none; margin-bottom:20px; @include clearfix;} 
 
 		> li {
-			width:120px;
 			float:left;
-			margin-left:55px;
+			padding: 0 25px;
 			color:#fff;
 			font-size: px-em(16px);
 			font-weight: bold;
+			@include screen-md {
+				padding: 0 37px;
+			}
 			@include screen-sm {
-				width:auto; 
-				margin-left:40px;
-				&:first-child {margin-left:0;}
+				padding: 0 15px;
 			}
 			@include screen-xs {
 				width:100%;
 				float:none;
-				margin-left:0;
 				padding:15px 8px;
 				border-top:1px solid #2a2a2a;
 				&:first-child {padding-top:30px;}
