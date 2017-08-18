@@ -151,7 +151,7 @@ html,body {min-width:$min-width-xxs;}
 				padding-left:30px;
 				border-left:1px solid #e6e6e6;
 				@include screen-md { margin-right:15px; padding-left:15px;}
-				@include screen-sm { margin-right:26px; padding-left:26px;}
+				@include screen-sm { margin-right:23px; padding-left:23px;}
 				@include screen-xs {
 					display: inline-block;
 					float: none;
