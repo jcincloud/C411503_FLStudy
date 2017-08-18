@@ -530,7 +530,7 @@ html,body {min-width:$min-width-xxs;}
 			padding: 0;
 			@include clearfix;
 		} 
-		@include screen-sm {float:none; margin-bottom:20px; @include clearfix;} 
+		@include screen-sm {width: 100%; float:none; margin-bottom:20px; @include clearfix;} 
 
 		> li {
 			float:left;
