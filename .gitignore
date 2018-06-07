@@ -212,6 +212,9 @@ _Pvt_Extensions/
 ModelManifest.xml
 /Work.WebProj/_Release/20151112/_release_20151112.rar
 /__Release
+
+._*
+*.map
 Work.WebProj/_Upload/**/
 Work.WebProj/ckfinder/
 Work.WebProj/Scripts/ts-def/**/*.js
