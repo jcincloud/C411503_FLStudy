@@ -52,7 +52,7 @@ a:focus {
 }
 
 body {
-  font-family: 'Open Sans','Helvetica Neue', 'Helvetica', 'Arial', 'Microsoft Jhenghei', sans-serif;
+  font-family: $font-family-sans-serif;
   font-size: 14px;
 }
 
@@ -100,7 +100,7 @@ header {
     font-weight: bold;
     font-size: px-em(20px);
     color:#383838;
-    
+
     @include screen-sm {margin-bottom: 7px;}
   }
   &.title {
@@ -137,7 +137,7 @@ table {
 -------------------------------------------------- */
 
 button {
-  
+
 }
 
 

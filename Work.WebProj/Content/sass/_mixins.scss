@@ -1,30 +1,30 @@
 ﻿@charset "utf-8";
 
-/* Table of contents
-==================================================
-- mixins for Layout
-- mixins for Typography
-- mixins for Images / Icons
-*/
+//  Table of contents
+// ==================================================
+// - mixins for Layout
+// - mixins for Typography
+// - mixins for Images / Icons
 
 
-/*  mixins for Layout
--------------------------------------------------- */
+
+//   mixins for Layout
+// --------------------------------------------------
 
 /* 頁尾置底 */
 @mixin footer-bottom($height, $spacing:0) {
   html, body, #container {height: 100%;}
   body > #container { height: auto; min-height: 100%; }
-  #main { @include clearfix; padding-bottom: $height + $spacing; } 
+  #main { @include clearfix; padding-bottom: $height + $spacing; }
   #footer {
     position: relative;
-    margin-top: -($height); /* negative value of footer height */
+    margin-top: -($height); // negative value of footer height
     height: $height;
     clear: both;
   }
 }
 
-/* clearfix */
+// clearfix
 @mixin clearfix() {
   &:before,
   &:after {
@@ -36,7 +36,7 @@
   }
 }
 
-/* rwd */
+// rwd
 @mixin screen-lg {
   @media (min-width: $min-width-lg) {@content;}
 }
@@ -54,19 +54,19 @@
 }
 
 
-/*  mixins for Typography
--------------------------------------------------- */
+//   mixins for Typography
+// --------------------------------------------------
 
-/* px to em */
+// px to em
 @function px-em($px, $context: 14px) {
   @return ($px / $context) * 1em;
 }
-/* em to px */
+// em to px
 @function em-px($em, $context: 14px) {
   @return ($em * $context) * 1px;
 }
 
-/* CSS3 selection */ 
+// CSS3 selection
 @mixin selection {
     &::-moz-selection {@content;}
     &::selection      {@content;}
@@ -107,8 +107,8 @@
 }
 
 
-/*  mixins for Images / Icons
--------------------------------------------------- */
+//   mixins for Images / Icons
+// --------------------------------------------------
 
 /* 不固定尺寸圖片 完全置中fix (支援IE8) */
 @mixin pic-center($max-width, $max-height) {
@@ -116,7 +116,7 @@
   width: $max-width;
   text-align: center;
   line-height: $max-height;
-  
+
   img {
     max-width: 100%;
     max-height: $max-height;
