@@ -1,14 +1,14 @@
 ﻿@charset "utf-8";
 
-/* Table of contents
-==================================================
-- Layout
-- Basic
-*/
+//  Table of contents
+// ==================================================
+// - Layout
+// - Basic
 
 
-/* # Layout
--------------------------------------------------- */
+
+//  # Layout
+// --------------------------------------------------
 $min-width-lg:  1200px;
 $min-width-md:  992px;
 $min-width-sm:  768px;
@@ -26,9 +26,9 @@ $container-sm: 750px;
 $container-xs: auto;
 
 
-/* # Basic
--------------------------------------------------- */
+//  # Basic
+// --------------------------------------------------
 
-/*- Font -*/
-$font-family-sans-serif: 'Open Sans','Helvetica Neue', 'Helvetica', 'Arial', 'Microsoft Jhenghei', sans-serif;
+// Font
+$font-family-sans-serif: 'Open Sans','Helvetica Neue', 'Helvetica', 'Arial', YuMincho, 'Yu Mincho', "Hiragino Kaku Gothic Pro", Meiryo, "MS PGothic", 'Microsoft Jhenghei', sans-serif;
 $font-family-serif:      'Georgia', 'Times New Roman', 'Microsoft Jhenghei', serif;
